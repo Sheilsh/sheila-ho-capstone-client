@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./NavBar.scss";
 import home from "../../assets/icons/home.svg";
 import calendar from "../../assets/icons/calendar.svg";
-import history from "../../assets/icons/clock.svg";
+import history from "../../assets/icons/list.svg";
 import user from "../../assets/icons/user.svg";
 import logout from "../../assets/icons/log-out.svg";
 import logo from "../../assets/logo/free-parking-sign.png";
