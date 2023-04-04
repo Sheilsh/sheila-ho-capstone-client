@@ -1,23 +1,21 @@
-// import { useState } from "react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import NavBar from "./components/NavBar/NavBar";
+import DashBoard from "./pages/DashBoard/DashBoard";
+import LogIn from "./pages/LogIn/LogIn";
 import "./App.scss";
 
-// router info
-
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      {/* <h1>Sheila's Capstone Project</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div> */}
-      <NavBar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DashBoard />} />
+          <Route path="/login" element={<LogIn />} />
+          {/* <Route path="/calendar" element={<Calendar />} /> */}
+          {/* <Route path="/history" element={<History />} /> */}
+          {/* <Route path="/account" element={<Account />} /> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
