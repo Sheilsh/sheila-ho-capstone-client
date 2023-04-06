@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.scss";
 import home from "../../assets/icons/home.svg";
@@ -6,7 +7,7 @@ import calendar from "../../assets/icons/calendar.svg";
 import history from "../../assets/icons/list.svg";
 import user from "../../assets/icons/user.svg";
 import logout from "../../assets/icons/log-out.svg";
-import logo from "../../assets/logo/free-parking-sign.png";
+import logo from "../../assets/logo/logo2.png";
 
 export default function NavBar() {
   return (
@@ -17,7 +18,7 @@ export default function NavBar() {
           <div className="desknav__navigation">
             <a className="desknav__logo" href="#">
               <img className="desknav__logo--img" src={logo} />
-              <span className="desknav__logo--name">Parking App</span>
+              {/* <span className="desknav__logo--name">Parking App</span> */}
             </a>
             <ul className="desknav__list">
               <li className="desknav__listitem">
@@ -29,7 +30,7 @@ export default function NavBar() {
               <li className="desknav__listitem">
                 <Link to="/booking">
                   <img className="desknav__icon" src={calendar} />
-                  <span className="desknav__listname">Calender</span>
+                  <span className="desknav__listname">Booking</span>
                 </Link>
               </li>
               <li className="desknav__listitem">

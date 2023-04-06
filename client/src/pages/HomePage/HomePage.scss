@@ -1,0 +1,19 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.homepage {
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__banner {
+    width: 30rem;
+    // height: 50%;
+    margin: 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

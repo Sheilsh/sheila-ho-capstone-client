@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.scss";
+import banner from "../../assets/logo/logo_transparent.png";
 
 export default function LogIn() {
   return (
@@ -8,7 +9,7 @@ export default function LogIn() {
         <div className="login__formcontain">
           <div className="login">
             <form action="/getstarted" className="form">
-              <h1>Log In</h1>
+              <img src={banner} />
               <p>Please Sign In</p>
               <div className="input-box">
                 <input typeOf="email" name="email" required />

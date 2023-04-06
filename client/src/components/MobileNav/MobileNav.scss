@@ -13,7 +13,7 @@
 //   }
 // }
 
-.navbar {
+.mobilenav__bar {
   background-color: $primary-color-white;
   padding: 1rem;
   position: fixed;
@@ -28,22 +28,23 @@
   @include tablet {
     display: none;
   }
-}
 
-.navbar div {
-  height: 3.5rem;
-  width: 3.5rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  // background-color: $secondary-color-darkblue;
-  cursor: pointer;
+  // .mobilenav__bar
+  div {
+    height: 3.5rem;
+    width: 3.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    // background-color: $secondary-color-darkblue;
+    cursor: pointer;
+  }
 }
 
 .active {
-  background-color: $primary-color-light-blue;
+  background-color: $primary-color-blue-purple;
 }
 
-img {
+.mobilenav__icon {
   height: 100%;
   width: 100%;
 
