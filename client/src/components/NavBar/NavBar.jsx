@@ -13,42 +13,42 @@ export default function NavBar() {
   return (
     <>
       {/* ------DESKTOP STYLES------ */}
-      <nav className="desknav">
-        <div className="desknav__wrapper">
-          <div className="desknav__navigation">
-            <a className="desknav__logo" href="#">
-              <img className="desknav__logo--img" src={logo} />
-              {/* <span className="desknav__logo--name">Parking App</span> */}
+      <nav className="nav">
+        <div className="nav__wrapper">
+          <div className="nav__navigation">
+            <a className="nav__logo" href="#">
+              <img className="nav__logo--img" src={logo} />
+              {/* <span className="nav__logo--name">Parking App</span> */}
             </a>
-            <ul className="desknav__list">
-              <li className="desknav__listitem">
+            <ul className="nav__list">
+              <li className="nav__listitem">
                 <Link to="/">
-                  <img className="desknav__icon" src={home} />
-                  <span className="desknav__listname">Home</span>
+                  <img className="nav__icon" src={home} />
+                  <span className="nav__listname">Home</span>
                 </Link>
               </li>
-              <li className="desknav__listitem">
+              <li className="nav__listitem">
                 <Link to="/booking">
-                  <img className="desknav__icon" src={calendar} />
-                  <span className="desknav__listname">Booking</span>
+                  <img className="nav__icon" src={calendar} />
+                  <span className="nav__listname">Booking</span>
                 </Link>
               </li>
-              <li className="desknav__listitem">
+              <li className="nav__listitem">
                 <Link to="/history">
-                  <img className="desknav__icon" src={history} />
-                  <span className="desknav__listname">History</span>
+                  <img className="nav__icon" src={history} />
+                  <span className="nav__listname">History</span>
                 </Link>
               </li>
-              <li className="desknav__listitem">
+              <li className="nav__listitem">
                 <Link to="/account">
-                  <img className="desknav__icon" src={user} />
-                  <span className="desknav__listname">Account</span>
+                  <img className="nav__icon" src={user} />
+                  <span className="nav__listname">Account</span>
                 </Link>
               </li>
-              <li className="desknav__listitem">
+              <li className="nav__listitem">
                 <Link to="/signup" className="logout">
-                  <img className="desknav__icon" src={logout} />
-                  <span className="desknav__listname">Log out</span>
+                  <img className="nav__icon" src={logout} />
+                  <span className="nav__listname">Log out</span>
                 </Link>
               </li>
             </ul>

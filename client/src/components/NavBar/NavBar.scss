@@ -4,7 +4,7 @@
 
 // --------- TABLET and DESKTOP STYLES ----------
 
-.desknav {
+.nav {
   display: none;
 
   @include tablet {
@@ -54,6 +54,12 @@
       font-weight: 700;
       text-transform: uppercase;
     }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   &__listitem {
