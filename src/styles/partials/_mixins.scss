@@ -1,0 +1,111 @@
+@use "./fonts" as *;
+@use "./variables" as *;
+
+// ----- mixins ------
+
+@mixin default-font($font-size: 1, $line-height) {
+  font-family: $type-face, sans-serif;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+//----- mobile text styles -----
+
+//primary page/section header
+@mixin page-header {
+  @include default-font(2.4rem, 3.2rem);
+}
+
+//section header
+@mixin section-header {
+  @include default-font(1.2rem, 2rem);
+}
+
+//subheader
+@mixin sub-header {
+  @include default-font(1.3rem, 1.8rem);
+}
+
+//body and foooter
+@mixin body-text {
+  @include default-font(1.3rem, 1.8rem);
+}
+
+// labels and buttons
+@mixin label-btn-text {
+  @include default-font(1rem, 2rem);
+}
+
+// ----- desktop & tablet text styles -----
+
+//primary page/section header
+@mixin page-header2 {
+  @include default-font(3.3rem, 4.4rem);
+}
+
+//sub header
+@mixin sub-header2 {
+  @include default-font(1.4rem, 2.2rem);
+}
+
+//body and foooter
+@mixin body-text2 {
+  @include default-font(1.4rem, 2.2rem);
+}
+
+// labels and buttons
+@mixin label-btn-text2 {
+  @include default-font(1.2rem, 2rem);
+}
+
+// ----- wrapper & container mixin -----
+
+@mixin wrapper-props {
+  width: 100%;
+  height: 100%;
+  max-width: calc(100% - 3.2rem);
+  margin: 0 auto;
+
+  @include tablet {
+    max-width: calc(100% - 7.2rem);
+  }
+
+  @include desktop {
+    max-width: 102rem;
+  }
+}
+
+// ----- button --------
+@mixin button {
+  @include label-btn-text;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $secondary-color-alabaster;
+  line-height: 1.2rem;
+  letter-spacing: 0.05rem;
+  background-color: $primary-color-black;
+  border: 1px solid $primary-color-black;
+  border-radius: 4px;
+  height: 4rem;
+  width: 20rem;
+  padding: 1rem 1.2rem;
+  margin: 0.5rem 0 0;
+
+  &:hover {
+    background-color: $secondary-color-darkblack;
+  }
+}
+
+// ------ media queries ------
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
