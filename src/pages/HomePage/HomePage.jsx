@@ -1,12 +1,29 @@
 import React from "react";
 import "./HomePage.scss";
+import Button from "../../components/Button/Button";
 import banner from "../../assets/logo/logo_transparent.png";
 
 export default function HomePage() {
+  // -----  state -----
+  // const [loading, setLoading] = useState(true);
+
+  // -----  useEffect/ apiData -----
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
+  // if (loading) {
+  //   <div>Loading...</div>;
+  // } else {
   return (
     <>
-      {/* <MobileNav />
-      <NavBar /> */}
       <main className="homepage">
         <div className="homepage__wrapper">
           <div className="homepage__container">
@@ -19,7 +36,7 @@ export default function HomePage() {
                 <p className="homepage__subtitle">Active Session</p>
                 <p className="homepage__time">Time Duration: 00:00</p>
               </div>
-              <button className="homepage__button">Book Now</button>
+              <Button className="homepage__button" btnName="Book Now" />
             </div>
           </div>
         </div>
@@ -27,3 +44,4 @@ export default function HomePage() {
     </>
   );
 }
+// }
