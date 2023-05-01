@@ -10,24 +10,33 @@ import logout from "../../assets/icons/log-out.svg";
 import logo from "../../assets/logo/logo2.png";
 
 export default function NavBar() {
+  const links = [
+    { name: "Home", icon: home, route: "/" },
+    { name: "Booking", icon: calendar, route: "/booking" },
+    { name: "History", icon: history, route: "/history" },
+    { name: "Account", icon: user, route: "/account" },
+    // { name: "Log Out", icon: logout, route: "/signup" },
+  ];
+
   return (
     <>
       {/* ------DESKTOP STYLES------ */}
       <nav className="nav">
         <div className="nav__wrapper">
           <div className="nav__navigation">
-            <a className="nav__logo" href="#">
+            <Link className="nav__logo" to="/">
               <img className="nav__logo--img" src={logo} />
-              {/* <span className="nav__logo--name">Parking App</span> */}
-            </a>
+            </Link>
             <ul className="nav__list">
-              <li className="nav__listitem">
-                <Link to="/">
-                  <img className="nav__icon" src={home} />
-                  <span className="nav__listname">Home</span>
-                </Link>
-              </li>
-              <li className="nav__listitem">
+              {links.map((link, index) => (
+                <li className="nav__listitem" key={index}>
+                  <Link to={link.route}>
+                    <img className="nav__icon" src={link.icon} />
+                    <span className="nav__listname">{link.name}</span>
+                  </Link>
+                </li>
+              ))}
+              {/* <li className="nav__listitem">
                 <Link to="/booking">
                   <img className="nav__icon" src={calendar} />
                   <span className="nav__listname">Booking</span>
@@ -44,7 +53,7 @@ export default function NavBar() {
                   <img className="nav__icon" src={user} />
                   <span className="nav__listname">Account</span>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav__listitem">
                 <Link to="/signup" className="logout">
                   <img className="nav__icon" src={logout} />

@@ -44,10 +44,10 @@
     align-items: center;
     gap: 3rem;
 
-    @include tablet {
-      position: absolute;
-      right: 25rem;
-    }
+    // @include tablet {
+    //   position: absolute;
+    //   right: 25rem;
+    // }
   }
 
   &__title {

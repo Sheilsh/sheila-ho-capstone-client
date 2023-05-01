@@ -5,26 +5,34 @@ import home from "../../assets/icons/home.svg";
 import calendar from "../../assets/icons/calendar.svg";
 import history from "../../assets/icons/list.svg";
 import user from "../../assets/icons/user.svg";
-import logout from "../../assets/icons/log-out.svg";
+// import logout from "../../assets/icons/log-out.svg";
 
 export default function MobileNav() {
   const [active, setActive] = useState(0);
+
+  const links = [
+    { name: "Home", icon: home, route: "/" },
+    { name: "Booking", icon: calendar, route: "/booking" },
+    { name: "History", icon: history, route: "/history" },
+    { name: "Account", icon: user, route: "/account" },
+  ];
+
   return (
     <nav className="mobilenav">
       <div className="mobilenav__wrapper">
-        {/* <div className="nav__headings">
-          <h1>{["Home", "Calendar", "History", "Account"][active]}</h1>
-        </div> */}
         <nav className="mobilenav__bar">
-          <div
-            className={active === 0 ? "active" : ""}
-            onClick={() => setActive(0)}
-          >
-            <Link to="/">
-              <img className="mobilenav__icon" src={home} />
-            </Link>
-          </div>
-          <div
+          {links.map((link, index) => (
+            <div
+              className={active === index ? "active" : ""}
+              onClick={() => setActive(index)}
+              key={index}
+            >
+              <Link to={link.route}>
+                <img className="mobilenav__icon" src={link.icon} />
+              </Link>
+            </div>
+          ))}
+          {/* <div
             className={active === 1 ? "active" : ""}
             onClick={() => setActive(1)}
           >
@@ -47,7 +55,7 @@ export default function MobileNav() {
             <Link to="account">
               <img className="mobilenav__icon" src={user} />
             </Link>
-          </div>
+          </div> */}
         </nav>
       </div>
     </nav>
