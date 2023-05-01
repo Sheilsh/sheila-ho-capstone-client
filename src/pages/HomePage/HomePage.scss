@@ -43,23 +43,30 @@
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+
+    // @include tablet {
+    //   position: absolute;
+    //   right: 25rem;
+    // }
   }
 
   &__title {
     @include page-header;
     font-weight: 700;
     text-align: center;
+    width: 20rem;
   }
 
   &__active {
     width: 20rem;
-    height: 15rem;
+    height: 20rem;
     background-color: $primary-color-white;
     box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
   }
