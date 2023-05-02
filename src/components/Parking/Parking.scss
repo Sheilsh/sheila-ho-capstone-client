@@ -1,0 +1,120 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.parking {
+  //   background-color: #bdc5d5;
+  background-color: whitesmoke;
+  color: $primary-color-black;
+  height: 76rem;
+
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    gap: 1.6rem;
+    // padding: 15rem 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 3.2rem 0 2.4rem;
+  }
+
+  &__title {
+    @include page-header;
+    width: fit;
+  }
+
+  &__bookingcontain {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  // ---- parking spot styles -----
+
+  &__cardcontain {
+    display: flex;
+    justify-content: space-between;
+    // gap: 5rem;
+  }
+
+  &__card {
+    width: 10rem;
+    // height: 40rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px dashed #5c667e;
+    // border-top-right-radius: 25%;
+    // margin: 0 auto;
+
+    &--one {
+      border-left: 1px dashed #5c667e;
+    }
+    &--two {
+      border-right: 1px dashed #5c667e;
+    }
+  }
+
+  &__slot {
+    height: 8rem;
+    border-bottom: 1px dashed #5c667e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    &--first,
+    &--last {
+      height: 5rem;
+      border-right: 1px dashed #5c667e;
+    }
+
+    &--first {
+      border-top: 1px dashed #5c667e;
+      border-top-right-radius: 85%;
+    }
+
+    &--last {
+      border-bottom: 1px dashed #5c667e;
+      border-bottom-right-radius: 85%;
+    }
+  }
+
+  &__spotname {
+    width: 9rem;
+    height: 5rem;
+    color: black;
+    text-align: center;
+    background-color: $primary-color-blue-purple;
+    border-radius: 0.5rem;
+    // margin: 1.5rem auto;
+    padding: 1.5rem;
+  }
+
+  &__carimg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &__spotstatus {
+    color: green;
+
+    &--booked {
+      color: red;
+    }
+  }
+
+  &__confirm {
+    @include button;
+    background-color: black;
+    margin: 0 auto;
+  }
+}

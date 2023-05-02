@@ -31,7 +31,7 @@ export default function HomePage() {
             <div className="homepage__container">
               <div className="homepage__header">
                 <img className="homepage__banner" src={banner} />
-                <p className="homepage__title">Hello {userData.full_name}</p>
+                <h1 className="homepage__title">Hello {userData.full_name}</h1>
               </div>
               <div className="homepage__content">
                 <div className="homepage__active">

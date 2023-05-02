@@ -67,7 +67,8 @@
   margin: 0 auto;
 
   @include tablet {
-    max-width: calc(100% - 7.2rem);
+    // max-width: calc(100% - 7.2rem);
+    max-width: calc(100% - 20rem);
   }
 
   @include desktop {

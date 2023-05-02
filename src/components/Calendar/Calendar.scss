@@ -1,0 +1,11 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.calendar {
+  &__container {
+    border: 1px solid black;
+    width: 33rem;
+    margin: 2.4rem auto;
+  }
+}

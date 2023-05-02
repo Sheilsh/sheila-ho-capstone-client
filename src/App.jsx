@@ -3,7 +3,7 @@ import "./App.scss";
 
 import HomePage from "./pages/HomePage/HomePage";
 import LogIn from "./pages/LogIn/LogIn";
-import Booking from "./pages/Booking/Booking";
+import BookingPage from "./pages/BookingPage/BookingPage";
 import MobileNav from "./components/MobileNav/MobileNav";
 import NavBar from "./components/NavBar/NavBar";
 
@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/:id" element={<HomePage />} />
-          <Route path="/booking" element={<Booking />} />
+          <Route path="/booking" element={<BookingPage />} />
           {/* <Route path="/history" element={<History />} /> */}
           {/* <Route path="/account" element={<Account />} /> */}
         </Routes>
