@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./NavBar.scss";
 import home from "../../assets/icons/home.svg";
 import calendar from "../../assets/icons/calendar.svg";
@@ -30,35 +30,17 @@ export default function NavBar() {
             <ul className="nav__list">
               {links.map((link, index) => (
                 <li className="nav__listitem" key={index}>
-                  <Link to={link.route}>
+                  <NavLink to={link.route}>
                     <img className="nav__icon" src={link.icon} />
                     <span className="nav__listname">{link.name}</span>
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
-              {/* <li className="nav__listitem">
-                <Link to="/booking">
-                  <img className="nav__icon" src={calendar} />
-                  <span className="nav__listname">Booking</span>
-                </Link>
-              </li>
               <li className="nav__listitem">
-                <Link to="/history">
-                  <img className="nav__icon" src={history} />
-                  <span className="nav__listname">History</span>
-                </Link>
-              </li>
-              <li className="nav__listitem">
-                <Link to="/account">
-                  <img className="nav__icon" src={user} />
-                  <span className="nav__listname">Account</span>
-                </Link>
-              </li> */}
-              <li className="nav__listitem">
-                <Link to="/signup" className="logout">
+                <NavLink to="/signup" className="logout">
                   <img className="nav__icon" src={logout} />
                   <span className="nav__listname">Log out</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

@@ -83,7 +83,8 @@
       align-items: center;
     }
 
-    a:hover {
+    a:hover,
+    .active {
       background-color: $primary-color-blue-purple;
     }
   }
