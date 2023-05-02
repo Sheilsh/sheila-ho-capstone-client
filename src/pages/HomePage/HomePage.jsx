@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import "./HomePage.scss";
+import { useParams, Link } from "react-router-dom";
+import { getUser } from "../../utils/helpers";
 import Button from "../../components/Button/Button";
 import banner from "../../assets/logo/logo_transparent.png";
-import { getUser } from "../../utils/helpers";
+import "./HomePage.scss";
 
 export default function HomePage() {
   const { id } = useParams();
@@ -29,16 +29,18 @@ export default function HomePage() {
         <main className="homepage">
           <div className="homepage__wrapper">
             <div className="homepage__container">
-              <div className="homepage__bannercontain">
+              <div className="homepage__header">
                 <img className="homepage__banner" src={banner} />
+                <p className="homepage__title">Hello {userData.full_name}</p>
               </div>
               <div className="homepage__content">
-                <p className="homepage__title">Hello {userData.full_name}</p>
                 <div className="homepage__active">
                   <p className="homepage__subtitle">Active Session</p>
                   <p className="homepage__time">Time Duration: 00:00</p>
                 </div>
-                <Button className="homepage__button" btnName="Book Now" />
+                <Link to="/booking">
+                  <Button className="homepage__button" btnName="Book Now" />
+                </Link>
               </div>
             </div>
           </div>
