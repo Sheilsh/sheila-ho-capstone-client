@@ -37,7 +37,7 @@ export default function NavBar() {
                 </li>
               ))}
               <li className="nav__listitem">
-                <NavLink to="/signup" className="logout">
+                <NavLink to="/login" className="logout">
                   <img className="nav__icon" src={logout} />
                   <span className="nav__listname">Log out</span>
                 </NavLink>

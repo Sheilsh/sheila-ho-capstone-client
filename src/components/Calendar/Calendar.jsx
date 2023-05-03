@@ -9,12 +9,14 @@ import { ThemeProvider } from "@mui/material";
 export default function Calendar() {
   return (
     <div className="calendar">
-      <div className="calendar__container">
-        <ThemeProvider theme={theme}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateCalendar />
-          </LocalizationProvider>
-        </ThemeProvider>
+      <div className="calendar__wrappper">
+        <div className="calendar__container">
+          <ThemeProvider theme={theme}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateCalendar sx={{ width: "28rem", height: "30rem" }} />
+            </LocalizationProvider>
+          </ThemeProvider>
+        </div>
       </div>
     </div>
   );

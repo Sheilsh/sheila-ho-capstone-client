@@ -1,14 +1,14 @@
 import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
-  breakpoints: {
-    values: {
-      //   mobile: 0,
-      //   tablet: 768,
-      //   laptop: 1024,
-      //   desktop: 1280,
-    },
-  },
+  //   breakpoints: {
+  //     values: {
+  //       mobile: 0,
+  //       tablet: 768,
+  //       laptop: 1024,
+  //       desktop: 1280,
+  //     },
+  //   },
 
   palette: {
     primary: {
@@ -18,6 +18,6 @@ export const theme = createTheme({
 
   typography: {
     fontFamily: "Avenir",
-    fontSize: "24",
+    fontSize: 18,
   },
 });
