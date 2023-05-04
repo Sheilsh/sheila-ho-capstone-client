@@ -37,7 +37,7 @@
   &__bookingcontain {
     display: flex;
     flex-direction: column;
-    gap: 13.5rem;
+    gap: 8.5rem;
   }
 
   // ---- parking spot styles -----
@@ -74,13 +74,13 @@
     // border-bottom: 1px solid #5c667e;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
   }
 
   &__spotname {
     width: 4rem;
-    height: 5rem;
+    height: 4rem;
     color: black;
     text-align: center;
     background-color: whitesmoke;

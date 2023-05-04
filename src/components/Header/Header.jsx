@@ -9,7 +9,7 @@ export default function Header({ linkTo, headerName }) {
       <div className="header__wrapper">
         <div className="header__container">
           <div className="header__header">
-            <Link to="/">
+            <Link className="header__iconcontain" to="/">
               <img
                 className="header__icon"
                 src={backarrow}

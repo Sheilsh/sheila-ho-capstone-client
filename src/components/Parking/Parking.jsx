@@ -2,7 +2,7 @@ import React from "react";
 import ParkingSpot from "./ParkingSpot";
 import Button from "../Button/Button";
 
-export default function ParkingLot() {
+export default function Parking() {
   return (
     <section className="parking">
       <div className="parking__wrapper">
