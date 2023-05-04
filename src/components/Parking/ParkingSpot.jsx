@@ -30,30 +30,81 @@ export default function ParkingSpot() {
                 <p className="parking__spotname">Empty</p>
               )}
             </div>
-            Spot 1
+            <p>Spot 1</p>
           </div>
+
           <div className="parking__slot">
-            {/* <p className="parking__spotstatus">Available</p>
-            <p className="parking__spotname">Spot 2</p> */}
+            {isBooked ? (
+              <p className="parking__spotstatus parking__spotstatus--booked">
+                Booked
+              </p>
+            ) : (
+              <p className="parking__spotstatus">Available</p>
+            )}
+            <div className="parking__visuals" onClick={handleToggleStatus}>
+              {isBooked ? (
+                <img className="parking__carimg" src={car} alt="car image" />
+              ) : (
+                <p className="parking__spotname">Empty</p>
+              )}
+            </div>
+            <p>Spot 2</p>
           </div>
+
           <div className="parking__slot">
-            {/* <p className="parking__spotstatus">Available</p>
-            <p className="parking__spotname">Spot 3</p> */}
+            {isBooked ? (
+              <p className="parking__spotstatus parking__spotstatus--booked">
+                Booked
+              </p>
+            ) : (
+              <p className="parking__spotstatus">Available</p>
+            )}
+            <div className="parking__visuals" onClick={handleToggleStatus}>
+              {isBooked ? (
+                <img className="parking__carimg" src={car} alt="car image" />
+              ) : (
+                <p className="parking__spotname">Empty</p>
+              )}
+            </div>
+            <p>Spot 3</p>
           </div>
+
           <div className="parking__slot">
-            {/* <p className="parking__spotstatus">Available</p>
-            <p className="parking__spotname">Spot 4</p> */}
+            {isBooked ? (
+              <p className="parking__spotstatus parking__spotstatus--booked">
+                Booked
+              </p>
+            ) : (
+              <p className="parking__spotstatus">Available</p>
+            )}
+            <div className="parking__visuals" onClick={handleToggleStatus}>
+              {isBooked ? (
+                <img className="parking__carimg" src={car} alt="car image" />
+              ) : (
+                <p className="parking__spotname">Empty</p>
+              )}
+            </div>
+            <p>Spot 4</p>
           </div>
+
           <div className="parking__slot">
-            {/* <p className="parking__spotstatus">Booked</p>
-            <img className="parking__carimg" src={car} alt="car image" />
-            <p p className="parking__number">
-              Spot 5
-            </p> */}
-            {/* <p className="parking__spotname">Spot 5</p> */}
+            {isBooked ? (
+              <p className="parking__spotstatus parking__spotstatus--booked">
+                Booked
+              </p>
+            ) : (
+              <p className="parking__spotstatus">Available</p>
+            )}
+            <div className="parking__visuals" onClick={handleToggleStatus}>
+              {isBooked ? (
+                <img className="parking__carimg" src={car} alt="car image" />
+              ) : (
+                <p className="parking__spotname">Empty</p>
+              )}
+            </div>
+            <p>Spot 5</p>
           </div>
         </div>
-        <div className="parking__card parking__card--two"></div>
       </div>
     </>
   );

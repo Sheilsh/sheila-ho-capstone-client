@@ -1,0 +1,30 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  //   background-color: $primary-color-white;
+  //   background-color: #b4b2e738;
+  height: 10rem;
+
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 3.2rem 0 2.4rem;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__title {
+    @include page-header;
+    font-weight: 500;
+    width: fit;
+  }
+}

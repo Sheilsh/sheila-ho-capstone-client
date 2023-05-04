@@ -6,11 +6,12 @@
   &__wrapper {
     @include wrapper-props;
   }
+
   &__container {
-    border: 1px solid black;
+    // border: 1px solid black;
     border-radius: 0.5rem;
     width: 30rem;
-    margin: 2.4rem auto;
+    margin: 0 auto 2.4rem;
   }
 }
 

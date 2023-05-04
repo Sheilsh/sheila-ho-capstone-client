@@ -4,13 +4,18 @@
 
 .parking {
   //   background-color: #bdc5d5;
-  background-color: whitesmoke;
-  color: $primary-color-black;
-  height: 76rem;
+  // background-color: #b4b2e738;
+  // // background-color: whitesmoke;
+  // color: $primary-color-black;
+  // border-top-right-radius: 10%;
+  // border-top-left-radius: 10%;
+  // height: 44rem;
+  // transform: translate(0%, -5%);
+  // z-index: 2;
 
-  &__wrapper {
-    @include wrapper-props;
-  }
+  // &__wrapper {
+  //   @include wrapper-props;
+  // }
 
   &__container {
     height: 100%;
@@ -18,24 +23,21 @@
     flex-direction: column;
     // align-items: center;
     gap: 1.6rem;
-    // padding: 15rem 0;
-  }
+    padding: 5rem 0;
 
-  &__header {
-    display: flex;
-    align-items: center;
-    padding: 3.2rem 0 2.4rem;
-  }
-
-  &__title {
-    @include page-header;
-    width: fit;
+    background-color: #b4b2e738;
+    color: $primary-color-black;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+    min-height: 44rem;
+    transform: translate(0%, -5%);
+    z-index: 2;
   }
 
   &__bookingcontain {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 13.5rem;
   }
 
   // ---- parking spot styles -----
@@ -43,65 +45,53 @@
   &__cardcontain {
     display: flex;
     justify-content: space-between;
+    padding: auto;
     // gap: 5rem;
   }
 
   &__card {
-    width: 10rem;
+    width: 26rem;
     // height: 40rem;
     display: flex;
-    flex-direction: column;
-    border-top: 1px dashed #5c667e;
+    justify-content: center;
+    gap: 2rem;
+    // flex-direction: column;
+    // border-top: 1px solid #5c667e;
     // border-top-right-radius: 25%;
-    // margin: 0 auto;
+    margin: 0 auto;
 
-    &--one {
-      border-left: 1px dashed #5c667e;
-    }
-    &--two {
-      border-right: 1px dashed #5c667e;
-    }
+    // &--one {
+    //   border-right: 1px dashed #5c667e;
+    // }
+    // &--two {
+    //   border-right: 1px solid #5c667e;
+    // }
   }
 
   &__slot {
     height: 8rem;
-    border-bottom: 1px dashed #5c667e;
+    width: 8rem;
+    // border-bottom: 1px solid #5c667e;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
-
-    &--first,
-    &--last {
-      height: 5rem;
-      border-right: 1px dashed #5c667e;
-    }
-
-    &--first {
-      border-top: 1px dashed #5c667e;
-      border-top-right-radius: 85%;
-    }
-
-    &--last {
-      border-bottom: 1px dashed #5c667e;
-      border-bottom-right-radius: 85%;
-    }
+    align-items: center;
   }
 
   &__spotname {
-    width: 9rem;
+    width: 4rem;
     height: 5rem;
     color: black;
     text-align: center;
-    background-color: $primary-color-blue-purple;
+    background-color: whitesmoke;
     border-radius: 0.5rem;
     // margin: 1.5rem auto;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
 
   &__carimg {
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   &__spotstatus {
