@@ -23,21 +23,26 @@
     flex-direction: column;
     // align-items: center;
     gap: 1.6rem;
-    padding: 5rem 0;
+    padding: 3rem 0;
 
     background-color: #b4b2e738;
     color: $primary-color-black;
-    border-top-right-radius: 10%;
-    border-top-left-radius: 10%;
+    // border-top-left-radius: 50px 50px;
+    // border-top-right-radius: 50px 50px;
+    border-radius: 50px 50px 0px 0px;
     min-height: 44rem;
     transform: translate(0%, -5%);
     z-index: 2;
+
+    @include tablet {
+      border-radius: 0;
+    }
   }
 
   &__bookingcontain {
     display: flex;
     flex-direction: column;
-    gap: 8.5rem;
+    gap: 5.5rem;
   }
 
   // ---- parking spot styles -----
@@ -50,11 +55,11 @@
   }
 
   &__card {
-    width: 26rem;
+    width: 30rem;
     // height: 40rem;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    // gap: 2rem;
     // flex-direction: column;
     // border-top: 1px solid #5c667e;
     // border-top-right-radius: 25%;
@@ -72,10 +77,15 @@
     height: 8rem;
     width: 8rem;
     // border-bottom: 1px solid #5c667e;
+    border-right: 1px solid $primary-color-black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+    &--last {
+      border-right: none;
+    }
   }
 
   &__spotname {
@@ -87,6 +97,8 @@
     border-radius: 0.5rem;
     // margin: 1.5rem auto;
     padding: 1.5rem 0;
+    // writing-mode: vertical-lr;
+    // text-orientation: mixed;
   }
 
   &__carimg {
@@ -95,14 +107,21 @@
   }
 
   &__spotstatus {
-    color: green;
+    // color: green;
+    color: #23b4e1;
 
     &--booked {
       color: red;
     }
   }
 
-  &__confirm {
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__button {
     @include button;
     background-color: black;
     margin: 0 auto;

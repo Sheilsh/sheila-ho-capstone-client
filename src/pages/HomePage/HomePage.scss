@@ -25,10 +25,14 @@
   &__header {
     height: 35rem;
     background-color: #b4b2e780;
-    border-radius: 0px 0px 61px 67px;
+    border-radius: 0px 0px 80px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include tablet {
+      border-radius: 0;
+    }
   }
 
   &__banner {

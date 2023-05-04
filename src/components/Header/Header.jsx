@@ -16,7 +16,7 @@ export default function Header({ linkTo, headerName }) {
                 alt="back arrow icon"
               />
             </Link>
-            <h1 className="header__title">Choose Parking Space</h1>
+            <h1 className="header__title">Availability</h1>
           </div>
         </div>
       </div>

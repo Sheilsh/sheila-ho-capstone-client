@@ -9,11 +9,18 @@ export default function Parking() {
         <div className="parking__container">
           <div className="parking__bookingcontain">
             <ParkingSpot />
-            <Button
-              className="parking__confirm"
-              type="submit"
-              btnName="Confirm Booking"
-            />
+            <div className="parking__cta">
+              <Button
+                className="parking__button"
+                type="submit"
+                btnName="Book"
+              />
+              <Button
+                className="parking__button"
+                type="submit"
+                btnName="Cancel"
+              />
+            </div>
           </div>
         </div>
       </div>

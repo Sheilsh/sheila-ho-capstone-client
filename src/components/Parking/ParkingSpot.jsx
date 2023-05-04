@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Parking.scss";
 
-import car from "../../assets/images/car.png";
+import car from "../../assets/images/car-parking.png";
 
 export default function ParkingSpot() {
   const [isBooked, setIsBooked] = useState(false);
@@ -87,7 +87,7 @@ export default function ParkingSpot() {
             <p>Spot 4</p>
           </div>
 
-          <div className="parking__slot">
+          <div className="parking__slot parking__slot--last">
             {isBooked ? (
               <p className="parking__spotstatus parking__spotstatus--booked">
                 Booked
