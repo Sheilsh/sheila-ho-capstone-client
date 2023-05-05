@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ParkingSpot from "./ParkingSpot";
 import Button from "../Button/Button";
+import BookingForm from "../BookingForm/BookingForm";
 
 export default function Parking() {
+  const [openModal, setOpenModal] = useState(false);
+
+  // const toggleModal = () => {
+  //   setIsOpen((prevState) => !prevState);
+  // };
+
   return (
     <section className="parking">
       <div className="parking__wrapper">
@@ -14,7 +21,9 @@ export default function Parking() {
                 className="parking__button"
                 type="submit"
                 btnName="Book"
+                onClick={() => setOpenModal(true)}
               />
+              <BookingForm open={openModal} />
               <Button
                 className="parking__button"
                 type="submit"
