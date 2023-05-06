@@ -24,3 +24,14 @@ export async function getUser(id) {
     console.log(error);
   }
 }
+
+export async function getParking() {
+  try {
+    const response = await axios.get(`${routes.parking}`);
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}

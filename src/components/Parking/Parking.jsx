@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getParking } from "../../utils/helpers";
 import ParkingSpot from "./ParkingSpot";
 import Button from "../Button/Button";
 import BookingForm from "../BookingForm/BookingForm";
-import location from "../../assets/icons/navigation.png";
 
 export default function Parking() {
+  // const [loading, setLoading] = useState(true);
+  const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    getParking().then((data) => {
+      console.log("parking data", data);
+      setParkingData(data);
+      // setLoading(false);
+    });
+  }, []);
 
   return (
     <section className="parking">
@@ -13,19 +23,29 @@ export default function Parking() {
         <div className="parking__container">
           <div className="parking__bookingcontain">
             <div className="parking__subheader">
-              {/* <img
-                className="parking__icon"
-                src={location}
-                alt="location icon"
-              /> */}
-              <h2 className="calendar__location">Pick Your Spot</h2>
+              <h2 className="parking__title">Pick Your Spot</h2>
             </div>
-            <ParkingSpot />
+            <div className="parking__cardcontain">
+              <div className="parking__card">
+                {parkingData
+                  .sort((a, b) => a.spot_number - b.spot_number)
+                  .map((spot) => {
+                    return (
+                      <ParkingSpot
+                        key={spot.id}
+                        id={spot.id}
+                        booked={spot.is_booked}
+                        number={spot.spot_number}
+                      />
+                    );
+                  })}
+              </div>
+            </div>
             <div className="parking__cta">
               <Button
                 className="parking__button"
                 type="submit"
-                btnName="Confirm Booking"
+                btnName="Book"
                 onClick={() => setOpenModal(true)}
               />
               <BookingForm open={openModal} />

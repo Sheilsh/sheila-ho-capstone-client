@@ -55,7 +55,11 @@ export default function BookingForm({ open }) {
               <span className="form__label">Choose a start time</span>
             </div>
             <div className="form__cta">
-              <Button className="form__button" type="submit" btnName="Submit" />
+              <Button
+                className="form__button"
+                type="submit"
+                btnName="Confirm"
+              />
               <Button className="form__button" btnName="Cancel" />
             </div>
           </form>

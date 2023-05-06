@@ -19,7 +19,7 @@
     bottom: 0.2rem;
     left: 15rem;
     width: 50rem;
-    height: 35rem;
+    height: 40rem;
   }
 
   &__wrapper {
@@ -116,5 +116,9 @@
 
   &__button {
     @include button;
+
+    @include tablet {
+      width: 15rem;
+    }
   }
 }
