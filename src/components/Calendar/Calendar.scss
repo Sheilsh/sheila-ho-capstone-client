@@ -14,9 +14,3 @@
     margin: 0 auto 2.4rem;
   }
 }
-
-.timeslot {
-  &__wrapper {
-    @include wrapper-props;
-  }
-}
