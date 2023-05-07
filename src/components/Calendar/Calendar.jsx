@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import "./Calendar.scss";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -7,9 +7,13 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { theme } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 
-export default function Calendar() {
+export default function Calendar({ bookingData }) {
   const [value, setValue] = useState(dayjs(new Date()));
   const [data, setData] = useState("");
+
+  useEffect(() => {
+    // setData(bookingData);
+  });
 
   function dateChangeHandler(e) {
     setValue(e);

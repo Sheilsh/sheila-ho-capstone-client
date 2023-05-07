@@ -13,6 +13,10 @@ export default function ParkingSpot({ id, number, booked }) {
     }
   }, []);
 
+  // const handleToggleStatus = () => {
+  //   setIsBooked(!isBooked);
+  // };
+
   return (
     <>
       <div className="parking__slot">

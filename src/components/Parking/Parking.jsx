@@ -4,7 +4,7 @@ import ParkingSpot from "./ParkingSpot";
 import Button from "../Button/Button";
 import BookingForm from "../BookingForm/BookingForm";
 
-export default function Parking() {
+export default function Parking({ bookingData }) {
   // const [loading, setLoading] = useState(true);
   const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -23,7 +23,7 @@ export default function Parking() {
         <div className="parking__container">
           <div className="parking__bookingcontain">
             <div className="parking__subheader">
-              <h2 className="parking__title">Pick Your Spot</h2>
+              <h2 className="parking__title">Pick Available Spot</h2>
             </div>
             <div className="parking__cardcontain">
               <div className="parking__card">
