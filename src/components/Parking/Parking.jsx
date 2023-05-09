@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
 import { getParking } from "../../utils/helpers";
 import ParkingSpot from "./ParkingSpot";
 import Button from "../Button/Button";
 import BookingForm from "../BookingForm/BookingForm";
 
-export default function Parking({ bookingData }) {
+export default function Parking({ userData, bookingData, selectedDate }) {
   // const [loading, setLoading] = useState(true);
   const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -16,6 +17,19 @@ export default function Parking({ bookingData }) {
       // setLoading(false);
     });
   }, []);
+
+  const availableSpots = parkingData.filter((spot) => {
+    const isAvailable = !bookingData.find((booking) => {
+      const bookingDate = dayjs(booking.end_datetime);
+      const selectedDateStart = dayjs(selectedDate).startOf("day");
+      return (
+        booking.spot_number === spot.spot_number &&
+        (bookingDate.isSame(selectedDateStart, "day") ||
+          bookingDate.isAfter(selectedDateStart))
+      );
+    });
+    return isAvailable;
+  });
 
   return (
     <section className="parking">
@@ -34,8 +48,13 @@ export default function Parking({ bookingData }) {
                       <ParkingSpot
                         key={spot.id}
                         id={spot.id}
-                        booked={spot.is_booked}
                         number={spot.spot_number}
+                        // booked={
+                        //   bookingData.filter(
+                        //     (booking) => booking.spot_id === spot.id
+                        //   ).length
+                        // }
+                        availableSpots={availableSpots}
                       />
                     );
                   })}
@@ -48,7 +67,7 @@ export default function Parking({ bookingData }) {
                 btnName="Book"
                 onClick={() => setOpenModal(true)}
               />
-              <BookingForm open={openModal} />
+              <BookingForm open={openModal} userData={userData} />
             </div>
           </div>
         </div>

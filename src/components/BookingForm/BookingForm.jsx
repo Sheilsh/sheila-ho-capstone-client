@@ -3,15 +3,16 @@ import "./BookingForm.scss";
 import Button from "../Button/Button";
 import close from "../../assets/icons/clear_black_24dp.svg";
 
-export default function BookingForm({ open }) {
+export default function BookingForm({ open, userData }) {
   if (!open) return null;
+  const plate = userData.plate_number;
 
   // const [value, setValue] = useState(dayjs("2022-04-17T15:30"));
 
   return (
     <div className="form">
       <div className="form__wrapper">
-        <div className="form__content">
+        <div className="form__container">
           <div className="form__header">
             <h1 className="form__title">Booking Information</h1>
             <div className="form__iconbox">
@@ -29,22 +30,25 @@ export default function BookingForm({ open }) {
           {/* <div id="error"></div> */}
           <form className="form__formcontent">
             <div className="form__inputbox">
-              {/* <label className="form__label" htmlFor="plate">
-                Select License Plate:
-              </label> */}
-              {/* <select className="form__input" name="plate">
-                <option></option>
-                <option value="ABC123">ABC123</option>
-                <option value="ABC456">ABC456</option>
+              <select
+                className="form__input form__input--selector"
+                name="plate"
+              >
+                <option value="">Select License Plate</option>
+                {plate.map((item, index) => (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                ))}
               </select>
-
-              <span className="form__label form__label--select">
+              {/* <span className="form__label form__label--select">
                 Select License Plate
               </span> */}
             </div>
+            <p>OR</p>
             <div className="form__inputbox">
               <input className="form__input" type="text" name="license" />
-              <span className="form__label">Enter License Plate</span>
+              <span className="form__label">Enter New License Plate</span>
             </div>
             <div className="form__inputbox">
               <input
