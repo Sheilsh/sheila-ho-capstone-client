@@ -6,15 +6,14 @@ import Button from "../Button/Button";
 import BookingForm from "../BookingForm/BookingForm";
 
 export default function Parking({ userData, bookingData, selectedDate }) {
-  // const [loading, setLoading] = useState(true);
   const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedSpot, setSelectedSpot] = useState(null);
 
   useEffect(() => {
     getParking().then((data) => {
-      console.log("parking data", data);
+      // console.log("parking data", data);
       setParkingData(data);
-      // setLoading(false);
     });
   }, []);
 
@@ -30,6 +29,11 @@ export default function Parking({ userData, bookingData, selectedDate }) {
     });
     return isAvailable;
   });
+
+  const handleSelectSpot = (spot) => {
+    setSelectedSpot(spot);
+    setOpenModal(true);
+  };
 
   return (
     <section className="parking">
@@ -49,25 +53,27 @@ export default function Parking({ userData, bookingData, selectedDate }) {
                         key={spot.id}
                         id={spot.id}
                         number={spot.spot_number}
-                        // booked={
-                        //   bookingData.filter(
-                        //     (booking) => booking.spot_id === spot.id
-                        //   ).length
-                        // }
                         availableSpots={availableSpots}
+                        onSelect={handleSelectSpot}
                       />
                     );
                   })}
               </div>
             </div>
             <div className="parking__cta">
-              <Button
+              {/* <Button
                 className="parking__button"
                 type="submit"
                 btnName="Book"
                 onClick={() => setOpenModal(true)}
+              /> */}
+              <BookingForm
+                open={openModal}
+                userData={userData}
+                spot={selectedSpot}
+                date={selectedDate}
+                onClose={() => setOpenModal(false)}
               />
-              <BookingForm open={openModal} userData={userData} />
             </div>
           </div>
         </div>

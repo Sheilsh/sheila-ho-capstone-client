@@ -4,17 +4,14 @@ import "./Parking.scss";
 
 import car from "../../assets/images/car-parking.png";
 
-export default function ParkingSpot({ id, number, booked, availableSpots }) {
-  // console.log(id);
+export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
   const [selected, setSelected] = useState("");
-  // const isBooked = booked > 0;
   const isAvailable = availableSpots.find((spot) => spot.id === id);
 
-  const handleSelectParking = (e) => {
-    if (e && e.target) {
-      const spot = e.target.id;
-      setSelected(spot);
-      console.log(spot);
+  const handleSelectParking = () => {
+    if (isAvailable) {
+      setSelected(id);
+      onSelect(id);
     }
   };
 

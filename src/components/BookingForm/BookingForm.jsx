@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import dayjs from "dayjs";
 import "./BookingForm.scss";
 import Button from "../Button/Button";
 import close from "../../assets/icons/clear_black_24dp.svg";
@@ -7,7 +8,28 @@ export default function BookingForm({ open, userData }) {
   if (!open) return null;
   const plate = userData.plate_number;
 
-  // const [value, setValue] = useState(dayjs("2022-04-17T15:30"));
+  const [selectedPlate, setSelectedPlate] = useState("");
+  const [newPlate, setNewPlate] = useState("");
+  const [startTime, setStartTime] = useState(
+    dayjs().format("YYYY-MM-DDTHH:mm")
+  );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!selectedPlate && !newPlate) {
+      alert("Please select an existing plate or enter a new one.");
+      return;
+    }
+    if (!startTime) {
+      alert("Please choose a start time.");
+      return;
+    }
+    console.log("Plate:", selectedPlate || newPlate);
+    console.log("Start time:", startTime);
+    // TODO: Add form submission logic here
+
+    e.target.reset();
+  };
 
   return (
     <div className="form">
@@ -21,18 +43,20 @@ export default function BookingForm({ open, userData }) {
           </div>
           <section className="form__content">
             <div className="form__info">
-              <p className="form__item">Date</p>
+              <p className="form__item">{startTime}</p>
               <p className="form__item">Beaches Location</p>
-              <p className="form__item">24 Hours</p>
+              {/* <p className="form__item">24 Hours</p> */}
             </div>
           </section>
           <hr />
           {/* <div id="error"></div> */}
-          <form className="form__formcontent">
+          <form className="form__formcontent" onSubmit={handleSubmit}>
             <div className="form__inputbox">
               <select
                 className="form__input form__input--selector"
                 name="plate"
+                value={selectedPlate}
+                onChange={(e) => setSelectedPlate(e.target.value)}
               >
                 <option value="">Select License Plate</option>
                 {plate.map((item, index) => (
@@ -47,7 +71,13 @@ export default function BookingForm({ open, userData }) {
             </div>
             <p>OR</p>
             <div className="form__inputbox">
-              <input className="form__input" type="text" name="license" />
+              <input
+                className="form__input"
+                type="text"
+                name="license"
+                value={newPlate}
+                onChange={(e) => setNewPlate(e.target.value)}
+              />
               <span className="form__label">Enter New License Plate</span>
             </div>
             <div className="form__inputbox">
@@ -55,6 +85,8 @@ export default function BookingForm({ open, userData }) {
                 className="form__input form__input--time"
                 type="datetime-local"
                 name="time"
+                value={startTime}
+                onChange={(e) => setStartTime(e.target.value)}
               />
               <span className="form__label">Choose a start time</span>
             </div>
