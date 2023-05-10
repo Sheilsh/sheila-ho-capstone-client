@@ -64,37 +64,23 @@
 
   // ---- parking spot styles -----
 
-  &__cardcontain {
-    display: flex;
-    justify-content: space-between;
-    padding: auto;
-    // gap: 5rem;
-  }
+  // &__cardcontain {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   padding: auto;
+  // }
 
-  &__card {
-    width: 30rem;
-    // height: 40rem;
-    display: flex;
-    justify-content: center;
-    // gap: 2rem;
-    // flex-direction: column;
-    // border-top: 1px solid #5c667e;
-    // border-top-right-radius: 25%;
-    margin: 0 auto;
-
-    // &--one {
-    //   border-right: 1px dashed #5c667e;
-    // }
-    // &--two {
-    //   border-right: 1px solid #5c667e;
-    // }
-  }
+  // &__card {
+  //   width: 30rem;
+  //   display: flex;
+  //   justify-content: center;
+  //   margin: 0 auto;
+  // }
 
   &__slot {
     height: 8rem;
-    width: 8rem;
-    // border-bottom: 1px solid #5c667e;
-    border-right: 1px solid $primary-color-black;
+    // width: 8rem;
+    // border-right: 1px solid $primary-color-black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

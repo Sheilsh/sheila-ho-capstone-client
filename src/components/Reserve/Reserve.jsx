@@ -8,7 +8,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { theme } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
-import Parking from "../Parking/Parking";
+import ParkingList from "../ParkingList/ParkingList";
 
 export default function Booking({ userData, bookingData }) {
   const [selectedDate, setSelectedDate] = useState(dayjs());
@@ -46,7 +46,7 @@ export default function Booking({ userData, bookingData }) {
           </div>
         </div>
       </div>
-      <Parking
+      <ParkingList
         userData={userData}
         bookingData={bookingData}
         selectedDate={selectedDate}

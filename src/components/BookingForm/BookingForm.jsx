@@ -16,14 +16,14 @@ export default function BookingForm({ open, userData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!selectedPlate && !newPlate) {
-      alert("Please select an existing plate or enter a new one.");
-      return;
-    }
-    if (!startTime) {
-      alert("Please choose a start time.");
-      return;
-    }
+    // if (!selectedPlate && !newPlate) {
+    //   alert("Please select an existing plate or enter a new one.");
+    //   return;
+    // }
+    // if (!startTime) {
+    //   alert("Please choose a start time.");
+    //   return;
+    // }
     console.log("Plate:", selectedPlate || newPlate);
     console.log("Start time:", startTime);
     // TODO: Add form submission logic here
