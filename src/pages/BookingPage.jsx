@@ -33,7 +33,6 @@ export default function BookingPage() {
       <>
         <Header />
         <Reserve userData={userData} bookingData={bookingData} />
-        {/* <ParkingCarousel /> */}
       </>
     );
   }

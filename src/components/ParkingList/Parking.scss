@@ -13,9 +13,17 @@
   // transform: translate(0%, -5%);
   // z-index: 2;
 
-  // &__wrapper {
-  //   @include wrapper-props;
-  // }
+  &__wrapper {
+    @include wrapper-props;
+
+    @include tablet {
+      margin-left: 12rem;
+    }
+
+    @include desktop {
+      margin-left: 15rem;
+    }
+  }
 
   &__container {
     height: 100%;
@@ -64,20 +72,7 @@
 
   // ---- parking spot styles -----
 
-  // &__cardcontain {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   padding: auto;
-  // }
-
-  // &__card {
-  //   width: 30rem;
-  //   display: flex;
-  //   justify-content: center;
-  //   margin: 0 auto;
-  // }
-
-  &__slot {
+  &__spot {
     height: 8rem;
     // width: 8rem;
     // border-right: 1px solid $primary-color-black;
@@ -86,9 +81,22 @@
     justify-content: space-around;
     align-items: center;
 
+    cursor: pointer;
+
     &--last {
       border-right: none;
     }
+
+    // &:hover {
+    //   // width: 8rem;
+    //   border: 1px solid $primary-color-black;
+    //   border-radius: 0.5rem;
+    //   filter: none;
+    // }
+
+    // &:not(:hover) {
+    //   filter: blur(1px);
+    // }
   }
 
   &__spotname {
@@ -98,10 +106,7 @@
     text-align: center;
     background-color: whitesmoke;
     border-radius: 50rem;
-    // margin: 1.5rem auto;
     padding: 1.5rem 0;
-    // writing-mode: vertical-lr;
-    // text-orientation: mixed;
   }
 
   &__carimg {
@@ -128,5 +133,49 @@
     @include button;
     background-color: black;
     margin: 0 auto;
+  }
+
+  // ---- slider styles for arrows ------
+
+  .slick-prev,
+  .slick-next {
+    top: 150%;
+  }
+  .slick-prev {
+    left: 2rem;
+  }
+
+  .slick-next {
+    right: 2rem;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    color: black;
+  }
+  .slick-dots {
+    bottom: -40%;
+  }
+
+  // -- slider effects --
+
+  .slick-slide {
+    filter: blur(2px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .slick-slide:hover {
+    filter: blur(0);
+  }
+
+  .slick-active {
+    filter: blur(0);
+  }
+
+  .slick-active:hover ~ .slick-slide {
+    filter: blur(2px);
+  }
+
+  .slick-active .slick-current:not(:hover) {
+    filter: blur(2px);
   }
 }

@@ -16,9 +16,27 @@ export default function ParkingCarousel({
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    slideMargin: 0,
+    // slideMargin: 0,
+    // centerMode: true,
+    centerPadding: "20%",
+    responsive: [
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (

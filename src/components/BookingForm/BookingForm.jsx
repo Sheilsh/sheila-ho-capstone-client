@@ -4,8 +4,7 @@ import "./BookingForm.scss";
 import Button from "../Button/Button";
 import close from "../../assets/icons/clear_black_24dp.svg";
 
-export default function BookingForm({ open, userData }) {
-  if (!open) return null;
+export default function BookingForm({ open, userData, spot, date, onClose }) {
   const plate = userData.plate_number;
 
   const [selectedPlate, setSelectedPlate] = useState("");
@@ -31,6 +30,10 @@ export default function BookingForm({ open, userData }) {
     e.target.reset();
   };
 
+  if (!open) {
+    return null;
+  }
+
   return (
     <div className="form">
       <div className="form__wrapper">
@@ -38,12 +41,18 @@ export default function BookingForm({ open, userData }) {
           <div className="form__header">
             <h1 className="form__title">Booking Information</h1>
             <div className="form__iconbox">
-              <img className="form__icon" src={close} alt="close icon" />
+              <img
+                className="form__icon"
+                src={close}
+                alt="close icon"
+                onClick={onClose}
+              />
             </div>
           </div>
           <section className="form__content">
             <div className="form__info">
               <p className="form__item">{startTime}</p>
+              <p className="form__item">Spot {spot[1]}</p>
               <p className="form__item">Beaches Location</p>
               {/* <p className="form__item">24 Hours</p> */}
             </div>
@@ -96,7 +105,11 @@ export default function BookingForm({ open, userData }) {
                 type="submit"
                 btnName="Confirm"
               />
-              <Button className="form__button" btnName="Cancel" />
+              <Button
+                className="form__button"
+                btnName="Cancel"
+                onClick={onClose}
+              />
             </div>
           </form>
         </div>

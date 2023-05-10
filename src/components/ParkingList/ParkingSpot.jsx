@@ -11,13 +11,13 @@ export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
   const handleSelectParking = () => {
     if (isAvailable) {
       setSelected(id);
-      onSelect(id);
+      onSelect(id, number);
     }
   };
 
   return (
     <>
-      <div className="parking__slot">
+      <div className="parking__spot">
         {isAvailable ? (
           <p className="parking__spotstatus">Available</p>
         ) : (
@@ -30,7 +30,7 @@ export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
             <p
               className="parking__spotname"
               onClick={handleSelectParking}
-              id={id}
+              number={number}
             >
               Empty
             </p>
