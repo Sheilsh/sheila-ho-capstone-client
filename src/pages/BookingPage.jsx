@@ -15,12 +15,12 @@ export default function BookingPage() {
 
   useEffect(() => {
     getUser(id).then((data) => {
-      console.log("user data", data);
+      // console.log("user data", data);
       setUserData(data);
     });
 
     getBooking().then((data) => {
-      console.log("booking data", data);
+      // console.log("booking data", data);
       setBookingData(data);
       setLoading(false);
     });

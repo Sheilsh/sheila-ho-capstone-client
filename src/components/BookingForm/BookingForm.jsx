@@ -1,32 +1,69 @@
 import React, { useState } from "react";
-import dayjs from "dayjs";
-import "./BookingForm.scss";
-import Button from "../Button/Button";
-import close from "../../assets/icons/clear_black_24dp.svg";
 
-export default function BookingForm({ open, userData, spot, date, onClose }) {
+import { addBooking } from "../../utils/helpers";
+import close from "../../assets/icons/clear_black_24dp.svg";
+import Button from "../Button/Button";
+import "./BookingForm.scss";
+
+export default function BookingForm({ open, userData, spot, onClose }) {
   const plate = userData.license_plate;
 
-  const [selectedPlate, setSelectedPlate] = useState("");
   const [newPlate, setNewPlate] = useState("");
-  const [startTime, setStartTime] = useState(
-    dayjs().format("YYYY-MM-DDTHH:mm")
-  );
+  const [selectedPlate, setSelectedPlate] = useState("");
+
+  const [duration, setDuration] = useState(0);
+  const [startTime, setStartTime] = useState(new Date().toLocaleString());
+  const [endTime, setEndTime] = useState("");
+
+  //--- function to calculating EndTime ----
+  const calculateEndTime = (duration) => {
+    const start = new Date(startTime);
+    const end = new Date(start.getTime() + duration * 60 * 60 * 1000);
+    return end.toLocaleString();
+  };
+
+  //--- function to handle input field change ----
+
+  const handleChange = (e) => {
+    setDuration(Number(e.target.value));
+    setEndTime(calculateEndTime(Number(e.target.value)));
+  };
+
+  //--- function to submti form ----
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!selectedPlate && !newPlate) {
-    //   alert("Please select an existing plate or enter a new one.");
-    //   return;
-    // }
-    // if (!startTime) {
-    //   alert("Please choose a start time.");
-    //   return;
-    // }
+
+    if (!selectedPlate && !newPlate) {
+      alert("Please select an existing plate or enter a new one.");
+      return;
+    }
+
+    if (!duration) {
+      alert("Please select the duration.");
+      return;
+    }
+
     console.log("Plate:", selectedPlate || newPlate);
     console.log("Start time:", startTime);
-    // TODO: Add form submission logic here
+    console.log("End time:", new Date(endTime).toLocaleString());
 
+    const formData = {
+      spot: spot[1],
+      licensePlate: selectedPlate || newPlate,
+      duration,
+      startTime,
+      endTime,
+    };
+
+    try {
+      addBooking(formData);
+      console.log("formDAta", formData);
+
+      alert("Booking confirmed.");
+    } catch (error) {
+      alert("Failed to confirm booking.");
+    }
     e.target.reset();
   };
 
@@ -51,14 +88,17 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
           </div>
           <section className="form__content">
             <div className="form__info">
-              <p className="form__item">{startTime}</p>
               <p className="form__item">Spot {spot[1]}</p>
               <p className="form__item">Beaches Location</p>
-              {/* <p className="form__item">24 Hours</p> */}
+              <p className="form__item">Start Time: {startTime}</p>
             </div>
+            {duration !== 0 && (
+              <div className="form__info">
+                <p className="form__item">End Time: {endTime}</p>
+              </div>
+            )}
           </section>
           <hr />
-          {/* <div id="error"></div> */}
           <form className="form__formcontent" onSubmit={handleSubmit}>
             <div className="form__inputbox">
               <select
@@ -77,9 +117,6 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
                   </option>
                 ))}
               </select>
-              {/* <span className="form__label form__label--select">
-                Select License Plate
-              </span> */}
             </div>
             <p>OR</p>
             <div className="form__inputbox">
@@ -93,14 +130,18 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
               <span className="form__label">Enter New License Plate</span>
             </div>
             <div className="form__inputbox">
-              <input
-                className="form__input form__input--time"
-                type="datetime-local"
-                name="time"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
-              />
-              <span className="form__label">Choose a start time</span>
+              <select
+                className="form__input form__input--selector"
+                name="duration"
+                value={duration}
+                onChange={handleChange}
+              >
+                <option>Select Duration</option>
+                <option value={1}>1 Hour</option>
+                <option value={2}>2 Hours</option>
+                <option value={3}>3 Hours</option>
+                <option value={24}>24 Hours</option>
+              </select>
             </div>
             <div className="form__cta">
               <Button

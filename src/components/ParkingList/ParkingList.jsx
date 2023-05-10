@@ -12,7 +12,7 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
 
   useEffect(() => {
     getParking().then((data) => {
-      console.log("parking data", data);
+      // console.log("parking data", data);
       setParkingData(data);
     });
   }, []);
@@ -59,7 +59,7 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
                 open={openModal}
                 userData={userData}
                 spot={selectedSpot}
-                date={selectedDate}
+                // date={selectedDate}
                 onClose={() => setOpenModal(false)}
               />
             </div>

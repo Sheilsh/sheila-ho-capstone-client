@@ -62,3 +62,17 @@ export async function getBookingById(id) {
     console.log(error);
   }
 }
+
+export async function addBooking(data) {
+  try {
+    const response = await axios.post(
+      `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`,
+      data
+    );
+    if (response.status === 201) {
+      return response;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
