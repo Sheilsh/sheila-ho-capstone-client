@@ -38,6 +38,19 @@ export async function getParking() {
   }
 }
 
+export async function getUserBooking() {
+  try {
+    const response = await axios.get(
+      `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}/booking`
+    );
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // --- booking api ---
 export async function getBooking() {
   try {

@@ -31,7 +31,7 @@ export default function BookingPage() {
   } else {
     return (
       <>
-        <Header />
+        <Header linkTo={"/"} headerName={"Beaches"} />
         <Reserve userData={userData} bookingData={bookingData} />
       </>
     );
