@@ -1,6 +1,7 @@
 import axios from "../services/axios";
 import routes from "../services/routes.json";
 
+// --- user api ---
 export async function getUsers() {
   try {
     const response = await axios.get(routes.user);
@@ -15,10 +16,61 @@ export async function getUsers() {
 export async function getUser(id) {
   try {
     const response = await axios.get(
-      `${routes.user}/${"098ac9d2-b96e-4761-a94c-50e74012c1f1"}`
+      `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`
     );
     if (response.status === 200) {
       return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- parking api ---
+export async function getParking() {
+  try {
+    const response = await axios.get(`${routes.parking}`);
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- booking api ---
+export async function getBooking() {
+  try {
+    const response = await axios.get(routes.booking);
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getBookingById(id) {
+  try {
+    const response = await axios.get(
+      `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`
+    );
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function addBooking(data) {
+  try {
+    const response = await axios.post(
+      `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`,
+      data
+    );
+    if (response.status === 201) {
+      return response;
     }
   } catch (error) {
     console.log(error);

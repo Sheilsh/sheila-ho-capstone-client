@@ -4,28 +4,29 @@
 
 .homepage {
   width: 100%;
-  height: 80rem;
-  // background: linear-gradient(
-  //   to top,
-  //   whitesmoke 0%,
-  //   whitesmoke 10%,
-  //   #b4b2e780 100%,
-  //   #b4b2e780 100%
-  // );
-  background: linear-gradient(
-    to top,
-    whitesmoke 0%,
-    whitesmoke 50%,
-    #b4b2e780 50%,
-    #b4b2e780 100%
-  );
+  height: 100%;
+  background: whitesmoke;
 
-  &__wrapper {
-    @include wrapper-props;
+  // &__wrapper {
+  //   @include wrapper-props;
+  // }
+
+  &__container {
+    position: relative;
   }
 
-  &__bannercontain {
-    height: 25rem;
+  &__header {
+    height: 35rem;
+    background-color: #b4b2e780;
+    // background: radial-gradient(#64c9e659, #9198e5);
+    border-radius: 0px 0px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      border-radius: 0;
+    }
   }
 
   &__banner {
@@ -43,6 +44,10 @@
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+    position: absolute;
+    top: 31rem;
+    left: 0rem;
+    right: 0rem;
 
     // @include tablet {
     //   position: absolute;
@@ -54,7 +59,9 @@
     @include page-header;
     font-weight: 700;
     text-align: center;
-    width: 20rem;
+    width: 25rem;
+    position: absolute;
+    top: 23rem;
   }
 
   &__active {
