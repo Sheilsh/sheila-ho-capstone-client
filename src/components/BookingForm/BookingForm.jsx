@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { addBooking } from "../../utils/helpers";
 import close from "../../assets/icons/clear_black_24dp.svg";
@@ -7,8 +8,9 @@ import "./BookingForm.scss";
 
 export default function BookingForm({ open, userData, spot, onClose }) {
   const plate = userData.license_plate;
+  const navigate = useNavigate();
 
-  const [newPlate, setNewPlate] = useState("");
+  const [newPlate, setNewPlate] = useState([]);
   const [selectedPlate, setSelectedPlate] = useState("");
 
   const [duration, setDuration] = useState(0);
@@ -31,6 +33,10 @@ export default function BookingForm({ open, userData, spot, onClose }) {
 
   //--- function to submti form ----
 
+  const resetInput = () => {
+    setNewPlate("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -49,18 +55,20 @@ export default function BookingForm({ open, userData, spot, onClose }) {
     console.log("End time:", new Date(endTime).toLocaleString());
 
     const formData = {
-      spot: spot[1],
-      licensePlate: selectedPlate || newPlate,
-      duration,
-      startTime,
-      endTime,
+      parking_id: spot[0],
+      plate_number: selectedPlate || newPlate,
+      start_datetime: startTime,
+      end_datetime: endTime,
     };
 
     try {
       addBooking(formData);
       console.log("formDAta", formData);
 
+      resetInput();
+
       alert("Booking confirmed.");
+      navigate(-1);
     } catch (error) {
       alert("Failed to confirm booking.");
     }
@@ -88,8 +96,8 @@ export default function BookingForm({ open, userData, spot, onClose }) {
           </div>
           <section className="form__content">
             <div className="form__info">
-              <p className="form__item">Spot {spot[1]}</p>
               <p className="form__item">Beaches Location</p>
+              <p className="form__item">Selected: Spot {spot[1]}</p>
               <p className="form__item">Start Time: {startTime}</p>
             </div>
             {duration !== 0 && (
@@ -109,11 +117,8 @@ export default function BookingForm({ open, userData, spot, onClose }) {
               >
                 <option value="">Select License Plate</option>
                 {plate.map((item, index) => (
-                  <option
-                    key={index}
-                    value={`${item.province}-${item.plate_number}`}
-                  >
-                    {`${item.province} - ${item.plate_number}`}
+                  <option key={index} value={`${item.plate_number}`}>
+                    {`${item.plate_number}`}
                   </option>
                 ))}
               </select>
