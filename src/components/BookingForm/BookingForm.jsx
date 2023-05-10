@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import close from "../../assets/icons/clear_black_24dp.svg";
 
 export default function BookingForm({ open, userData, spot, date, onClose }) {
-  const plate = userData.plate_number;
+  const plate = userData.license_plate;
 
   const [selectedPlate, setSelectedPlate] = useState("");
   const [newPlate, setNewPlate] = useState("");
@@ -69,8 +69,11 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
               >
                 <option value="">Select License Plate</option>
                 {plate.map((item, index) => (
-                  <option key={index} value={item}>
-                    {item}
+                  <option
+                    key={index}
+                    value={`${item.province}-${item.plate_number}`}
+                  >
+                    {`${item.province} - ${item.plate_number}`}
                   </option>
                 ))}
               </select>
