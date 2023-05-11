@@ -12,7 +12,7 @@ export default function HistoryList({ bookingData }) {
               <h1>Active Sessions</h1>
             </section> */}
             <section className="history__content">
-              <h1>History</h1>
+              <h1 className="history__header">Previous Bookings</h1>
               {bookingData.map((booking) => {
                 return (
                   <HistoryCard

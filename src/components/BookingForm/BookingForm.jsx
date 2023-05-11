@@ -23,9 +23,25 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
   console.log("start time", startTime);
 
   //--- function to calculating date time ----
-  const setInitialStartTime = (date) => {
-    const formattedDate = new Date(date).toLocaleString();
-    setStartTime(formattedDate);
+  // const setInitialStartTime = (selectedDate) => {
+  //   const currentDate = new Date();
+  //   const formattedDate = selectedDate
+  //     ? new Date(selectedDate + " " + currentDate.toLocaleTimeString())
+  //     : currentDate;
+  //   setStartTime(formattedDate.toLocaleString());
+  // };
+  const setInitialStartTime = (selectedDate) => {
+    const currentDate = new Date();
+    const start = selectedDate ? new Date(selectedDate) : currentDate;
+    const formattedDate = new Date(
+      start.getFullYear(),
+      start.getMonth(),
+      start.getDate(),
+      currentDate.getHours(),
+      currentDate.getMinutes(),
+      currentDate.getSeconds()
+    );
+    setStartTime(formattedDate.toLocaleString());
   };
 
   useEffect(() => {
