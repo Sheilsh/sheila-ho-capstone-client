@@ -3,6 +3,9 @@ import "./History.scss";
 import map from "../../assets/images/beaches-map.png";
 
 export default function HistoryCard({ id, start, end, spot }) {
+  const localStart = new Date(start).toLocaleString();
+  const localEnd = new Date(end).toLocaleString();
+  console.log(id);
   return (
     <div className="historycard__container">
       <div className="historycard__content">
@@ -24,11 +27,11 @@ export default function HistoryCard({ id, start, end, spot }) {
           </div>
           <div className="historycard__infocontent">
             <h4 className="historycard__title">Start:</h4>
-            <p className="historycard__data">{start}</p>
+            <p className="historycard__data">{localStart}</p>
           </div>
           <div className="historycard__infocontent">
             <h4 className="historycard__title">End:</h4>
-            <p className="historycard__data"> {end}</p>
+            <p className="historycard__data"> {localEnd}</p>
           </div>
           <div className="historycard__infocontent">
             <h4 className="historycard__title">Spot:</h4>

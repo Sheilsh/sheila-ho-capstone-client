@@ -17,9 +17,10 @@ export default function HistoryList({ bookingData }) {
                 return (
                   <HistoryCard
                     key={booking.id}
+                    id={booking.id}
                     start={booking.start_datetime}
                     end={booking.end_datetime}
-                    spot={booking.spot}
+                    spot={booking.spot_number}
                   />
                 );
               })}
