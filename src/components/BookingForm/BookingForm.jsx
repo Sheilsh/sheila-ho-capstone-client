@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { addBooking } from "../../utils/helpers";
 import close from "../../assets/icons/clear_black_24dp.svg";
+import erroricon from "../../assets/icons/error-24px.svg";
 import Button from "../Button/Button";
 import "./BookingForm.scss";
 
-export default function BookingForm({ open, userData, spot, onClose }) {
+export default function BookingForm({ open, userData, spot, date, onClose }) {
+  // console.log("date in form", date);
   const plate = userData.license_plate;
   const navigate = useNavigate();
 
+  const [error, setError] = useState("");
   const [newPlate, setNewPlate] = useState([]);
   const [selectedPlate, setSelectedPlate] = useState("");
 
@@ -17,7 +20,18 @@ export default function BookingForm({ open, userData, spot, onClose }) {
   const [startTime, setStartTime] = useState(new Date().toLocaleString());
   const [endTime, setEndTime] = useState("");
 
-  //--- function to calculating EndTime ----
+  console.log("start time", startTime);
+
+  //--- function to calculating date time ----
+  const setInitialStartTime = (date) => {
+    const formattedDate = new Date(date).toLocaleString();
+    setStartTime(formattedDate);
+  };
+
+  useEffect(() => {
+    setInitialStartTime(date);
+  }, [date]);
+
   const calculateEndTime = (duration) => {
     const start = new Date(startTime);
     const end = new Date(start.getTime() + duration * 60 * 60 * 1000);
@@ -37,16 +51,25 @@ export default function BookingForm({ open, userData, spot, onClose }) {
     setNewPlate("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!selectedPlate && !newPlate) {
-      alert("Please select an existing plate or enter a new one.");
+    // Get the current date
+    const currentDate = date;
+
+    // Check if the selected date matches the current date
+    if (date !== currentDate) {
+      setError("You can only make a booking for the current date.");
+      return;
+    }
+
+    if (!selectedPlate || !newPlate) {
+      setError("Please select an existing plate or enter a new one.");
       return;
     }
 
     if (!duration) {
-      alert("Please select the duration.");
+      setError("Please select the duration.");
       return;
     }
 
@@ -62,7 +85,7 @@ export default function BookingForm({ open, userData, spot, onClose }) {
     };
 
     try {
-      addBooking(formData);
+      await addBooking(formData);
       console.log("formDAta", formData);
 
       resetInput();
@@ -96,13 +119,21 @@ export default function BookingForm({ open, userData, spot, onClose }) {
           </div>
           <section className="form__content">
             <div className="form__info">
+              <p className="form__item">Date Selected: {startTime}</p>
               <p className="form__item">Beaches Location</p>
               <p className="form__item">Selected: Spot {spot[1]}</p>
-              <p className="form__item">Start Time: {startTime}</p>
             </div>
             {duration !== 0 && (
               <div className="form__info">
+                {/* <p className="form__item">Start Time: {startTime}</p> */}
                 <p className="form__item">End Time: {endTime}</p>
+              </div>
+            )}
+            {error && (
+              <div className="error">
+                {" "}
+                <img className="error__icon" src={erroricon} alt="error icon" />
+                {error}
               </div>
             )}
           </section>

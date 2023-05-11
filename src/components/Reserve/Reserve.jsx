@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import "./Reserve.scss";
-import { getBooking } from "../../utils/helpers";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -10,24 +9,23 @@ import { theme } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 import ParkingList from "../ParkingList/ParkingList";
 
-export default function Booking({ userData, bookingData }) {
+export default function Reserve({ userData, bookingData }) {
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [data, setData] = useState("");
 
-  useEffect(() => {
-    // setData(bookingData);
-  });
-
-  function dateChangeHandler(e) {
+  const dateChangeHandler = (e) => {
     const newDate = dayjs(e.$d);
     setSelectedDate(newDate.format("MM-DD-YYYY"));
-    // add more code here instead to update the bottom component
+
+    // Perform additional actions or API calls based on the newDate
     console.log(newDate.format("MM-DD-YYYY"));
+    // Example:
+    // fetchBookingData(newDate).then((newData) => setData(newData));
+    // add more code here instead to update the bottom component
+
     // using this "e" - event object, you're going to send an api call
     // to grab more data and display using the state
     // i.e. -> call setData(myNewData)
-    getBooking().then((data) => setData(data));
-  }
+  };
 
   return (
     <>

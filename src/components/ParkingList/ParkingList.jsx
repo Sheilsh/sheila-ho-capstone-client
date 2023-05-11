@@ -19,12 +19,17 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
 
   const availableSpots = parkingData.filter((spot) => {
     const isAvailable = !bookingData.find((booking) => {
-      const bookingDate = dayjs(booking.end_datetime);
       const selectedDateStart = dayjs(selectedDate).startOf("day");
+      const selectedDateEnd = dayjs(selectedDate).endOf("day");
+
       return (
         booking.spot_number === spot.spot_number &&
-        (bookingDate.isSame(selectedDateStart, "day") ||
-          bookingDate.isAfter(selectedDateStart))
+        dayjs(booking.end_datetime).isBetween(
+          selectedDateStart,
+          selectedDateEnd,
+          null,
+          "[]"
+        )
       );
     });
     return isAvailable;
@@ -59,7 +64,7 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
                 open={openModal}
                 userData={userData}
                 spot={selectedSpot}
-                // date={selectedDate}
+                date={selectedDate}
                 onClose={() => setOpenModal(false)}
               />
             </div>
