@@ -20,6 +20,7 @@ export default function BookingForm({
   handleDurationChange,
   handleSubmit,
 }) {
+  console.log(plate);
   return (
     <div className="form">
       <div className="form__wrapper">

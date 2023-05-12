@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { addBooking } from "../../utils/helpers";
+import { addBooking, getUserBooking } from "../../utils/helpers";
 
 import "./BookingForm.scss";
 import BookingForm from "./BookingForm";
@@ -12,8 +12,11 @@ export default function BookingFormAction({
   date,
   onClose,
 }) {
+  //   console.log(userData);
   const plate = userData.license_plate;
+  const plateId = userData.plate_id;
   const navigate = useNavigate();
+  //   console.log(plateId);
 
   const [selectedPlate, setSelectedPlate] = useState("");
   const [newPlate, setNewPlate] = useState("");
@@ -33,7 +36,25 @@ export default function BookingFormAction({
       currentDate.getMinutes(),
       currentDate.getSeconds()
     );
-    setStartTime(formattedDate.toLocaleString());
+    // setStartTime(formattedDate.toLocaleString());
+    const formattedDateString = `${formattedDate.getFullYear()}-${(
+      formattedDate.getMonth() + 1
+    )
+      .toString()
+      .padStart(2, "0")}-${formattedDate
+      .getDate()
+      .toString()
+      .padStart(2, "0")} ${formattedDate
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${formattedDate
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}:${formattedDate
+      .getSeconds()
+      .toString()
+      .padStart(2, "0")}`;
+    setStartTime(formattedDateString);
   }, [date]);
 
   useEffect(() => {
@@ -41,10 +62,23 @@ export default function BookingFormAction({
       if (duration && startTime) {
         const start = new Date(startTime);
         const end = new Date(start.getTime() + duration * 60 * 60 * 1000);
-        setEndTime(end.toLocaleString());
+        // setEndTime(end.toLocaleString());
+        const formattedDateString = `${end.getFullYear()}-${(end.getMonth() + 1)
+          .toString()
+          .padStart(2, "0")}-${end.getDate().toString().padStart(2, "0")} ${end
+          .getHours()
+          .toString()
+          .padStart(2, "0")}:${end
+          .getMinutes()
+          .toString()
+          .padStart(2, "0")}:${end.getSeconds().toString().padStart(2, "0")}`;
+        setEndTime(formattedDateString);
       }
     };
     calculateEndTime();
+    return () => {
+      setEndTime("");
+    };
   }, [duration, startTime]);
 
   const handleSubmit = async (e) => {
@@ -60,16 +94,33 @@ export default function BookingFormAction({
       return;
     }
 
+    const startDate = new Date(startTime);
+    const userBookings = await getUserBooking(userData.id);
+
+    const bookingsOnSameDay = userBookings.filter((booking) => {
+      const bookingStartDate = new Date(booking.start_datetime);
+      return bookingStartDate.toDateString() === startDate.toDateString();
+    });
+
+    if (bookingsOnSameDay.length > 0) {
+      setError("You have already booked a spot for today.");
+      return;
+    }
+
     const formData = {
+      user_id: userData.id,
       parking_id: spot[0],
-      plate_number: selectedPlate || newPlate,
+      plate_id: plateId,
+      plate_number: newPlate || selectedPlate,
       start_datetime: startTime,
       end_datetime: endTime,
     };
 
     try {
-      await addBooking(formData);
       console.log("formData", formData);
+      await addBooking(formData);
+      //   console.log("response from addBooking", response);
+      //   console.log("spot_id:", spot[0]);
 
       setNewPlate("");
       setSelectedPlate("");
@@ -86,6 +137,7 @@ export default function BookingFormAction({
   };
 
   const handlePlateChange = (e) => {
+    console.log(e.target.value);
     setSelectedPlate(e.target.value);
   };
 

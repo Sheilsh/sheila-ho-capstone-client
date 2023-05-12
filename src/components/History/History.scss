@@ -3,6 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .history {
+  height: 100vh;
   &__wrapper {
     @include wrapper-props;
   }
