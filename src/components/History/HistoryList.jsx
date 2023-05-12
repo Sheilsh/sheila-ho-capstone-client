@@ -13,17 +13,22 @@ export default function HistoryList({ bookingData }) {
             </section> */}
             <section className="history__content">
               <h1 className="history__header">Previous Bookings</h1>
-              {bookingData.map((booking) => {
-                return (
-                  <HistoryCard
-                    key={booking.id}
-                    id={booking.id}
-                    start={booking.start_datetime}
-                    end={booking.end_datetime}
-                    spot={booking.spot_number}
-                  />
-                );
-              })}
+              {bookingData
+                .sort(
+                  (a, b) =>
+                    new Date(b.start_datetime) - new Date(a.start_datetime)
+                )
+                .map((booking) => {
+                  return (
+                    <HistoryCard
+                      key={booking.id}
+                      id={booking.id}
+                      start={booking.start_datetime}
+                      end={booking.end_datetime}
+                      spot={booking.spot_number}
+                    />
+                  );
+                })}
             </section>
           </div>
         </div>
