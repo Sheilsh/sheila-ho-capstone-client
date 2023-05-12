@@ -102,6 +102,7 @@
     // text-transform: uppercase;'
   }
 
+  &__inputbox input:valid ~ &__label,
   &__inputbox input:focus ~ &__label {
     color: $primary-color-blue-purple;
     transform: translateX(10px) translateY(-7px);

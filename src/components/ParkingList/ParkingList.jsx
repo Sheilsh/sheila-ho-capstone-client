@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { getParking } from "../../utils/helpers";
 import Button from "../Button/Button";
-import BookingForm from "../BookingForm/BookingForm";
+import BookingFormAction from "../BookingForm/BookingFormAction";
 import ParkingCarousel from "./ParkingCarousel";
 
 export default function ParkingList({ userData, bookingData, selectedDate }) {
@@ -60,7 +60,7 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
                 btnName="Book"
                 onClick={() => setOpenModal(true)}
               /> */}
-              <BookingForm
+              <BookingFormAction
                 open={openModal}
                 userData={userData}
                 spot={selectedSpot}

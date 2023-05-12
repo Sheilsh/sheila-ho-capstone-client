@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getBooking, getUser } from "../utils/helpers";
 import { useParams } from "react-router-dom";
-import Reserve from "../components/Reserve/Reserve";
+import Booking from "../components/Booking/Booking";
 import Header from "../components/Header/Header";
 
 export default function BookingPage() {
@@ -32,7 +32,7 @@ export default function BookingPage() {
     return (
       <>
         <Header linkTo={"/"} headerName={"Beaches"} />
-        <Reserve userData={userData} bookingData={bookingData} />
+        <Booking userData={userData} bookingData={bookingData} />
       </>
     );
   }

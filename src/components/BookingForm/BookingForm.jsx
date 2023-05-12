@@ -1,123 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
-import { addBooking } from "../../utils/helpers";
 import close from "../../assets/icons/clear_black_24dp.svg";
 import erroricon from "../../assets/icons/error-24px.svg";
 import Button from "../Button/Button";
 import "./BookingForm.scss";
 
-export default function BookingForm({ open, userData, spot, date, onClose }) {
-  // console.log("date in form", date);
-  const plate = userData.license_plate;
-  const navigate = useNavigate();
-
-  const [error, setError] = useState("");
-  const [newPlate, setNewPlate] = useState([]);
-  const [selectedPlate, setSelectedPlate] = useState("");
-
-  const [duration, setDuration] = useState(0);
-  const [startTime, setStartTime] = useState(new Date().toLocaleString());
-  const [endTime, setEndTime] = useState("");
-
-  console.log("start time", startTime);
-
-  //--- function to calculating date time ----
-  // const setInitialStartTime = (selectedDate) => {
-  //   const currentDate = new Date();
-  //   const formattedDate = selectedDate
-  //     ? new Date(selectedDate + " " + currentDate.toLocaleTimeString())
-  //     : currentDate;
-  //   setStartTime(formattedDate.toLocaleString());
-  // };
-  const setInitialStartTime = (selectedDate) => {
-    const currentDate = new Date();
-    const start = selectedDate ? new Date(selectedDate) : currentDate;
-    const formattedDate = new Date(
-      start.getFullYear(),
-      start.getMonth(),
-      start.getDate(),
-      currentDate.getHours(),
-      currentDate.getMinutes(),
-      currentDate.getSeconds()
-    );
-    setStartTime(formattedDate.toLocaleString());
-  };
-
-  useEffect(() => {
-    setInitialStartTime(date);
-  }, [date]);
-
-  const calculateEndTime = (duration) => {
-    const start = new Date(startTime);
-    const end = new Date(start.getTime() + duration * 60 * 60 * 1000);
-    return end.toLocaleString();
-  };
-
-  //--- function to handle input field change ----
-
-  const handleChange = (e) => {
-    setDuration(Number(e.target.value));
-    setEndTime(calculateEndTime(Number(e.target.value)));
-  };
-
-  //--- function to submti form ----
-
-  const resetInput = () => {
-    setNewPlate("");
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Get the current date
-    const currentDate = date;
-
-    // Check if the selected date matches the current date
-    if (date !== currentDate) {
-      setError("You can only make a booking for the current date.");
-      return;
-    }
-
-    if (!selectedPlate || !newPlate) {
-      setError("Please select an existing plate or enter a new one.");
-      return;
-    }
-
-    if (!duration) {
-      setError("Please select the duration.");
-      return;
-    }
-
-    console.log("Plate:", selectedPlate || newPlate);
-    console.log("Start time:", startTime);
-    console.log("End time:", new Date(endTime).toLocaleString());
-
-    const formData = {
-      parking_id: spot[0],
-      plate_number: selectedPlate || newPlate,
-      start_datetime: startTime,
-      end_datetime: endTime,
-    };
-
-    try {
-      await addBooking(formData);
-      console.log("formDAta", formData);
-
-      resetInput();
-
-      alert("Booking confirmed.");
-      navigate(-1);
-    } catch (error) {
-      alert("Failed to confirm booking.");
-    }
-    e.target.reset();
-  };
-
-  if (!open) {
-    return null;
-  }
-
+export default function BookingForm({
+  startTime,
+  endTime,
+  duration,
+  error,
+  plate,
+  selectedPlate,
+  newPlate,
+  onClose,
+  spot,
+  handlePlateChange,
+  handleNewPlateChange,
+  handleDurationChange,
+  handleSubmit,
+}) {
   return (
     <div className="form">
       <div className="form__wrapper">
@@ -141,7 +43,6 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
             </div>
             {duration !== 0 && (
               <div className="form__info">
-                {/* <p className="form__item">Start Time: {startTime}</p> */}
                 <p className="form__item">End Time: {endTime}</p>
               </div>
             )}
@@ -160,7 +61,7 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
                 className="form__input form__input--selector"
                 name="plate"
                 value={selectedPlate}
-                onChange={(e) => setSelectedPlate(e.target.value)}
+                onChange={handlePlateChange}
               >
                 <option value="">Select License Plate</option>
                 {plate.map((item, index) => (
@@ -177,7 +78,7 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
                 type="text"
                 name="license"
                 value={newPlate}
-                onChange={(e) => setNewPlate(e.target.value)}
+                onChange={handleNewPlateChange}
               />
               <span className="form__label">Enter New License Plate</span>
             </div>
@@ -186,7 +87,7 @@ export default function BookingForm({ open, userData, spot, date, onClose }) {
                 className="form__input form__input--selector"
                 name="duration"
                 value={duration}
-                onChange={handleChange}
+                onChange={handleDurationChange}
               >
                 <option>Select Duration</option>
                 <option value={1}>1 Hour</option>
