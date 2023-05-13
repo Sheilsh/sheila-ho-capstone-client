@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAvailability, getBooking, getUser } from "../utils/helpers";
+import { getBooking, getUser } from "../utils/helpers";
 import { useParams } from "react-router-dom";
 import Booking from "../components/Booking/Booking";
 import Header from "../components/Header/Header";
@@ -24,10 +24,6 @@ export default function BookingPage() {
       setBookingData(data);
       setLoading(false);
     });
-
-    // getAvailability().then((data)=> {
-
-    // })
   }, [id]);
 
   if (loading) {

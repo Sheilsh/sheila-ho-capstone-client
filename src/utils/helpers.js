@@ -99,9 +99,20 @@ export async function getBookingById(id) {
   }
 }
 
-export async function getAvailability(data) {
+// export async function getAvailability(data) {
+//   try {
+//     const response = await axios.get(routes.booking, data);
+//     if (response.status === 201) {
+//       return response;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+export async function addBooking(data) {
   try {
-    const response = await axios.get(routes.booking, data);
+    const response = await axios.post(routes.booking, data);
     if (response.status === 201) {
       return response;
     }
@@ -110,11 +121,11 @@ export async function getAvailability(data) {
   }
 }
 
-export async function addBooking(data) {
+export async function deleteBooking(id) {
   try {
-    const response = await axios.post(routes.booking, data);
-    if (response.status === 201) {
-      return response;
+    const response = await axios.delete(`${routes.booking}/${id}`);
+    if (response.status === 200) {
+      return response.data;
     }
   } catch (error) {
     console.log(error);

@@ -60,11 +60,6 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
     setOpenModal(true);
   };
 
-  // const handleOnClose = () => {
-  //   setOpenModal(false);
-  //   navigate("/booking");
-  // };
-
   return (
     <section className="parking">
       <div className="parking__wrapper">
