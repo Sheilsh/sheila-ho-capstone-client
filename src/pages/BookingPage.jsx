@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getBooking, getUser } from "../utils/helpers";
 import { useParams } from "react-router-dom";
-import Reserve from "../components/Reserve/Reserve";
+import Booking from "../components/Booking/Booking";
 import Header from "../components/Header/Header";
 
 export default function BookingPage() {
-  // call booking api here
   const { id } = useParams();
 
   // -----  state -----
@@ -15,12 +14,10 @@ export default function BookingPage() {
 
   useEffect(() => {
     getUser(id).then((data) => {
-      // console.log("user data", data);
       setUserData(data);
     });
 
     getBooking().then((data) => {
-      // console.log("booking data", data);
       setBookingData(data);
       setLoading(false);
     });
@@ -31,8 +28,8 @@ export default function BookingPage() {
   } else {
     return (
       <>
-        <Header />
-        <Reserve userData={userData} bookingData={bookingData} />
+        <Header linkTo={"/"} headerName={"Beaches"} />
+        <Booking userData={userData} bookingData={bookingData} />
       </>
     );
   }

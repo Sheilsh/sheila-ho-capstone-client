@@ -7,7 +7,8 @@ import NavBar from "./components/NavBar/NavBar";
 import LogIn from "./pages/LogIn/LogIn";
 import HomePage from "./pages/HomePage";
 import BookingPage from "./pages/BookingPage";
-// import History from "./pages/History";
+import HistoryPage from "./pages/HistoryPage";
+import HistoryDetails from "./components/History/HistoryDetails";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/:id" element={<HomePage />} />
           <Route path="/booking" element={<BookingPage />} />
-          {/* <Route path="/history" element={<History />} /> */}
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/history/:id/details" element={<HistoryDetails />} />
           {/* <Route path="/account" element={<Account />} /> */}
         </Routes>
         <MobileNav />

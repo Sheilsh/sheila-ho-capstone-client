@@ -1,30 +1,55 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { getParking } from "../../utils/helpers";
-import Button from "../Button/Button";
-import BookingForm from "../BookingForm/BookingForm";
+// import Button from "../Button/Button";
+import BookingFormAction from "../BookingForm/BookingFormAction";
 import ParkingCarousel from "./ParkingCarousel";
+
+import Modal from "@mui/material/Modal";
 
 export default function ParkingList({ userData, bookingData, selectedDate }) {
   const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedSpot, setSelectedSpot] = useState(null);
+  // const [availableSpotCount, setAvailableSpotCount] = useState(0);
+
+  // console.log(availableSpotCount);
 
   useEffect(() => {
     getParking().then((data) => {
       // console.log("parking data", data);
       setParkingData(data);
     });
+
+    // getAvailableSpotCount().then((count) => {
+    //   setAvailableSpotCount(count);
+    // });
   }, []);
 
   const availableSpots = parkingData.filter((spot) => {
     const isAvailable = !bookingData.find((booking) => {
-      const bookingDate = dayjs(booking.end_datetime);
       const selectedDateStart = dayjs(selectedDate).startOf("day");
+      const selectedDateEnd = dayjs(selectedDate).endOf("day");
+      const bookingStart = dayjs(booking.start_datetime);
+      const bookingEnd = dayjs(booking.end_datetime);
+
+      // Check if the booking overlaps with today and tomorrow
       return (
         booking.spot_number === spot.spot_number &&
-        (bookingDate.isSame(selectedDateStart, "day") ||
-          bookingDate.isAfter(selectedDateStart))
+        (bookingStart.isBetween(
+          selectedDateStart,
+          selectedDateEnd,
+          null,
+          "[]"
+        ) ||
+          bookingEnd.isBetween(
+            selectedDateStart,
+            selectedDateEnd,
+            null,
+            "[]"
+          ) ||
+          (bookingStart.isBefore(selectedDateStart) &&
+            bookingEnd.isAfter(selectedDateEnd)))
       );
     });
     return isAvailable;
@@ -42,6 +67,7 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
           <div className="parking__bookingcontain">
             <div className="parking__subheader">
               <h2 className="parking__title">Pick Available Spot</h2>
+              {/* <div>Available spots: {availableSpotCount}</div> */}
             </div>
             <ParkingCarousel
               parkingData={parkingData}
@@ -49,19 +75,16 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
               handleSelectSpot={handleSelectSpot}
             />
             <div className="parking__cta">
-              {/* <Button
-                className="parking__button"
-                type="submit"
-                btnName="Book"
-                onClick={() => setOpenModal(true)}
-              /> */}
-              <BookingForm
-                open={openModal}
-                userData={userData}
-                spot={selectedSpot}
-                // date={selectedDate}
-                onClose={() => setOpenModal(false)}
-              />
+              <Modal open={openModal}>
+                <div>
+                  <BookingFormAction
+                    userData={userData}
+                    spot={selectedSpot}
+                    date={selectedDate}
+                    onClose={() => setOpenModal(false)}
+                  />
+                </div>
+              </Modal>
             </div>
           </div>
         </div>

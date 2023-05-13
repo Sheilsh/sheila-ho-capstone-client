@@ -26,6 +26,8 @@
 
     @include tablet {
       border-radius: 0;
+      background-image: url(../../assets/images/chris-mok-cr-mok-vFtp6oJn2fA-unsplash.jpg);
+      background-position: top;
     }
   }
 
@@ -45,7 +47,7 @@
     align-items: center;
     gap: 3rem;
     position: absolute;
-    top: 31rem;
+    top: 30rem;
     left: 0rem;
     right: 0rem;
 
@@ -64,13 +66,16 @@
     top: 23rem;
   }
 
-  &__active {
-    width: 20rem;
+  &__info {
+    width: 25rem;
     height: 20rem;
     background-color: $primary-color-white;
     box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     padding: 2rem;
+  }
+
+  &__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,9 +84,37 @@
   }
 
   &__subtitle {
-    text-align: center;
     @include sub-header;
+    text-align: center;
     font-weight: 500;
+    color: $primary-color-blue-purple;
+  }
+
+  &__location-name {
+    @include label-btn-text;
+    text-transform: uppercase;
+  }
+
+  &__time {
+    @include label-btn-text;
+    font-weight: 500;
+  }
+
+  & hr {
+    color: $primary-color-black;
+    height: 0.1rem;
+    margin: 1.6rem 0;
+  }
+
+  &__userinfo {
+    width: 15rem;
+    display: flex;
+    gap: 5rem;
+  }
+
+  &__usertitle {
+    text-transform: uppercase;
+    color: $primary-color-blue-purple;
   }
 
   &__button {

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import "./Parking.scss";
 
-import car from "../../assets/images/car-parking.png";
+import car from "../../assets/images/car2.png";
 
 export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
   const [selected, setSelected] = useState("");

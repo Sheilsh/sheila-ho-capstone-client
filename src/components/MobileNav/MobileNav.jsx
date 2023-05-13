@@ -17,6 +17,7 @@ export default function MobileNav() {
   ];
 
   if (location.pathname !== "/booking" && location.pathname !== "/login") {
+    // if (location.pathname !== "/login") {
     return (
       <nav className="mobilenav">
         <div className="mobilenav__wrapper">
