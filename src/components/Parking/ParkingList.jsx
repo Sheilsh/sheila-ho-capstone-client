@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { getParking } from "../../utils/helpers";
-import Button from "../Button/Button";
+// import Button from "../Button/Button";
 import BookingFormAction from "../BookingForm/BookingFormAction";
 import ParkingCarousel from "./ParkingCarousel";
 
+import Modal from "@mui/material/Modal";
+
 export default function ParkingList({ userData, bookingData, selectedDate }) {
-  let navigate = useNavigate();
   const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedSpot, setSelectedSpot] = useState(null);
@@ -75,19 +75,16 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
               handleSelectSpot={handleSelectSpot}
             />
             <div className="parking__cta">
-              {/* <Button
-                className="parking__button"
-                type="submit"
-                btnName="Book"
-                onClick={() => setOpenModal(true)}
-              /> */}
-              <BookingFormAction
-                open={openModal}
-                userData={userData}
-                spot={selectedSpot}
-                date={selectedDate}
-                onClose={() => setOpenModal(false)}
-              />
+              <Modal open={openModal}>
+                <div>
+                  <BookingFormAction
+                    userData={userData}
+                    spot={selectedSpot}
+                    date={selectedDate}
+                    onClose={() => setOpenModal(false)}
+                  />
+                </div>
+              </Modal>
             </div>
           </div>
         </div>

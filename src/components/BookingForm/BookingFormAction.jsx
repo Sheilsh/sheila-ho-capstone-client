@@ -10,13 +10,7 @@ import {
 import "./BookingForm.scss";
 import BookingForm from "./BookingForm";
 
-export default function BookingFormAction({
-  open,
-  userData,
-  spot,
-  date,
-  onClose,
-}) {
+export default function BookingFormAction({ userData, spot, date, onClose }) {
   const plate = userData.license_plate;
   const plateId = userData.plate_id;
   const navigate = useNavigate();
@@ -185,9 +179,6 @@ export default function BookingFormAction({
     navigate("/booking");
   };
 
-  if (!open) {
-    return null;
-  }
   return (
     <BookingForm
       startTime={startTime}
@@ -198,7 +189,6 @@ export default function BookingFormAction({
       plate={plate}
       selectedPlate={selectedPlate}
       newPlate={newPlate}
-      // onClose={onClose}
       onClose={handleOnClose}
       spot={spot}
       handlePlateChange={handlePlateChange}

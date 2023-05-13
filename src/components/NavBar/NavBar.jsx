@@ -18,34 +18,37 @@ export default function NavBar() {
     // { name: "Log Out", icon: logout, route: "/signup" },
   ];
 
-  return (
-    <>
-      {/* ------DESKTOP STYLES------ */}
-      <nav className="nav">
-        <div className="nav__wrapper">
-          <div className="nav__navigation">
-            <Link className="nav__logo" to="/">
-              <img className="nav__logo--img" src={logo} />
-            </Link>
-            <ul className="nav__list">
-              {links.map((link, index) => (
-                <li className="nav__listitem" key={index}>
-                  <NavLink to={link.route}>
-                    <img className="nav__icon" src={link.icon} />
-                    <span className="nav__listname">{link.name}</span>
+  if (location.pathname !== "/login") {
+    return (
+      <>
+        {/* ------DESKTOP STYLES------ */}
+        <nav className="nav">
+          <div className="nav__wrapper">
+            <div className="nav__navigation">
+              <Link className="nav__logo" to="/">
+                <img className="nav__logo--img" src={logo} />
+              </Link>
+              <ul className="nav__list">
+                {links.map((link, index) => (
+                  <li className="nav__listitem" key={index}>
+                    <NavLink to={link.route}>
+                      <img className="nav__icon" src={link.icon} />
+                      <span className="nav__listname">{link.name}</span>
+                    </NavLink>
+                  </li>
+                ))}
+                <li className="nav__listitem">
+                  <NavLink to="/login" className="logout">
+                    <img className="nav__icon" src={logout} />
+                    <span className="nav__listname">Log out</span>
                   </NavLink>
                 </li>
-              ))}
-              <li className="nav__listitem">
-                <NavLink to="/login" className="logout">
-                  <img className="nav__icon" src={logout} />
-                  <span className="nav__listname">Log out</span>
-                </NavLink>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    </>
-  );
+        </nav>
+      </>
+    );
+  }
+  return null;
 }

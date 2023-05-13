@@ -1,7 +1,6 @@
 import React from "react";
 
 import close from "../../assets/icons/clear_black_24dp.svg";
-import erroricon from "../../assets/icons/error-24px.svg";
 import Button from "../Button/Button";
 import "./BookingForm.scss";
 
@@ -67,13 +66,6 @@ export default function BookingForm({
                 <p className="form__item">End Time: {endTime}</p>
               </div>
             )}
-            {/* {error && (
-              <div className="error">
-                {" "}
-                <img className="error__icon" src={erroricon} alt="error icon" />
-                {error}
-              </div>
-            )} */}
           </section>
           <hr />
           <form className="form__formcontent" onSubmit={handleSubmit}>
