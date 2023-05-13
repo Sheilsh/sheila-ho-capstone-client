@@ -39,7 +39,8 @@
 
   &__content {
     width: 100%;
-    height: 20rem;
+    // height: 20rem;
+    height: 12rem;
     background-color: $primary-color-white;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -58,5 +59,15 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+
+.details {
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__button {
+    @include button;
   }
 }

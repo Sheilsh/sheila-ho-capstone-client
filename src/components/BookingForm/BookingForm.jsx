@@ -5,11 +5,15 @@ import erroricon from "../../assets/icons/error-24px.svg";
 import Button from "../Button/Button";
 import "./BookingForm.scss";
 
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+
 export default function BookingForm({
   startTime,
   endTime,
   duration,
   error,
+  success,
   plate,
   selectedPlate,
   newPlate,
@@ -36,6 +40,23 @@ export default function BookingForm({
               />
             </div>
           </div>
+          {success && (
+            <Stack sx={{ width: "100%" }} spacing={2}>
+              <Alert
+                severity="success"
+                sx={{ fontSize: "1.1rem", color: "green" }}
+              >
+                {success}
+              </Alert>
+            </Stack>
+          )}
+          {error && (
+            <Stack sx={{ width: "100%" }} spacing={2}>
+              <Alert severity="error" sx={{ fontSize: "1.1rem", color: "red" }}>
+                {error}
+              </Alert>
+            </Stack>
+          )}
           <section className="form__content">
             <div className="form__info">
               <p className="form__item">Date Selected: {startTime}</p>
@@ -47,13 +68,13 @@ export default function BookingForm({
                 <p className="form__item">End Time: {endTime}</p>
               </div>
             )}
-            {error && (
+            {/* {error && (
               <div className="error">
                 {" "}
                 <img className="error__icon" src={erroricon} alt="error icon" />
                 {error}
               </div>
-            )}
+            )} */}
           </section>
           <hr />
           <form className="form__formcontent" onSubmit={handleSubmit}>

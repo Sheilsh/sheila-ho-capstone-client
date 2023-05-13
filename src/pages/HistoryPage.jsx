@@ -10,7 +10,7 @@ export default function HistoryPage() {
 
   useEffect(() => {
     getUserBooking().then((data) => {
-      console.log("user booking data", data);
+      // console.log("user booking data", data);
       setBookingData(data);
       setLoading(false);
     });

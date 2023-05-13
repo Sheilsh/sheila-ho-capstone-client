@@ -26,6 +26,7 @@ export default function HistoryList({ bookingData }) {
                       start={booking.start_datetime}
                       end={booking.end_datetime}
                       spot={booking.spot_number}
+                      plate={booking.plate_number}
                     />
                   );
                 })}

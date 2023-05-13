@@ -24,6 +24,7 @@ export default function BookingFormAction({
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   useEffect(() => {
     const currentDate = new Date();
@@ -117,18 +118,17 @@ export default function BookingFormAction({
     };
 
     try {
-      console.log("formData", formData);
       await addBooking(formData);
-      //   console.log("response from addBooking", response);
-      //   console.log("spot_id:", spot[0]);
 
       setNewPlate("");
       setSelectedPlate("");
       setDuration("");
       setError("");
 
-      alert("Booking confirmed.");
-      navigate(-1);
+      setSuccess("Booking confirmed!");
+      setTimeout(() => {
+        navigate(-1);
+      }, 3000);
     } catch (error) {
       alert("Failed to confirm booking.");
     }
@@ -158,6 +158,7 @@ export default function BookingFormAction({
       endTime={endTime}
       duration={duration}
       error={error}
+      success={success}
       plate={plate}
       selectedPlate={selectedPlate}
       newPlate={newPlate}
