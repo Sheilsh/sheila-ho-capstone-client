@@ -17,7 +17,7 @@ export default function HistoryPage() {
   }, []);
 
   if (loading) {
-    <div>Loading...</div>;
+    return <div>Loading...</div>;
   } else {
     return (
       <>

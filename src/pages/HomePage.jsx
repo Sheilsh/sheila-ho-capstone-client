@@ -31,7 +31,7 @@ export default function HomePage() {
   }, [id]);
 
   if (loading) {
-    <div>Loading...</div>;
+    return <div>Loading...</div>;
   } else {
     return <Home userData={userData} activeBooking={activeBooking} />;
   }

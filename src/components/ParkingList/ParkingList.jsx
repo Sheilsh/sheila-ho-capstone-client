@@ -21,15 +21,26 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
     const isAvailable = !bookingData.find((booking) => {
       const selectedDateStart = dayjs(selectedDate).startOf("day");
       const selectedDateEnd = dayjs(selectedDate).endOf("day");
+      const bookingStart = dayjs(booking.start_datetime);
+      const bookingEnd = dayjs(booking.end_datetime);
 
+      // Check if the booking overlaps with today and tomorrow
       return (
         booking.spot_number === spot.spot_number &&
-        dayjs(booking.end_datetime).isBetween(
+        (bookingStart.isBetween(
           selectedDateStart,
           selectedDateEnd,
           null,
           "[]"
-        )
+        ) ||
+          bookingEnd.isBetween(
+            selectedDateStart,
+            selectedDateEnd,
+            null,
+            "[]"
+          ) ||
+          (bookingStart.isBefore(selectedDateStart) &&
+            bookingEnd.isAfter(selectedDateEnd)))
       );
     });
     return isAvailable;

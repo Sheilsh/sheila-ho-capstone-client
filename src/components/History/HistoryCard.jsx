@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import map from "../../assets/images/beaches-map.png";
 
 export default function HistoryCard({ id, start, end, spot, plate, booking }) {
+  console.log("booking", booking);
   const localStartDate = new Date(start).toLocaleDateString();
   // const localEnd = new Date(end).toLocaleString();
 

@@ -1,7 +1,7 @@
 import axios from "../services/axios";
 import routes from "../services/routes.json";
 
-// --- user api ---
+// --------- user api -----------
 export async function getUsers() {
   try {
     const response = await axios.get(routes.user);
@@ -39,7 +39,7 @@ export async function getUserBooking(id) {
   }
 }
 
-// --- parking api ---
+// -------- parking api --------
 export async function getParking() {
   try {
     const response = await axios.get(`${routes.parking}`);
@@ -51,7 +51,18 @@ export async function getParking() {
   }
 }
 
-// --- booking api ---
+// export async function updateParkingEndTime() {
+//   try {
+//     const response = await axios.update(`${routes.parking}`);
+//     if (response.status === 200) {
+//       return response.data;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// -------- booking api ---------
 export async function getBooking() {
   try {
     const response = await axios.get(routes.booking);
@@ -70,6 +81,17 @@ export async function getBookingById(id) {
     );
     if (response.status === 200) {
       return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getAvailability(data) {
+  try {
+    const response = await axios.get(routes.booking, data);
+    if (response.status === 201) {
+      return response;
     }
   } catch (error) {
     console.log(error);

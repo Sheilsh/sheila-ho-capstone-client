@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { addBooking, getUserBooking } from "../../utils/helpers";
+import {
+  addBooking,
+  getUserBooking,
+  // getAvailability,
+  // updateParkingEndTime,
+} from "../../utils/helpers";
 
 import "./BookingForm.scss";
 import BookingForm from "./BookingForm";
@@ -12,11 +17,9 @@ export default function BookingFormAction({
   date,
   onClose,
 }) {
-  //   console.log(userData);
   const plate = userData.license_plate;
   const plateId = userData.plate_id;
   const navigate = useNavigate();
-  //   console.log(plateId);
 
   const [selectedPlate, setSelectedPlate] = useState("");
   const [newPlate, setNewPlate] = useState("");
@@ -26,6 +29,7 @@ export default function BookingFormAction({
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  // --------- setting start and end time ------------
   useEffect(() => {
     const currentDate = new Date();
     const start = date ? new Date(date) : currentDate;
@@ -82,6 +86,8 @@ export default function BookingFormAction({
     };
   }, [duration, startTime]);
 
+  // --------- handle form submit ------------
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -108,6 +114,18 @@ export default function BookingFormAction({
       return;
     }
 
+    // const endDate = new Date(
+    //   new Date(startTime).getTime() + duration * 60 * 60 * 1000
+    // ); or
+    // const endDate = new Date(startTime);
+    // endDate.setHours(23, 59, 59, 999);
+    // const isAvailable = await getAvailability(spot[0], startTime, endDate);
+
+    // if (!isAvailable) {
+    //   setError("Parking spot is not available for the selected duration.");
+    //   return;
+    // }
+
     const formData = {
       user_id: userData.id,
       parking_id: spot[0],
@@ -119,6 +137,7 @@ export default function BookingFormAction({
 
     try {
       await addBooking(formData);
+      // await updateParkingEndTime(spot[0], endDate.toISOString());
 
       setNewPlate("");
       setSelectedPlate("");
@@ -127,7 +146,7 @@ export default function BookingFormAction({
 
       setSuccess("Booking confirmed!");
       setTimeout(() => {
-        navigate(-1);
+        navigate("/");
       }, 3000);
     } catch (error) {
       alert("Failed to confirm booking.");
