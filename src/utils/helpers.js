@@ -51,6 +51,17 @@ export async function getParking() {
   }
 }
 
+// export async function getAvailableSpotCount() {
+//   try {
+//     const response = await axios.get(`${routes.parking}`);
+//     if (response.status === 200) {
+//       return response.data;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
 // export async function updateParkingEndTime() {
 //   try {
 //     const response = await axios.update(`${routes.parking}`);
@@ -76,9 +87,10 @@ export async function getBooking() {
 
 export async function getBookingById(id) {
   try {
-    const response = await axios.get(
-      `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`
-    );
+    // const response = await axios.get(
+    //   `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`
+    // );
+    const response = await axios.get(`${routes.booking}/${id}`);
     if (response.status === 200) {
       return response.data;
     }

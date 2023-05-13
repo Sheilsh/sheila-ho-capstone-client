@@ -26,6 +26,8 @@
 
     @include tablet {
       border-radius: 0;
+      background-image: url(../../assets/images/chris-mok-cr-mok-vFtp6oJn2fA-unsplash.jpg);
+      background-position: top;
     }
   }
 
@@ -45,7 +47,7 @@
     align-items: center;
     gap: 3rem;
     position: absolute;
-    top: 31rem;
+    top: 30rem;
     left: 0rem;
     right: 0rem;
 
@@ -66,7 +68,7 @@
 
   &__active {
     width: 20rem;
-    height: 20rem;
+    height: 15rem;
     background-color: $primary-color-white;
     box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;

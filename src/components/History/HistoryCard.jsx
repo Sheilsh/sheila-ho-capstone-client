@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import map from "../../assets/images/beaches-map.png";
 
 export default function HistoryCard({ id, start, end, spot, plate, booking }) {
-  console.log("booking", booking);
+  // console.log("booking", booking);
   const localStartDate = new Date(start).toLocaleDateString();
   // const localEnd = new Date(end).toLocaleString();
 
   return (
     <Link
       className="historycard__container"
-      to={{
-        pathname: `/history/${id}/details`,
-        state: { id, start, end, spot, plate },
-      }}
+      // to={{
+      //   pathname: `/history/${id}/details`,
+      //   // state: { id, start, end, spot, plate },
+      //   state: { id: id },
+      // }}
+      to={`/history/${id}/details`}
     >
       <div className="historycard__content">
         <div className="historycard__imagebox">

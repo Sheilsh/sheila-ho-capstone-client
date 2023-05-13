@@ -1,6 +1,7 @@
 import React from "react";
 import "./LogIn.scss";
 import banner from "../../assets/logo/logo_transparent.png";
+import Footer from "../../components/Footer/Footer";
 
 export default function LogIn() {
   return (
@@ -12,25 +13,30 @@ export default function LogIn() {
               <img className="login__banner" src={banner} />
             </div>
             {/* <p>Please Sign In</p> */}
-            <div className="input-box">
-              <input typeof="email" name="email" required />
-              <label className="form__info">Email</label>
-              <i></i>
+            <div className="login__content">
+              <div className="input-box">
+                <input type="email" name="email" required />
+                <label className="form__info">Email</label>
+                <i></i>
+              </div>
+              <div className="input-box">
+                <input type="password" name="password" required />
+                <label className="form__info">Password</label>
+                <i></i>
+              </div>
             </div>
-            <div className="input-box">
-              <input typeof="password" name="password" required />
-              <label className="form__info">Password</label>
-              <i></i>
+            <div className="login__content">
+              <button className="login__button login__button-login">
+                Log In
+              </button>
+              <button className="login__button login__button-create">
+                Create Account
+              </button>
             </div>
-            <button className="login__button login__button-login">
-              Log In
-            </button>
-            <button className="login__button login__button-create">
-              Create Account
-            </button>
           </form>
         </div>
       </div>
+      {/* <Footer /> */}
     </main>
   );
 }

@@ -88,6 +88,13 @@ export default function BookingFormAction({
 
   // --------- handle form submit ------------
 
+  const formReset = () => {
+    setNewPlate("");
+    setSelectedPlate("");
+    setDuration("");
+    setError("");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -111,6 +118,13 @@ export default function BookingFormAction({
 
     if (bookingsOnSameDay.length > 0) {
       setError("You have already booked a spot for today.");
+      return;
+    }
+
+    const maxStartDate = new Date();
+
+    if (startDate > maxStartDate) {
+      setError("You cannot book parking in advance.");
       return;
     }
 
@@ -139,15 +153,12 @@ export default function BookingFormAction({
       await addBooking(formData);
       // await updateParkingEndTime(spot[0], endDate.toISOString());
 
-      setNewPlate("");
-      setSelectedPlate("");
-      setDuration("");
-      setError("");
+      formReset();
 
       setSuccess("Booking confirmed!");
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
     } catch (error) {
       alert("Failed to confirm booking.");
     }
@@ -156,7 +167,7 @@ export default function BookingFormAction({
   };
 
   const handlePlateChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSelectedPlate(e.target.value);
   };
 
@@ -166,6 +177,12 @@ export default function BookingFormAction({
 
   const handleDurationChange = (e) => {
     setDuration(Number(e.target.value));
+  };
+
+  const handleOnClose = () => {
+    onClose();
+    formReset();
+    navigate("/booking");
   };
 
   if (!open) {
@@ -181,7 +198,8 @@ export default function BookingFormAction({
       plate={plate}
       selectedPlate={selectedPlate}
       newPlate={newPlate}
-      onClose={onClose}
+      // onClose={onClose}
+      onClose={handleOnClose}
       spot={spot}
       handlePlateChange={handlePlateChange}
       handleNewPlateChange={handleNewPlateChange}
