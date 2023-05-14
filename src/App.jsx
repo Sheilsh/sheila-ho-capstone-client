@@ -8,6 +8,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import HomePage from "./pages/HomePage";
 import BookingPage from "./pages/BookingPage";
 import HistoryPage from "./pages/HistoryPage";
+import AccountPage from "./pages/AccountPage";
 import HistoryDetails from "./components/History/HistoryDetails";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/history/:id/details" element={<HistoryDetails />} />
-          {/* <Route path="/account" element={<Account />} /> */}
+          <Route path="/account" element={<AccountPage />} />
         </Routes>
         <MobileNav />
       </BrowserRouter>

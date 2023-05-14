@@ -116,8 +116,4 @@
     text-transform: uppercase;
     color: $primary-color-blue-purple;
   }
-
-  &__button {
-    @include button;
-  }
 }

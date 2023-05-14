@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  addBooking,
-  getUserBooking,
-  // getAvailability,
-  // updateParkingEndTime,
-} from "../../utils/helpers";
+import { addBooking, getUserBooking } from "../../utils/helpers";
 
 import "./BookingForm.scss";
 import BookingForm from "./BookingForm";
@@ -122,18 +117,6 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       return;
     }
 
-    // const endDate = new Date(
-    //   new Date(startTime).getTime() + duration * 60 * 60 * 1000
-    // ); or
-    // const endDate = new Date(startTime);
-    // endDate.setHours(23, 59, 59, 999);
-    // const isAvailable = await getAvailability(spot[0], startTime, endDate);
-
-    // if (!isAvailable) {
-    //   setError("Parking spot is not available for the selected duration.");
-    //   return;
-    // }
-
     const formData = {
       user_id: userData.id,
       parking_id: spot[0],
@@ -145,8 +128,6 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
 
     try {
       await addBooking(formData);
-      // await updateParkingEndTime(spot[0], endDate.toISOString());
-
       formReset();
 
       setSuccess("Booking confirmed!");
@@ -161,7 +142,6 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
   };
 
   const handlePlateChange = (e) => {
-    // console.log(e.target.value);
     setSelectedPlate(e.target.value);
   };
 

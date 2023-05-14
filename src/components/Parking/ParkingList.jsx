@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { getParking } from "../../utils/helpers";
-// import Button from "../Button/Button";
+
 import BookingFormAction from "../BookingForm/BookingFormAction";
 import ParkingCarousel from "./ParkingCarousel";
 
@@ -11,19 +11,11 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
   const [parkingData, setParkingData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedSpot, setSelectedSpot] = useState(null);
-  // const [availableSpotCount, setAvailableSpotCount] = useState(0);
-
-  // console.log(availableSpotCount);
 
   useEffect(() => {
     getParking().then((data) => {
-      // console.log("parking data", data);
       setParkingData(data);
     });
-
-    // getAvailableSpotCount().then((count) => {
-    //   setAvailableSpotCount(count);
-    // });
   }, []);
 
   const availableSpots = parkingData.filter((spot) => {
@@ -33,7 +25,6 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
       const bookingStart = dayjs(booking.start_datetime);
       const bookingEnd = dayjs(booking.end_datetime);
 
-      // Check if the booking overlaps with today and tomorrow
       return (
         booking.spot_number === spot.spot_number &&
         (bookingStart.isBetween(
@@ -66,8 +57,7 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
         <div className="parking__container">
           <div className="parking__bookingcontain">
             <div className="parking__subheader">
-              <h2 className="parking__title">Pick Available Spot</h2>
-              {/* <div>Available spots: {availableSpotCount}</div> */}
+              <h2 className="parking__title">Select Available Spot</h2>
             </div>
             <ParkingCarousel
               parkingData={parkingData}

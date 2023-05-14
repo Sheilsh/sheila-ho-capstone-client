@@ -23,3 +23,7 @@ body {
   font-family: $type-face, sans-serif;
   color: $primary-color-black;
 }
+
+button {
+  @include button;
+}

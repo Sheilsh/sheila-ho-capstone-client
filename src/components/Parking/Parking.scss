@@ -132,12 +132,6 @@
     gap: 2rem;
   }
 
-  &__button {
-    @include button;
-    background-color: black;
-    margin: 0 auto;
-  }
-
   // ---- slider styles for arrows ------
 
   .slick-prev,
