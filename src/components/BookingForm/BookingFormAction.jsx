@@ -131,9 +131,9 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       formReset();
 
       setSuccess("Booking confirmed!");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+      // setTimeout(() => {
+      //   navigate("/");
+      // }, 2000);
     } catch (error) {
       alert("Failed to confirm booking.");
     }

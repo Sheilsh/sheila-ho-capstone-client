@@ -16,6 +16,7 @@ export default function HistoryDetails() {
   const [bookingData, setBookingData] = useState([]);
   const [isActiveBooking, setIsActiveBooking] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [status, setStatus] = useState("");
 
   function formatDateTime(dateTime) {
     const options = {
@@ -57,14 +58,18 @@ export default function HistoryDetails() {
     fetchData();
   }, [id]);
 
-  // const handleDelete = async () => {
-  //   try {
-  //     await deleteBooking(id);
-  //     navigate("/history");
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const handleDelete = async () => {
+    try {
+      await deleteBooking(id);
+
+      setStatus("Confrimed booking deleted!");
+      setTimeout(() => {
+        navigate("/history");
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleOpen = () => {
     setOpenModal(true);
@@ -117,13 +122,17 @@ export default function HistoryDetails() {
                 <Button
                   className="details__button"
                   btnName="Cancel Booking"
-                  // onClick={handleDelete}
                   onClick={handleOpen}
                 />
               )}
               {openModal && (
                 <div>
-                  <DeleteModal open={openModal} handleClose={handleClose} />
+                  <DeleteModal
+                    open={openModal}
+                    status={status}
+                    handleClose={handleClose}
+                    handleDelete={handleDelete}
+                  />
                 </div>
               )}
             </div>

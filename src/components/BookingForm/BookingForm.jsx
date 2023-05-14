@@ -42,7 +42,13 @@ export default function BookingForm({
             <Stack sx={{ width: "100%" }} spacing={2}>
               <Alert
                 severity="success"
-                sx={{ fontSize: "1.1rem", color: "green" }}
+                sx={{
+                  fontSize: "1.1rem",
+                  color: "green",
+                  "& .MuiAlert-message": {
+                    padding: "10px 0",
+                  },
+                }}
               >
                 {success}
               </Alert>
@@ -50,7 +56,16 @@ export default function BookingForm({
           )}
           {error && (
             <Stack sx={{ width: "100%" }} spacing={2}>
-              <Alert severity="error" sx={{ fontSize: "1.1rem", color: "red" }}>
+              <Alert
+                severity="error"
+                sx={{
+                  fontSize: "1.1rem",
+                  color: "red",
+                  "& .MuiAlert-message": {
+                    padding: "10px 0",
+                  },
+                }}
+              >
                 {error}
               </Alert>
             </Stack>
