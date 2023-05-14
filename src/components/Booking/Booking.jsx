@@ -16,9 +16,8 @@ export default function Booking({ userData, bookingData }) {
   return (
     <>
       <BookingCalender
-        // value={dayjs(selectedDate)}
         selectedDate={selectedDate}
-        onChange={dateChangeHandler}
+        dateChangeHandler={dateChangeHandler}
       />
       <Parking
         userData={userData}

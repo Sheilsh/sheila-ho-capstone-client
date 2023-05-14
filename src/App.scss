@@ -24,6 +24,6 @@ body {
   color: $primary-color-black;
 }
 
-button {
+.button-styles {
   @include button;
 }

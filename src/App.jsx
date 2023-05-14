@@ -24,6 +24,10 @@ function App() {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/history/:id/details" element={<HistoryDetails />} />
           <Route path="/account" element={<AccountPage />} />
+          {/* <Route path="/account/profile" element={<Profile />} />
+          <Route path="/account/plates" element={<LicensePlate />} />
+          <Route path="/account/about" element={<About />} />
+          <Route path="/account/contact" element={<Contact />} /> */}
         </Routes>
         <MobileNav />
       </BrowserRouter>

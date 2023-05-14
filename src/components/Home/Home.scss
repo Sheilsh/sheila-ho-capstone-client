@@ -93,6 +93,7 @@
   &__location-name {
     @include label-btn-text;
     text-transform: uppercase;
+    font-weight: 700;
   }
 
   &__time {
