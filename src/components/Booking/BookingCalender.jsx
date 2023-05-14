@@ -9,6 +9,10 @@ import { theme } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 
 export default function BookingCalender({ selectedDate, dateChangeHandler }) {
+  const disablePreviousDates = (date) => {
+    return date.isBefore(dayjs().startOf("day"));
+  };
+
   return (
     <div className="calendar">
       <div className="calendar__wrappper">
@@ -19,6 +23,7 @@ export default function BookingCalender({ selectedDate, dateChangeHandler }) {
                 sx={{ width: "28rem", height: "30rem" }}
                 value={dayjs(selectedDate)}
                 onChange={dateChangeHandler}
+                shouldDisableDate={disablePreviousDates}
               />
             </LocalizationProvider>
           </ThemeProvider>

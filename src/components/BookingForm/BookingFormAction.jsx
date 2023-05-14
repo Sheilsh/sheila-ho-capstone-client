@@ -5,6 +5,9 @@ import { addBooking, getUserBooking } from "../../utils/helpers";
 import "./BookingForm.scss";
 import BookingForm from "./BookingForm";
 
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+
 export default function BookingFormAction({ userData, spot, date, onClose }) {
   const plate = userData.license_plate;
   const plateId = userData.plate_id;
@@ -16,7 +19,7 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [snackBar, setSnackBar] = useState({ open: false, message: "" });
 
   // --------- setting start and end time ------------
   useEffect(() => {
@@ -30,7 +33,6 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       currentDate.getMinutes(),
       currentDate.getSeconds()
     );
-    // setStartTime(formattedDate.toLocaleString());
     const formattedDateString = `${formattedDate.getFullYear()}-${(
       formattedDate.getMonth() + 1
     )
@@ -56,7 +58,6 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       if (duration && startTime) {
         const start = new Date(startTime);
         const end = new Date(start.getTime() + duration * 60 * 60 * 1000);
-        // setEndTime(end.toLocaleString());
         const formattedDateString = `${end.getFullYear()}-${(end.getMonth() + 1)
           .toString()
           .padStart(2, "0")}-${end.getDate().toString().padStart(2, "0")} ${end
@@ -130,7 +131,7 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       await addBooking(formData);
       formReset();
 
-      setSuccess("Booking confirmed!");
+      setSnackBar({ open: true, message: "Booking confirmed!" });
       setTimeout(() => {
         navigate("/");
       }, 2000);
@@ -160,21 +161,41 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
   };
 
   return (
-    <BookingForm
-      startTime={startTime}
-      endTime={endTime}
-      duration={duration}
-      error={error}
-      success={success}
-      plate={plate}
-      selectedPlate={selectedPlate}
-      newPlate={newPlate}
-      onClose={handleOnClose}
-      spot={spot}
-      handlePlateChange={handlePlateChange}
-      handleNewPlateChange={handleNewPlateChange}
-      handleDurationChange={handleDurationChange}
-      handleSubmit={handleSubmit}
-    />
+    <>
+      <BookingForm
+        startTime={startTime}
+        endTime={endTime}
+        duration={duration}
+        error={error}
+        plate={plate}
+        selectedPlate={selectedPlate}
+        newPlate={newPlate}
+        onClose={handleOnClose}
+        spot={spot}
+        handlePlateChange={handlePlateChange}
+        handleNewPlateChange={handleNewPlateChange}
+        handleDurationChange={handleDurationChange}
+        handleSubmit={handleSubmit}
+      />
+      <Snackbar
+        open={snackBar.open}
+        autoHideDuration={6000}
+        onClose={() => setSnackBar({ open: false, message: "" })}
+      >
+        <Alert
+          severity="success"
+          sx={{
+            fontSize: "1.1rem",
+            color: "green",
+            "& .MuiAlert-message": {
+              padding: "10px 0",
+            },
+            width: "100%",
+          }}
+        >
+          {snackBar.message}
+        </Alert>
+      </Snackbar>
+    </>
   );
 }

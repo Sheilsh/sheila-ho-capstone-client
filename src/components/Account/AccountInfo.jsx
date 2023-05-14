@@ -2,6 +2,7 @@ import React from "react";
 import "./Account.scss";
 import rightarrow from "../../assets/icons/chevron_right_20.svg";
 import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default function AccountInfo() {
   const list = [
@@ -36,6 +37,9 @@ export default function AccountInfo() {
                 );
               })}
             </ul>
+            <div className="account__cta">
+              <Button className="account__button" btnName="Log Out" />
+            </div>
           </div>
         </div>
       </main>

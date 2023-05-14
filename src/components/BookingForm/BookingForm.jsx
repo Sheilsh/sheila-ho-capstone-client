@@ -12,7 +12,6 @@ export default function BookingForm({
   endTime,
   duration,
   error,
-  success,
   plate,
   selectedPlate,
   newPlate,
@@ -55,7 +54,7 @@ export default function BookingForm({
               />
             </div>
           </div>
-          {success && renderAlert("success", success)}
+          {/* {success && renderAlert("success", success)} */}
           {error && renderAlert("error", error)}
           <section className="form__content">
             <div className="form__info">

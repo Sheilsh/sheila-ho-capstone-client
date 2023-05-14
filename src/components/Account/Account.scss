@@ -5,6 +5,10 @@
 .account {
   margin: 2.4rem 0;
 
+  @include tablet {
+    margin: 2.4rem 5.5rem;
+  }
+
   &__wrapper {
     @include wrapper-props;
   }
@@ -40,5 +44,17 @@
   &__icon {
     width: 2rem;
     height: 2rem;
+  }
+
+  &__cta {
+    margin: 2rem auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: 100%;
   }
 }

@@ -24,9 +24,11 @@ export default function ParkingList({ userData, bookingData, selectedDate }) {
       const selectedDateEnd = dayjs(selectedDate).endOf("day");
       const bookingStart = dayjs(booking.start_datetime);
       const bookingEnd = dayjs(booking.end_datetime);
+      const bookingSessionOver = dayjs().isAfter(bookingEnd);
 
       return (
         booking.spot_number === spot.spot_number &&
+        !bookingSessionOver &&
         (bookingStart.isBetween(
           selectedDateStart,
           selectedDateEnd,

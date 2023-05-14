@@ -18,8 +18,6 @@ export default function ParkingCarousel({
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // slideMargin: 0,
-    // centerMode: true,
     centerPadding: "20%",
     responsive: [
       {
