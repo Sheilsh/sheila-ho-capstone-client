@@ -3,7 +3,7 @@ import "./Account.scss";
 import rightarrow from "../../assets/icons/chevron_right_20.svg";
 import { NavLink } from "react-router-dom";
 
-export default function AccountInfo({ userData }) {
+export default function AccountInfo() {
   const list = [
     { name: "Profile", route: "/account/profile" },
     { name: "License Plate", route: "/account/plate" },
@@ -19,8 +19,12 @@ export default function AccountInfo({ userData }) {
             <ul className="account__list">
               {list.map((link, index) => {
                 return (
-                  <NavLink className="account__link" to={link.route}>
-                    <li className="account__item" key={index}>
+                  <NavLink
+                    className="account__link"
+                    key={index}
+                    to={link.route}
+                  >
+                    <li className="account__item">
                       <h2 className="account__title">{link.name}</h2>
                       <img
                         className="account__icon"
@@ -35,47 +39,6 @@ export default function AccountInfo({ userData }) {
           </div>
         </div>
       </main>
-
-      {/* <main className="account">
-        <div className="account__wrapper">
-          <div className="account__container">
-            <ul className="account__list">
-              <li className="account__item">
-                <h2>Profile</h2>
-                <img
-                  className="account__icon"
-                  src={rightarrow}
-                  alt="right arrow icon"
-                />
-              </li>
-              <li className="account__item">
-                <h2>License Plate</h2>
-                <img
-                  className="account__icon"
-                  src={rightarrow}
-                  alt="right arrow icon"
-                />
-              </li>
-              <li className="account__item">
-                <h2>About</h2>
-                <img
-                  className="account__icon"
-                  src={rightarrow}
-                  alt="right arrow icon"
-                />
-              </li>
-              <li className="account__item">
-                <h2>Contact</h2>
-                <img
-                  className="account__icon"
-                  src={rightarrow}
-                  alt="right arrow icon"
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </main> */}
     </>
   );
 }

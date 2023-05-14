@@ -28,9 +28,13 @@
     justify-content: space-between;
     align-items: center;
     background-color: $primary-color-white;
-    border: 1px solid $primary-color-blue-purple;
+    border: 2px solid #b4b2e738;
     border-radius: 0.4rem;
     padding: 1rem;
+
+    &:hover {
+      box-shadow: 5px 5px 5px lightgray;
+    }
   }
 
   &__icon {

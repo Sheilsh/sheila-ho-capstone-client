@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getBooking, getUser } from "../utils/helpers";
+import { getBooking, getUserById } from "../utils/helpers";
 import { useParams } from "react-router-dom";
 import Booking from "../components/Booking/Booking";
 import Header from "../components/Header/Header";
@@ -13,7 +13,7 @@ export default function BookingPage() {
   const [bookingData, setBookingData] = useState([]);
 
   useEffect(() => {
-    getUser(id).then((data) => {
+    getUserById(id).then((data) => {
       setUserData(data);
     });
 

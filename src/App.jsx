@@ -9,7 +9,9 @@ import HomePage from "./pages/HomePage";
 import BookingPage from "./pages/BookingPage";
 import HistoryPage from "./pages/HistoryPage";
 import AccountPage from "./pages/AccountPage";
+
 import HistoryDetails from "./components/History/HistoryDetails";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -24,8 +26,8 @@ function App() {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/history/:id/details" element={<HistoryDetails />} />
           <Route path="/account" element={<AccountPage />} />
-          {/* <Route path="/account/profile" element={<Profile />} />
-          <Route path="/account/plates" element={<LicensePlate />} />
+          <Route path="/account/profile" element={<Profile />} />
+          {/* <Route path="/account/plates" element={<LicensePlate />} />
           <Route path="/account/about" element={<About />} />
           <Route path="/account/contact" element={<Contact />} /> */}
         </Routes>

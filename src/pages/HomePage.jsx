@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getUser, getUserBooking } from "../utils/helpers";
+import { getUserById, getUserBooking } from "../utils/helpers";
 import Home from "../components/Home/Home";
 
 export default function HomePage() {
@@ -13,7 +13,7 @@ export default function HomePage() {
 
   // -----  useEffect/ apiData -----
   useEffect(() => {
-    getUser(id).then((data) => {
+    getUserById(id).then((data) => {
       // console.log("user data", data);
       setUserData(data);
       setLoading(false);

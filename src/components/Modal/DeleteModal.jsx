@@ -23,7 +23,7 @@ export default function DeleteModal({
           <div className="modal__wrapper">
             <div className="modal__container">
               <div className="modal__header">
-                <h1 className="modal__title">Delete Booking?</h1>
+                <h1 className="modal__title">Cancel Booking?</h1>
                 <div className="modal__iconbox">
                   <img
                     className="modal__icon"
@@ -52,7 +52,7 @@ export default function DeleteModal({
                     </Stack>
                   )}
                   <p className="modal__msg">
-                    Please confirm you'd like to delete this booking?
+                    Please confirm you'd like to cancel this booking?
                   </p>
                 </div>
                 <div className="modal__cta">

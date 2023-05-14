@@ -23,6 +23,23 @@ export default function BookingForm({
   handleDurationChange,
   handleSubmit,
 }) {
+  const renderAlert = (type, message) => (
+    <Stack sx={{ width: "100%" }} spacing={2}>
+      <Alert
+        severity={type}
+        sx={{
+          fontSize: "1.1rem",
+          color: type === "success" ? "green" : "red",
+          "& .MuiAlert-message": {
+            padding: "10px 0",
+          },
+        }}
+      >
+        {message}
+      </Alert>
+    </Stack>
+  );
+
   return (
     <div className="form">
       <div className="form__wrapper">
@@ -38,38 +55,8 @@ export default function BookingForm({
               />
             </div>
           </div>
-          {success && (
-            <Stack sx={{ width: "100%" }} spacing={2}>
-              <Alert
-                severity="success"
-                sx={{
-                  fontSize: "1.1rem",
-                  color: "green",
-                  "& .MuiAlert-message": {
-                    padding: "10px 0",
-                  },
-                }}
-              >
-                {success}
-              </Alert>
-            </Stack>
-          )}
-          {error && (
-            <Stack sx={{ width: "100%" }} spacing={2}>
-              <Alert
-                severity="error"
-                sx={{
-                  fontSize: "1.1rem",
-                  color: "red",
-                  "& .MuiAlert-message": {
-                    padding: "10px 0",
-                  },
-                }}
-              >
-                {error}
-              </Alert>
-            </Stack>
-          )}
+          {success && renderAlert("success", success)}
+          {error && renderAlert("error", error)}
           <section className="form__content">
             <div className="form__info">
               <p className="form__item">Date Selected: {startTime}</p>

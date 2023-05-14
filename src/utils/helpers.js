@@ -13,7 +13,7 @@ export async function getUsers() {
   }
 }
 
-export async function getUser(id) {
+export async function getUserById(id) {
   try {
     const response = await axios.get(
       `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`
@@ -33,6 +33,20 @@ export async function getUserBooking(id) {
     );
     if (response.status === 200) {
       return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function editUser(id, data) {
+  try {
+    const response = await axios.put(
+      `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`,
+      data
+    );
+    if (response.status === 200) {
+      return response;
     }
   } catch (error) {
     console.log(error);
