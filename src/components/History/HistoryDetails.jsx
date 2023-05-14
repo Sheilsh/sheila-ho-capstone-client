@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { deleteBooking } from "../../utils/helpers";
+
 import apiData from "../../services/axios";
 import "./History.scss";
 import Header from "../Header/Header";
 import Button from "../Button/Button";
+
+import DeleteModal from "../Modal/DeleteModal";
 
 export default function HistoryDetails() {
   let { id } = useParams();
@@ -12,6 +15,7 @@ export default function HistoryDetails() {
   const [loading, setLoading] = useState(true);
   const [bookingData, setBookingData] = useState([]);
   const [isActiveBooking, setIsActiveBooking] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   function formatDateTime(dateTime) {
     const options = {
@@ -53,13 +57,21 @@ export default function HistoryDetails() {
     fetchData();
   }, [id]);
 
-  const handleDelete = async () => {
-    try {
-      await deleteBooking(id);
-      navigate("/history");
-    } catch (error) {
-      console.error(error);
-    }
+  // const handleDelete = async () => {
+  //   try {
+  //     await deleteBooking(id);
+  //     navigate("/history");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleOpen = () => {
+    setOpenModal(true);
+  };
+
+  const handleClose = () => {
+    setOpenModal(false);
   };
 
   if (loading) {
@@ -104,9 +116,15 @@ export default function HistoryDetails() {
               {isActiveBooking && (
                 <Button
                   className="details__button"
-                  btnName="Delete Booking"
-                  onClick={handleDelete}
+                  btnName="Cancel Booking"
+                  // onClick={handleDelete}
+                  onClick={handleOpen}
                 />
+              )}
+              {openModal && (
+                <div>
+                  <DeleteModal open={openModal} handleClose={handleClose} />
+                </div>
               )}
             </div>
             <hr />
