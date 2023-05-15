@@ -28,7 +28,7 @@ export default function BookingForm({
         severity={type}
         sx={{
           fontSize: "1.1rem",
-          color: type === "success" ? "green" : "red",
+          color: "red",
           "& .MuiAlert-message": {
             padding: "10px 0",
           },
@@ -54,7 +54,6 @@ export default function BookingForm({
               />
             </div>
           </div>
-          {/* {success && renderAlert("success", success)} */}
           {error && renderAlert("error", error)}
           <section className="form__content">
             <div className="form__info">

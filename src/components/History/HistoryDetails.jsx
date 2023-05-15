@@ -16,7 +16,7 @@ export default function HistoryDetails() {
   const [bookingData, setBookingData] = useState([]);
   const [isActiveBooking, setIsActiveBooking] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [status, setStatus] = useState("");
+  const [snackBar, setSnackBar] = useState({ open: false, message: "" });
 
   function formatDateTime(dateTime) {
     const options = {
@@ -62,7 +62,7 @@ export default function HistoryDetails() {
     try {
       await deleteBooking(id);
 
-      setStatus("Confrimed booking deleted!");
+      setSnackBar({ open: true, message: "Cancelled booking!" });
       setTimeout(() => {
         navigate("/history");
       }, 2000);
@@ -129,7 +129,8 @@ export default function HistoryDetails() {
                 <div>
                   <DeleteModal
                     open={openModal}
-                    status={status}
+                    // status={status}
+                    snackBar={snackBar}
                     handleClose={handleClose}
                     handleDelete={handleDelete}
                   />

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserById, editUser } from "../../utils/helpers";
 import "./Profile.scss";
+
 import Header from "../Header/Header";
 import face from "../../assets/images/face_48.svg";
 import Button from "../Button/Button";
 import UserInputs from "./UserInputs";
-// import edit from "../../assets/icons/edit_note_24.svg";
 
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -17,7 +17,7 @@ export default function Profile() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState(null);
 
   useEffect(() => {
     getUserById(id).then((data) => {
@@ -39,6 +39,9 @@ export default function Profile() {
       const data = await editUser(id, updatedUserData);
       setUserData(data);
       setSuccess("Profile updated!");
+      setTimeout(() => {
+        setSuccess(null);
+      }, 3000);
     } catch (error) {
       console.log(error);
     }

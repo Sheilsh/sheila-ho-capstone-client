@@ -3,7 +3,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .user {
-  margin: 2.4rem 0;
+  height: 100vh;
+
   &__wrapper {
     @include wrapper-props;
   }
@@ -16,8 +17,8 @@
   //   }
 
   &__imagebox {
-    width: 10rem;
-    height: 10rem;
+    width: 5rem;
+    height: 5rem;
     margin: 2.4rem auto;
     // border-radius: 50%;
   }

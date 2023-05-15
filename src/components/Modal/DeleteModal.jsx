@@ -5,14 +5,14 @@ import close from "../../assets/icons/clear_black_24dp.svg";
 import Button from "../Button/Button";
 
 import Modal from "@mui/material/Modal";
+import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
 
 export default function DeleteModal({
   open,
   handleClose,
-  status,
   handleDelete,
+  snackBar,
 }) {
   let navigate = useNavigate();
 
@@ -35,22 +35,25 @@ export default function DeleteModal({
               </div>
               <div className="modal__content">
                 <div className="modal__info">
-                  {status && (
-                    <Stack sx={{ width: "100%" }} spacing={2}>
-                      <Alert
-                        severity="success"
-                        sx={{
-                          fontSize: "1.1rem",
-                          color: "green",
-                          "& .MuiAlert-message": {
-                            padding: "10px 0", // adjust the padding as needed
-                          },
-                        }}
-                      >
-                        {status}
-                      </Alert>
-                    </Stack>
-                  )}
+                  <Snackbar
+                    open={snackBar.open}
+                    autoHideDuration={6000}
+                    onClose={() => setSnackBar({ open: false, message: "" })}
+                  >
+                    <Alert
+                      severity="success"
+                      sx={{
+                        fontSize: "1.1rem",
+                        color: "green",
+                        "& .MuiAlert-message": {
+                          padding: "10px 0",
+                        },
+                        width: "100%",
+                      }}
+                    >
+                      {snackBar.message}
+                    </Alert>
+                  </Snackbar>
                   <p className="modal__msg">
                     Please confirm you'd like to cancel this booking?
                   </p>
