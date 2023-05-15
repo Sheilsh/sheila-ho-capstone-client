@@ -9,7 +9,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //   min-height: 84vh;
   height: 100vh;
   color: $primary-color-black;
 
@@ -23,12 +22,7 @@
 
   &__banner {
     width: 25rem;
-    // height: 50%;
     margin: 0;
-
-    // @include tablet {
-    //   //   display: none;
-    // }
   }
 
   h1 {
@@ -39,12 +33,10 @@
 
   &__form {
     width: 20rem;
-    //   height: 100%;
     background-color: whitesmoke;
     border: 2px solid #b4b2e780;
     border-radius: 8px;
     padding: 50px 40px;
-    // padding: 30px 40px 40px;
     margin: 5rem auto;
     box-sizing: unset;
     display: flex;
@@ -53,13 +45,13 @@
     gap: 2.2rem;
   }
 
-  .input-box {
+  &__input-box {
     position: relative;
     width: 20rem;
     margin-top: 35px;
   }
-  //
-  .input-box input {
+
+  &__input-box input {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -72,7 +64,7 @@
     z-index: 10;
   }
 
-  .input-box label {
+  &__input-box label {
     position: absolute;
     left: 0;
     padding: 20px 10px 10px;
@@ -83,14 +75,14 @@
     transition: 0.5s;
   }
 
-  .input-box input:valid ~ label,
-  .input-box input:focus ~ label {
+  &__input-box input:valid ~ label,
+  &__input-box input:focus ~ label {
     color: $primary-color-blue-purple;
     transform: translateY(-34px);
     font-size: 0.75rem;
   }
 
-  .input-box i {
+  &__input-box i {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -103,18 +95,8 @@
     z-index: 9;
   }
 
-  .input-box input:valid ~ i,
-  .input-box input:focus ~ i {
+  &__input-box input:valid ~ i,
+  &__input-box input:focus ~ i {
     height: 44px;
-  }
-
-  &__button {
-    //   text-transform: uppercase;
-    //   width: 10rem;
-    //   padding: 0.5rem;
-    //   margin: 2rem 0 2rem 0;
-    //   border: 2px solid #db7a4e;
-    //   border-radius: 20px;
-    @include button;
   }
 }
