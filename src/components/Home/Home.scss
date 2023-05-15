@@ -75,7 +75,7 @@
     padding: 2rem;
   }
 
-  &__item {
+  &__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,7 +114,8 @@
     flex-direction: column;
     gap: 1.5rem;
   }
-  &__useritem {
+
+  &__usercontent {
     display: flex;
     gap: 0.5rem;
   }
@@ -122,5 +123,10 @@
   &__usertitle {
     text-transform: uppercase;
     color: $primary-color-blue-purple;
+  }
+
+  &__useritem {
+    text-transform: uppercase;
+    font-weight: 500;
   }
 }

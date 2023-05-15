@@ -29,3 +29,22 @@
     gap: 1.6rem;
   }
 }
+
+.plate {
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__number {
+    list-style: none;
+    height: 5rem;
+    width: 100%;
+    border: 1px solid $primary-color-blue-purple;
+  }
+}

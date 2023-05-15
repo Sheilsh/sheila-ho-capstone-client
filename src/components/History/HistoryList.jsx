@@ -11,8 +11,7 @@ export default function HistoryList({ bookingData }) {
             {/* <section className="history__content">
               <h1>Active Sessions</h1>
             </section> */}
-            <section className="history__content">
-              <h1 className="history__header">Previous Bookings</h1>
+            <div className="history__content">
               {bookingData
                 .sort(
                   (a, b) =>
@@ -27,7 +26,7 @@ export default function HistoryList({ bookingData }) {
                     />
                   );
                 })}
-            </section>
+            </div>
           </div>
         </div>
       </div>

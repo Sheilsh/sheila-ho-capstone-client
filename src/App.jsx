@@ -12,6 +12,7 @@ import AccountPage from "./pages/AccountPage";
 
 import HistoryDetails from "./components/History/HistoryDetails";
 import Profile from "./components/Profile/Profile";
+import LicensePlate from "./components/Profile/LicensePlate";
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
           <Route path="/history/:id/details" element={<HistoryDetails />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/account/profile" element={<Profile />} />
-          {/* <Route path="/account/plates" element={<LicensePlate />} />
-          <Route path="/account/about" element={<About />} />
+          <Route path="/account/plates" element={<LicensePlate />} />
+          {/* <Route path="/account/about" element={<About />} />
           <Route path="/account/contact" element={<Contact />} /> */}
         </Routes>
         <MobileNav />

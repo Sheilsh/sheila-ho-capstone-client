@@ -9,7 +9,7 @@ export default function AccountInfo() {
 
   const list = [
     { name: "Profile", route: "/account/profile" },
-    { name: "License Plate", route: "/account/plate" },
+    { name: "License Plate", route: "/account/plates" },
     { name: "About", route: "/account/about" },
     { name: "Contact Us", route: "/account/contact" },
     // { name: "Log Out", icon: logout, route: "/signup" },

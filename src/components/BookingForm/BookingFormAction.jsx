@@ -133,7 +133,7 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
 
       setSnackBar({ open: true, message: "Booking confirmed!" });
       setTimeout(() => {
-        navigate("/");
+        navigate("/history");
       }, 2000);
     } catch (error) {
       alert("Failed to confirm booking.");
