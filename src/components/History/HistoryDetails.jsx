@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Button from "../Button/Button";
 
 import DeleteModal from "../Modal/DeleteModal";
+import HistoryMap from "./HistoryMap";
 
 export default function HistoryDetails() {
   let { id } = useParams();
@@ -94,7 +95,7 @@ export default function HistoryDetails() {
               </div>
               <div className="details__infocontent">
                 <h4 className="details__title">Location:</h4>
-                <p className="details__data">Beaches Location</p>
+                <p className="details__data">Beaches</p>
               </div>
               <div className="details__infocontent">
                 <h4 className="details__title">Start:</h4>
@@ -129,7 +130,6 @@ export default function HistoryDetails() {
                 <div>
                   <DeleteModal
                     open={openModal}
-                    // status={status}
                     snackBar={snackBar}
                     handleClose={handleClose}
                     handleDelete={handleDelete}
@@ -138,7 +138,7 @@ export default function HistoryDetails() {
               )}
             </div>
             <hr />
-            <div>User Details</div>
+            <HistoryMap />
           </div>
         </div>
       </>

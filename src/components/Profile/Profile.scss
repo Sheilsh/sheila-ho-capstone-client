@@ -9,18 +9,10 @@
     @include wrapper-props;
   }
 
-  //   &__header {
-  //     display: flex;
-  //     justify-content: space-between;
-  //     width: 100%;
-  //     margin: 2.4rem auto;
-  //   }
-
   &__imagebox {
     width: 5rem;
     height: 5rem;
     margin: 2.4rem auto;
-    // border-radius: 50%;
   }
 
   &__picture {
@@ -36,8 +28,4 @@
     align-items: center;
     gap: 1.6rem;
   }
-
-  //   &__cta {
-  //     width: 100%;
-  //   }
 }

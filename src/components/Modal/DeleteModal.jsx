@@ -37,8 +37,11 @@ export default function DeleteModal({
                 <div className="modal__info">
                   <Snackbar
                     open={snackBar.open}
-                    autoHideDuration={6000}
-                    onClose={() => setSnackBar({ open: false, message: "" })}
+                    autoHideDuration={3000}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "center",
+                    }}
                   >
                     <Alert
                       severity="success"

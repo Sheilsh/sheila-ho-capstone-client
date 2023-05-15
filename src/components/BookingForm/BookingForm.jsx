@@ -58,7 +58,7 @@ export default function BookingForm({
           <section className="form__content">
             <div className="form__info">
               <p className="form__item">Date Selected: {startTime}</p>
-              <p className="form__item">Beaches Location</p>
+              <p className="form__item">Location: Beaches</p>
               <p className="form__item">Selected: Spot {spot[1]}</p>
             </div>
             {duration !== 0 && (
@@ -68,7 +68,7 @@ export default function BookingForm({
             )}
           </section>
           <hr />
-          <form className="form__formcontent" onSubmit={handleSubmit}>
+          <form className="form__inputcontent" onSubmit={handleSubmit}>
             <div className="form__inputbox">
               <select
                 className="form__input form__input--selector"

@@ -24,10 +24,6 @@ export default function HistoryList({ bookingData }) {
                       key={booking.id}
                       id={booking.id}
                       start={booking.start_datetime}
-                      end={booking.end_datetime}
-                      spot={booking.spot_number}
-                      plate={booking.plate_number}
-                      // booking={booking}
                     />
                   );
                 })}

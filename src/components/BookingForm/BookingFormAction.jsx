@@ -179,8 +179,12 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       />
       <Snackbar
         open={snackBar.open}
-        autoHideDuration={6000}
-        onClose={() => setSnackBar({ open: false, message: "" })}
+        autoHideDuration={2000}
+        // onClose={() => setSnackBar({ open: false, message: "" })}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
       >
         <Alert
           severity="success"

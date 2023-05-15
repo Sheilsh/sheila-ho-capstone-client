@@ -94,11 +94,12 @@
     @include label-btn-text;
     text-transform: uppercase;
     font-weight: 700;
+    color: $primary-color-silver;
   }
 
   &__time {
-    @include body-text;
-    color: $primary-color-blue-purple;
+    // @include body-text;
+    color: $primary-color-black;
     font-weight: 500;
   }
 
@@ -109,9 +110,13 @@
   }
 
   &__userinfo {
-    width: 15rem;
     display: flex;
-    gap: 5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  &__useritem {
+    display: flex;
+    gap: 0.5rem;
   }
 
   &__usertitle {

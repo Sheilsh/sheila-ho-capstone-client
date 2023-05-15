@@ -71,12 +71,13 @@ export default function HomePage({ userData, activeBooking }) {
                 <div className="homepage__item">
                   <div className="homepage__userinfo">
                     <div className="homepage__useritem">
-                      <h4 className="homepage__usertitle">Address</h4>
-                      <p>{userData.address}</p>
-                      <p>{userData.city}</p>
+                      <h4 className="homepage__usertitle">Address:</h4>
+                      <p>
+                        {userData.address}, {userData.city}
+                      </p>
                     </div>
                     <div className="homepage__useritem">
-                      <h4 className="homepage__usertitle">Unit</h4>
+                      <h4 className="homepage__usertitle">Unit:</h4>
                       <p>{userData.unit_number}</p>
                     </div>
                   </div>

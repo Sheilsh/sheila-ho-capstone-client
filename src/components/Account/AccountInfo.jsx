@@ -1,10 +1,12 @@
 import React from "react";
 import "./Account.scss";
 import rightarrow from "../../assets/icons/chevron_right_20.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 
 export default function AccountInfo() {
+  const navigate = useNavigate();
+
   const list = [
     { name: "Profile", route: "/account/profile" },
     { name: "License Plate", route: "/account/plate" },
@@ -12,6 +14,11 @@ export default function AccountInfo() {
     { name: "Contact Us", route: "/account/contact" },
     // { name: "Log Out", icon: logout, route: "/signup" },
   ];
+
+  const handleLogOut = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <main className="account">
@@ -38,7 +45,11 @@ export default function AccountInfo() {
               })}
             </ul>
             <div className="account__cta">
-              <Button className="account__button" btnName="Log Out" />
+              <Button
+                className="account__button"
+                btnName="Log Out"
+                onClick={handleLogOut}
+              />
             </div>
           </div>
         </div>
