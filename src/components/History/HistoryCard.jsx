@@ -1,7 +1,6 @@
 import React from "react";
 import "./History.scss";
 import { Link } from "react-router-dom";
-import map from "../../assets/images/beaches-map.png";
 
 export default function HistoryCard({ id, start }) {
   function formatDate(start) {

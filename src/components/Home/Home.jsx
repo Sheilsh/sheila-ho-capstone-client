@@ -7,36 +7,6 @@ import "./Home.scss";
 export default function HomePage({ userData, activeBooking }) {
   const [timer, setTimer] = useState("00:00");
 
-  // useEffect(() => {
-  //   if (activeBooking) {
-  //     const interval = setInterval(() => {
-  //       const endTime = new Date(activeBooking.end_datetime).getTime();
-  //       const currentTime = new Date().getTime();
-  //       const remainingTime = endTime - currentTime;
-  //       if (remainingTime <= 0) {
-  //         clearInterval(interval);
-  //         setTimer("00:00");
-  //       } else {
-  //         const remainingSeconds = Math.floor((remainingTime / 1000) % 60);
-  //         const remainingMinutes = Math.floor(
-  //           (remainingTime / (1000 * 60)) % 60
-  //         );
-  //         const remainingHours = Math.floor(remainingTime / (1000 * 60 * 60));
-  //         setTimer(
-  //           `${remainingHours.toString().padStart(2, "0")}:${remainingMinutes
-  //             .toString()
-  //             .padStart(2, "0")}:${remainingSeconds
-  //             .toString()
-  //             .padStart(2, "0")}`
-  //         );
-  //       }
-  //     }, 1000);
-  //     return () => clearInterval(interval);
-  //   } else {
-  //     setTimer("00:00"); // Initialize the timer with default value
-  //   }
-  // }, [activeBooking]);
-
   useEffect(() => {
     if (activeBooking) {
       const interval = setInterval(() => {
@@ -59,7 +29,7 @@ export default function HomePage({ userData, activeBooking }) {
       }, 1000);
       return () => clearInterval(interval);
     } else {
-      setTimer("00:00"); // Display a message for no active sessions
+      setTimer("00:00");
     }
   }, [activeBooking]);
 
