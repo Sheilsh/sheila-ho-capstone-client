@@ -2,7 +2,7 @@ import React from "react";
 
 import close from "../../assets/icons/clear_black_24dp.svg";
 import Button from "../Button/Button";
-import "./BookingForm.scss";
+import "./Forms.scss";
 
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";

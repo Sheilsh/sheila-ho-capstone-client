@@ -1,5 +1,6 @@
 {
     "user": "/user",
     "parking": "/parking",
+    "plate": "/plate",
     "booking": "/booking"
 }

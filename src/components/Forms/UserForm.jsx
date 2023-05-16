@@ -1,5 +1,5 @@
 import React from "react";
-import "./Profile.scss";
+import "./Forms.scss";
 
 export default function UserInputs({
   userData,
@@ -38,16 +38,16 @@ export default function UserInputs({
     <>
       {inputs.map((item, index) => {
         return (
-          <div className="user__inputbox" key={index}>
+          <div className="user__inputbox form__inputbox" key={index}>
             <input
+              className="user__input form__input"
               type={item.type}
               name={item.label}
               defaultValue={item.content}
               onChange={item.change}
               required
             />
-            <label className="user__label">{item.label}</label>
-            <i></i>
+            <label className="user__label form__label">{item.label}</label>
           </div>
         );
       })}

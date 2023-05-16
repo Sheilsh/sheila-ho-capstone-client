@@ -63,12 +63,13 @@
   &__content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2.4rem;
   }
 
   &__msg {
     @include sub-header;
-    color: lightcoral;
+    color: $primary-color-blue-purple;
     padding: 1.6rem 0;
   }
 
@@ -79,7 +80,7 @@
 
   &__button {
     &--red {
-      color: lightcoral;
+      color: $primary-color-blue-purple;
     }
   }
 }

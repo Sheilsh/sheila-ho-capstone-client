@@ -45,26 +45,26 @@
     gap: 2.2rem;
   }
 
-  &__input-box {
+  &__inputbox {
     position: relative;
     width: 20rem;
     margin-top: 3.5rem;
   }
 
-  &__input-box input {
+  &__inputbox input {
     position: relative;
     width: 100%;
     padding: 2rem 1rem 1rem;
     background: transparent;
     border: none;
     outline: none;
-    color: #335576;
+    color: $primary-color-black;
     font-size: 1rem;
     letter-spacing: 0.05rem;
     z-index: 10;
   }
 
-  &__input-box label {
+  &__inputbox label {
     position: absolute;
     left: 0;
     padding: 2rem 1rem 1rem;
@@ -75,28 +75,28 @@
     transition: 0.5s;
   }
 
-  &__input-box input:valid ~ label,
-  &__input-box input:focus ~ label {
+  &__inputbox input:valid ~ label,
+  &__inputbox input:focus ~ label {
     color: $primary-color-blue-purple;
     transform: translateY(-34px);
     font-size: 0.75rem;
   }
 
-  &__input-box i {
+  &__inputbox i {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 0.2rem;
-    background: #b4b2e7;
+    background: #b4b2e780;
     border-radius: 0.4rem;
     transition: 0.5s;
     pointer-events: none;
     z-index: 9;
   }
 
-  &__input-box input:valid ~ i,
-  &__input-box input:focus ~ i {
+  &__inputbox input:valid ~ i,
+  &__inputbox input:focus ~ i {
     height: 4.4rem;
   }
 }

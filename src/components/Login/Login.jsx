@@ -1,10 +1,10 @@
 import React from "react";
-import "./LogIn.scss";
+import "./Login.scss";
 import banner from "../../assets/logo/logo_transparent.png";
-import Button from "../../components/Button/Button";
-import Footer from "../../components/Footer/Footer";
+import Button from "../Button/Button";
+import Footer from "../Footer/Footer";
 
-export default function LogIn() {
+export default function Login() {
   return (
     <>
       <main className="login">
@@ -15,12 +15,12 @@ export default function LogIn() {
                 <img className="login__banner" src={banner} alt="Banner" />
               </div>
               <div className="login__content">
-                <div className="login__input-box">
+                <div className="login__inputbox">
                   <input type="email" name="email" required />
                   <label className="login__info">Email</label>
                   <i></i>
                 </div>
-                <div className="login__input-box">
+                <div className="login__inputbox">
                   <input type="password" name="password" required />
                   <label className="login__info">Password</label>
                   <i></i>

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { addBooking, getUserBooking } from "../../utils/helpers";
+import {
+  addBooking,
+  getUserBooking,
+  addPlateByUserId,
+} from "../../utils/helpers";
 
-import "./BookingForm.scss";
+import "./Forms.scss";
 import BookingForm from "./BookingForm";
 
 import Snackbar from "@mui/material/Snackbar";
@@ -128,15 +132,18 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
     };
 
     try {
+      const newPlateData = { plate_number: newPlate || selectedPlate };
+      await addPlateByUserId(userData.id, newPlateData);
+
       await addBooking(formData);
       formReset();
 
       setSnackBar({ open: true, message: "Booking confirmed!" });
-      // setTimeout(() => {
-      //   navigate("/history");
-      // }, 2000);
+      setTimeout(() => {
+        navigate("/history");
+      }, 2000);
     } catch (error) {
-      alert("Failed to confirm booking.");
+      console.error("Failed to confirm booking.");
     }
 
     e.target.reset();
