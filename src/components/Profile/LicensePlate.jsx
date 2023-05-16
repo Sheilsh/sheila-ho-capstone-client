@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserById } from "../../utils/helpers";
 import Header from "../Header/Header";
+import Button from "../Button/Button";
 
 export default function LicensePlate() {
   const { id } = useParams();
@@ -17,20 +18,32 @@ export default function LicensePlate() {
   return (
     <>
       <Header linkTo={"/account"} headerName="License Plates" />
-      <div className="plate__wrapper">
-        <div className="plate__container">
-          <h3>Saved License Plate</h3>
-          <ul className="plate__content">
-            {plate.map((plate, index) => {
-              return (
-                <li className="plate__number" key={index}>
-                  {plate.plate_number}
-                </li>
-              );
-            })}
-          </ul>
+      {/* <div className="user__wrapper">
+        <div className="user__container"> */}
+      <form className="user__form user__form--plate">
+        <h2>Edit License Plate</h2>
+        {plate.map((plate, index) => {
+          return (
+            <>
+              <div className="user__inputbox" key={index}>
+                <input
+                  type="text"
+                  defaultValue={plate.plate_number}
+                  // onChange={item.change}
+                  required
+                />
+                <label className="user__label">Plate Number</label>
+                <i></i>
+              </div>
+            </>
+          );
+        })}
+        <div className="user__cta">
+          <Button className="user__button" type="submit" btnName="Save" />
         </div>
-      </div>
+      </form>
+      {/* </div>
+      </div> */}
     </>
   );
 }

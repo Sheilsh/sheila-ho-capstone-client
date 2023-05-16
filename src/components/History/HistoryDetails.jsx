@@ -98,6 +98,14 @@ export default function HistoryDetails() {
                 <p className="details__data">Beaches</p>
               </div>
               <div className="details__infocontent">
+                <h4 className="details__title">Spot Number:</h4>
+                <p className="historycard__data">{bookingData.spot_number}</p>
+              </div>
+              <div className="details__infocontent">
+                <h4 className="details__title">Plate:</h4>
+                <p className="historycard__data">{bookingData.plate_number}</p>
+              </div>
+              <div className="details__infocontent">
                 <h4 className="details__title">Start:</h4>
                 <p className="historycard__data">
                   {formatDateTime(bookingData.start_datetime)}
@@ -108,14 +116,6 @@ export default function HistoryDetails() {
                 <p className="historycard__data">
                   {formatDateTime(bookingData.end_datetime)}
                 </p>
-              </div>
-              <div className="details__infocontent">
-                <h4 className="details__title">Spot Number:</h4>
-                <p className="historycard__data">{bookingData.spot_number}</p>
-              </div>
-              <div className="details__infocontent">
-                <h4 className="details__title">Plate:</h4>
-                <p className="historycard__data">{bookingData.plate_number}</p>
               </div>
             </div>
             <div className="details__cta">

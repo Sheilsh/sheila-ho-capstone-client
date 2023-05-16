@@ -48,31 +48,33 @@ export default function HomePage({ userData, activeBooking }) {
                   <p className="homepage__subtitle">Active Session</p>
                   {activeBooking ? (
                     <div className="homepage__location">
-                      <p className="homepage__location-name">
-                        Beaches Location
-                      </p>
+                      <p className="homepage__text">Beaches Location</p>
                     </div>
                   ) : (
                     ""
                   )}
                   {activeBooking ? (
-                    <p className="homepage__time">Time Duration: {timer}</p>
+                    <p className="homepage__text">Time Duration: {timer}</p>
                   ) : (
-                    <p className="homepage__time">No Active Sessions</p>
+                    <p className="homepage__text">No Active Sessions</p>
                   )}
                 </div>
                 <hr />
                 <div className="homepage__section">
                   <div className="homepage__userinfo">
                     <div className="homepage__usercontent">
-                      <h4 className="homepage__usertitle">Address:</h4>
-                      <p className="homepage__useritem">
+                      <h4 className="homepage__text homepage__text--usertitle">
+                        Address:
+                      </h4>
+                      <p className="homepage__text homepage__text--useritem">
                         {userData.address}, {userData.city}
                       </p>
                     </div>
                     <div className="homepage__usercontent">
-                      <h4 className="homepage__usertitle">Unit:</h4>
-                      <p className="homepage__useritem">
+                      <h4 className="homepage__text homepage__text--usertitle">
+                        Unit:
+                      </h4>
+                      <p className="homepage__text homepage__text--useritem">
                         {userData.unit_number}
                       </p>
                     </div>

@@ -16,6 +16,7 @@
 
   @include tablet {
     width: 55rem;
+    bottom: -80px;
   }
 
   &__wrapper {
@@ -60,6 +61,10 @@
 
   &__item {
     font-weight: 500;
+
+    @include tablet {
+      @include label-btn-text2;
+    }
   }
 
   &__inputcontent {
@@ -85,6 +90,10 @@
     outline: none;
     color: $primary-color-black;
 
+    @include tablet {
+      @include label-btn-text2;
+    }
+
     &--time {
       height: 6rem;
       padding: 2.5rem 1rem 1rem;
@@ -106,6 +115,10 @@
     left: 0;
     padding: 1rem;
     pointer-events: none;
+
+    @include tablet {
+      @include label-btn-text2;
+    }
   }
 
   &__inputbox input:valid ~ &__label,

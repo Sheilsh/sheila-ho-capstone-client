@@ -27,7 +27,10 @@ export default function BookingForm({
       <Alert
         severity={type}
         sx={{
-          fontSize: "1.1rem",
+          fontSize: {
+            xs: "1.1rem",
+            sm: "1.3rem",
+          },
           color: "red",
           "& .MuiAlert-message": {
             padding: "10px 0",

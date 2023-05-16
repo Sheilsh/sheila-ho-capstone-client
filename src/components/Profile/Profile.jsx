@@ -54,11 +54,11 @@ export default function Profile() {
         <div className="user__wrapper">
           <div className="user__container">
             <div className="user__info">
-              <div className="user__imagebox">
-                <img className="user__picture" src={face} alt="face icon" />
-              </div>
               {userData && (
                 <form className="user__form" onSubmit={handleFormSubmit}>
+                  <div className="user__imagebox">
+                    <img className="user__picture" src={face} alt="face icon" />
+                  </div>
                   <UserInputs
                     userData={userData}
                     setName={setName}

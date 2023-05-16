@@ -15,20 +15,17 @@ export default function LogIn() {
             <div className="login__content">
               <div className="login__input-box">
                 <input type="email" name="email" required />
-                <label className="login__form__info">Email</label>
+                <label className="login__info">Email</label>
                 <i></i>
               </div>
               <div className="login__input-box">
                 <input type="password" name="password" required />
-                <label className="login__form__info">Password</label>
+                <label className="login__info">Password</label>
                 <i></i>
               </div>
             </div>
             <div className="login__content">
-              <Button
-                className="login__button login__button-login"
-                btnName="Log In"
-              />
+              <Button className="login__button" btnName="Log In" />
             </div>
           </form>
         </div>

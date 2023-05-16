@@ -38,7 +38,7 @@ export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
             <img className="parking__carimg" src={car} alt="car image" />
           )}
         </div>
-        <p>Spot {number}</p>
+        <p className="parking__number">Spot {number}</p>
       </div>
     </>
   );

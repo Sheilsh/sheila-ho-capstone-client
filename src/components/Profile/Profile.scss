@@ -12,39 +12,115 @@
   &__imagebox {
     width: 5rem;
     height: 5rem;
-    margin: 2.4rem auto;
+    margin: 1rem auto;
   }
 
   &__picture {
     width: 100%;
     height: 100%;
-    background-color: $primary-color-blue-purple;
+    background-color: lightgray;
     border-radius: 50%;
   }
 
+  // &__form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   gap: 1.6rem;
+  // }
   &__form {
+    width: 20rem;
+    height: 50rem;
+    background-color: whitesmoke;
+    border: 2px solid #b4b2e780;
+    border: 2px solid $primary-color-black;
+    border-radius: 0.8rem;
+    padding: 1rem 4rem;
+    margin: 1rem auto;
+    box-sizing: unset;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    gap: 1.6rem;
+  }
+
+  &__inputbox {
+    position: relative;
+    width: 20rem;
+    margin-top: 2rem;
+
+    input {
+      position: relative;
+      width: 100%;
+      padding: 2rem 1rem 1rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #335576;
+      font-size: 1rem;
+      letter-spacing: 0.05rem;
+      z-index: 10;
+
+      &:valid ~ label,
+      &:focus ~ label {
+        color: $primary-color-blue-purple;
+        transform: translateY(-34px);
+        font-size: 0.75rem;
+      }
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      padding: 2rem 1rem 1rem;
+      font-size: 1rem;
+      color: $primary-color-black;
+      pointer-events: none;
+      letter-spacing: 0.05rem;
+      transition: 0.5s;
+    }
+
+    input:valid ~ i,
+    input:focus ~ i {
+      height: 4.4rem;
+    }
+
+    i {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0.2rem;
+      background: #b4b2e780;
+      border-radius: 0.2rem;
+      transition: 0.5s;
+      pointer-events: none;
+      z-index: 9;
+    }
+  }
+
+  &__button {
+    margin: 1rem 0;
   }
 }
 
-.plate {
-  &__wrapper {
-    @include wrapper-props;
-  }
+// ----- styles for plate page -----
+// .plate {
+//   &__wrapper {
+//     @include wrapper-props;
+//   }
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+//   &__content {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+//   }
 
-  &__number {
-    list-style: none;
-    height: 5rem;
-    width: 100%;
-    border: 1px solid $primary-color-blue-purple;
-  }
-}
+//   &__number {
+//     @include body-text;
+//     list-style: none;
+//     height: 5rem;
+//     width: 100%;
+//     border: 1px solid $primary-color-blue-purple;
+//   }
+// }

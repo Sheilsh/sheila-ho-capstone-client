@@ -51,10 +51,9 @@
     left: 0rem;
     right: 0rem;
 
-    // @include tablet {
-    //   position: absolute;
-    //   right: 25rem;
-    // }
+    @include tablet {
+      top: 25rem;
+    }
   }
 
   &__title {
@@ -64,6 +63,12 @@
     width: 25rem;
     position: absolute;
     top: 23rem;
+
+    @include tablet {
+      @include page-header2;
+      width: fit-content;
+      top: 15rem;
+    }
   }
 
   &__info {
@@ -73,6 +78,10 @@
     box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     padding: 2rem;
+
+    @include tablet {
+      height: 25rem;
+    }
   }
 
   &__section {
@@ -88,6 +97,10 @@
     text-align: center;
     font-weight: 500;
     color: $primary-color-blue-purple;
+
+    @include tablet {
+      @include sub-header2;
+    }
   }
 
   &__location-name {
@@ -95,12 +108,29 @@
     text-transform: uppercase;
     font-weight: 700;
     color: $primary-color-silver;
+
+    @include tablet {
+      @include label-btn-text2;
+    }
   }
 
-  &__time {
-    // @include body-text;
+  &__text {
     color: $primary-color-black;
     font-weight: 500;
+
+    @include tablet {
+      @include label-btn-text2;
+    }
+
+    &--usertitle {
+      text-transform: uppercase;
+      color: $primary-color-blue-purple;
+    }
+
+    &--useritem {
+      text-transform: uppercase;
+      font-weight: 500;
+    }
   }
 
   & hr {
@@ -118,6 +148,11 @@
   &__usercontent {
     display: flex;
     gap: 0.5rem;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+    }
   }
 
   &__usertitle {
@@ -125,8 +160,8 @@
     color: $primary-color-blue-purple;
   }
 
-  &__useritem {
-    text-transform: uppercase;
-    font-weight: 500;
-  }
+  // &__useritem {
+  //   text-transform: uppercase;
+  //   font-weight: 500;
+  // }
 }

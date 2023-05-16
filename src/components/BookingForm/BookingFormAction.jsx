@@ -132,9 +132,9 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       formReset();
 
       setSnackBar({ open: true, message: "Booking confirmed!" });
-      setTimeout(() => {
-        navigate("/history");
-      }, 2000);
+      // setTimeout(() => {
+      //   navigate("/history");
+      // }, 2000);
     } catch (error) {
       alert("Failed to confirm booking.");
     }
@@ -189,7 +189,10 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
         <Alert
           severity="success"
           sx={{
-            fontSize: "1.1rem",
+            fontSize: {
+              xs: "1.1rem",
+              sm: "1.3rem",
+            },
             color: "green",
             "& .MuiAlert-message": {
               padding: "10px 0",
