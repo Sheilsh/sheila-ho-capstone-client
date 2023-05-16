@@ -89,34 +89,34 @@ export default function HistoryDetails() {
         <div className="details__wrapper">
           <div className="details__container">
             <div className="details__info">
-              <div className="details__infocontent">
+              <section className="details__infocontent">
                 <h4 className="details__title">Booking ID:</h4>
                 <p className="historycard__data">{id}</p>
-              </div>
-              <div className="details__infocontent">
+              </section>
+              <section className="details__infocontent">
                 <h4 className="details__title">Location:</h4>
                 <p className="details__data">Beaches</p>
-              </div>
-              <div className="details__infocontent">
+              </section>
+              <section className="details__infocontent">
                 <h4 className="details__title">Spot Number:</h4>
                 <p className="historycard__data">{bookingData.spot_number}</p>
-              </div>
-              <div className="details__infocontent">
+              </section>
+              <section className="details__infocontent">
                 <h4 className="details__title">Plate:</h4>
                 <p className="historycard__data">{bookingData.plate_number}</p>
-              </div>
-              <div className="details__infocontent">
+              </section>
+              <section className="details__infocontent">
                 <h4 className="details__title">Start:</h4>
                 <p className="historycard__data">
                   {formatDateTime(bookingData.start_datetime)}
                 </p>
-              </div>
-              <div className="details__infocontent">
+              </section>
+              <section className="details__infocontent">
                 <h4 className="details__title">End:</h4>
                 <p className="historycard__data">
                   {formatDateTime(bookingData.end_datetime)}
                 </p>
-              </div>
+              </section>
             </div>
             <div className="details__cta">
               {isActiveBooking && (

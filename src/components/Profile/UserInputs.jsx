@@ -28,7 +28,7 @@ export default function UserInputs({
     { label: "City", content: userData ? userData.city : "" },
     {
       label: "Phone Number",
-      type: "text",
+      type: "tel",
       content: userData ? userData.phone_number : "",
       change: (e) => setPhoneNumber(e.target.value),
     },

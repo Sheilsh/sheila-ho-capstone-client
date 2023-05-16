@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .footer {
-  height: 10rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,12 +14,7 @@
   z-index: 0;
   margin-top: auto;
 
-  // @include tablet {
-  //   height: 13rem;
-  //   bottom: -25rem;
-  // }
-
-  // @include desktop {
-  //   height: 16rem;
-  // }
+  @include tablet {
+    bottom: 22px;
+  }
 }

@@ -53,6 +53,22 @@ export default function Profile() {
       <div className="user">
         <div className="user__wrapper">
           <div className="user__container">
+            {success && (
+              <Stack sx={{ width: "100%" }} spacing={2}>
+                <Alert
+                  severity="success"
+                  sx={{
+                    fontSize: "1.1rem",
+                    color: "green",
+                    "& .MuiAlert-message": {
+                      padding: "10px 0",
+                    },
+                  }}
+                >
+                  {success}
+                </Alert>
+              </Stack>
+            )}
             <div className="user__info">
               {userData && (
                 <form className="user__form" onSubmit={handleFormSubmit}>
@@ -65,22 +81,6 @@ export default function Profile() {
                     setEmail={setEmail}
                     setPhoneNumber={setPhoneNumber}
                   />
-                  {success && (
-                    <Stack sx={{ width: "100%" }} spacing={2}>
-                      <Alert
-                        severity="success"
-                        sx={{
-                          fontSize: "1.1rem",
-                          color: "green",
-                          "& .MuiAlert-message": {
-                            padding: "10px 0",
-                          },
-                        }}
-                      >
-                        {success}
-                      </Alert>
-                    </Stack>
-                  )}
                   <div className="user__cta">
                     <Button
                       className="user__button"

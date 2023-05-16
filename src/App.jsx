@@ -13,6 +13,7 @@ import AccountPage from "./pages/AccountPage";
 import HistoryDetails from "./components/History/HistoryDetails";
 import Profile from "./components/Profile/Profile";
 import LicensePlate from "./components/Profile/LicensePlate";
+import Contact from "./components/Account/Contact";
 
 function App() {
   return (
@@ -29,8 +30,7 @@ function App() {
           <Route path="/account" element={<AccountPage />} />
           <Route path="/account/profile" element={<Profile />} />
           <Route path="/account/plates" element={<LicensePlate />} />
-          {/* <Route path="/account/about" element={<About />} />
-          <Route path="/account/contact" element={<Contact />} /> */}
+          <Route path="/account/contact" element={<Contact />} />
         </Routes>
         <MobileNav />
       </BrowserRouter>

@@ -46,7 +46,10 @@ export default function DeleteModal({
                     <Alert
                       severity="success"
                       sx={{
-                        fontSize: "1.1rem",
+                        fontSize: {
+                          xs: "1.1rem",
+                          sm: "1.3rem",
+                        },
                         color: "green",
                         "& .MuiAlert-message": {
                           padding: "10px 0",

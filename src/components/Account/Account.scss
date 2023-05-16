@@ -3,6 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .account {
+  height: 100vh;
   margin: 2.4rem 0;
 
   @include tablet {
@@ -56,5 +57,36 @@
 
   &__button {
     width: 100%;
+  }
+}
+
+// ------ contact page styles -----
+
+.contact {
+  // height: 100vh;
+  height: 100%;
+  margin: 2.4rem 0;
+
+  @include tablet {
+    margin: 2.4rem 5.5rem;
+  }
+
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__content {
+    @include label-btn-text2;
+  }
+
+  &__info {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    // flex-direction: column;
+
+    & p {
+      font-weight: 500;
+    }
   }
 }
