@@ -44,10 +44,6 @@
     &--img {
       width: 17rem;
       height: 9rem;
-      // @include tablet {
-      //   widht: 5rem;
-      //   height: 8rem;
-      // }
     }
 
     &--name {
@@ -64,12 +60,6 @@
   }
 
   &__listitem {
-    // display: none;
-
-    // @include tablet {
-    //   display: block;
-    // }
-
     a {
       position: relative;
       color: $primary-color-black;

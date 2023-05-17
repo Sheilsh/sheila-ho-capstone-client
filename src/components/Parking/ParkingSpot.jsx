@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import "./Parking.scss";
 
-import car from "../../assets/images/car2.png";
+import car from "../../assets/images/transport.png";
 
 export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
   const [selected, setSelected] = useState("");
@@ -28,17 +28,22 @@ export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
         <div className="parking__visuals">
           {isAvailable ? (
             <p
-              className="parking__spotname"
+              className="parking__spotfield"
               onClick={handleSelectParking}
               number={number}
             >
-              Empty
+              <p className="parking__number">{number}</p>
             </p>
           ) : (
-            <img className="parking__carimg" src={car} alt="car image" />
+            <p
+              className="parking__spotfield"
+              onClick={handleSelectParking}
+              number={number}
+            >
+              <img className="parking__carimg" src={car} alt="car image" />
+            </p>
           )}
         </div>
-        <p className="parking__number">Spot {number}</p>
       </div>
     </>
   );

@@ -66,14 +66,14 @@ export default function DeleteModal({
                 </div>
                 <div className="modal__cta">
                   <Button
-                    className="modal__button"
-                    btnName="Cancel"
-                    onClick={() => navigate("/history")}
-                  />
-                  <Button
                     className="modal__button modal__button--red"
                     btnName="Delete"
                     onClick={handleDelete}
+                  />
+                  <Button
+                    className="modal__button"
+                    btnName="Cancel"
+                    onClick={() => navigate("/history")}
                   />
                 </div>
               </div>

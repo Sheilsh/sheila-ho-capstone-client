@@ -8,9 +8,6 @@ export default function HistoryList({ bookingData }) {
       <div className="history">
         <div className="history__wrapper">
           <div className="history__container">
-            {/* <section className="history__content">
-              <h1>Active Sessions</h1>
-            </section> */}
             <div className="history__content">
               {bookingData
                 .sort(

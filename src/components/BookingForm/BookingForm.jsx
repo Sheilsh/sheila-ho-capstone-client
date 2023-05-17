@@ -2,7 +2,7 @@ import React from "react";
 
 import close from "../../assets/icons/clear_black_24dp.svg";
 import Button from "../Button/Button";
-import "./Forms.scss";
+import "./BookingForm";
 
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -114,7 +114,7 @@ export default function BookingForm({
             </div>
             <div className="form__cta">
               <Button
-                className="form__button"
+                className="form__button form__button--confirm"
                 type="submit"
                 btnName="Confirm"
               />

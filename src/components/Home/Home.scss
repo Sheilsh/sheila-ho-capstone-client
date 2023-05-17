@@ -5,11 +5,7 @@
 .homepage {
   width: 100%;
   height: 100%;
-  background: whitesmoke;
-
-  // &__wrapper {
-  //   @include wrapper-props;
-  // }
+  background: $primary-color-whitesmoke;
 
   &__container {
     position: relative;
@@ -17,8 +13,7 @@
 
   &__header {
     height: 35rem;
-    background-color: #b4b2e780;
-    // background: radial-gradient(#64c9e659, #9198e5);
+    background-color: $secondary-color-light-purple;
     border-radius: 0px 0px 80px 80px;
     display: flex;
     flex-direction: column;
@@ -33,7 +28,6 @@
 
   &__banner {
     width: 30rem;
-    // height: 50%;
     margin: 0;
 
     @include tablet {
@@ -122,6 +116,10 @@
       @include label-btn-text2;
     }
 
+    &--location {
+      text-transform: uppercase;
+    }
+
     &--usertitle {
       text-transform: uppercase;
       color: $primary-color-blue-purple;
@@ -159,9 +157,4 @@
     text-transform: uppercase;
     color: $primary-color-blue-purple;
   }
-
-  // &__useritem {
-  //   text-transform: uppercase;
-  //   font-weight: 500;
-  // }
 }

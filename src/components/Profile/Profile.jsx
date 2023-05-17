@@ -6,7 +6,7 @@ import "./Profile.scss";
 import Header from "../Header/Header";
 import face from "../../assets/images/face_48.svg";
 import Button from "../Button/Button";
-import UserForm from "../Forms/UserForm";
+import ProfileInputs from "./ProfileInputs";
 
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -75,7 +75,7 @@ export default function Profile() {
                   <div className="user__imagebox">
                     <img className="user__picture" src={face} alt="face icon" />
                   </div>
-                  <UserForm
+                  <ProfileInputs
                     userData={userData}
                     setName={setName}
                     setEmail={setEmail}

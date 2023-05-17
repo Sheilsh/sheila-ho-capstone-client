@@ -48,7 +48,9 @@ export default function HomePage({ userData, activeBooking }) {
                   <p className="homepage__subtitle">Active Session</p>
                   {activeBooking ? (
                     <div className="homepage__location">
-                      <p className="homepage__text">Beaches Location</p>
+                      <p className="homepage__text homepage__text--location">
+                        Beaches Location
+                      </p>
                     </div>
                   ) : (
                     ""

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { getParking } from "../../utils/helpers";
 
-import BookingFormAction from "../Forms/BookingFormAction";
+import BookingFormAction from "../BookingForm/BookingFormAction";
 import ParkingCarousel from "./ParkingCarousel";
 
 import Modal from "@mui/material/Modal";

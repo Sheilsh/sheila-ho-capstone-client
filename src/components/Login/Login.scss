@@ -4,7 +4,7 @@
 
 .login {
   text-align: center;
-  background-color: whitesmoke;
+  background-color: $primary-color-whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,8 +33,8 @@
 
   &__form {
     width: 20rem;
-    background-color: whitesmoke;
-    border: 2px solid #b4b2e780;
+    background-color: $primary-color-whitesmoke;
+    border: 2px solid $secondary-color-light-purple;
     border-radius: 0.8rem;
     padding: 5rem 4rem;
     margin: 5rem auto;
@@ -88,7 +88,7 @@
     bottom: 0;
     width: 100%;
     height: 0.2rem;
-    background: #b4b2e780;
+    background: $secondary-color-light-purple;
     border-radius: 0.4rem;
     transition: 0.5s;
     pointer-events: none;

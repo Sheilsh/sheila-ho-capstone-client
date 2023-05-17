@@ -6,7 +6,7 @@ import {
   addPlateByUserId,
 } from "../../utils/helpers";
 
-import "./Forms.scss";
+import "./BookingForm.scss";
 import BookingForm from "./BookingForm";
 
 import Snackbar from "@mui/material/Snackbar";
@@ -187,7 +187,6 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
       <Snackbar
         open={snackBar.open}
         autoHideDuration={2000}
-        // onClose={() => setSnackBar({ open: false, message: "" })}
         anchorOrigin={{
           vertical: "top",
           horizontal: "center",

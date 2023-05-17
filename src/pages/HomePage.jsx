@@ -14,7 +14,6 @@ export default function HomePage() {
   // -----  useEffect/ apiData -----
   useEffect(() => {
     getUserById(id).then((data) => {
-      // console.log("user data", data);
       setUserData(data);
       setLoading(false);
     });
