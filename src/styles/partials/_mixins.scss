@@ -26,13 +26,8 @@
   @include default-font(1.3rem, 1.8rem);
 }
 
-//body and foooter
+// body
 @mixin body-text {
-  @include default-font(1.3rem, 1.8rem);
-}
-
-// labels and buttons
-@mixin label-btn-text {
   @include default-font(1rem, 2rem);
 }
 
@@ -48,13 +43,8 @@
   @include default-font(1.4rem, 2.2rem);
 }
 
-//body and foooter
+//body
 @mixin body-text2 {
-  @include default-font(1.4rem, 2.2rem);
-}
-
-// labels and buttons
-@mixin label-btn-text2 {
   @include default-font(1.2rem, 2rem);
 }
 
@@ -78,7 +68,7 @@
 
 // ----- button --------
 @mixin button {
-  @include label-btn-text;
+  @include body-text;
   font-weight: 600;
   text-transform: uppercase;
   color: $secondary-color-alabaster;

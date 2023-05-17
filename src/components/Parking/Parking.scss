@@ -99,12 +99,12 @@
     }
 
     @include tablet {
-      @include label-btn-text2;
+      @include body-text2;
     }
   }
 
   &__number {
-    @include label-btn-text2;
+    @include body-text2;
     width: 2rem;
     height: 2rem;
     background-color: $primary-color-black;

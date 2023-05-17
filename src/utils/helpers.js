@@ -90,9 +90,6 @@ export async function getBooking() {
 
 export async function getBookingById(id) {
   try {
-    // const response = await axios.get(
-    //   `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`
-    // );
     const url = `${routes.booking}/${id}`;
     const response = await axios.get(url);
     if (response.status === 200) {

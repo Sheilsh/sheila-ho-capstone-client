@@ -10,7 +10,6 @@ export default function ProfilePlates() {
 
   useEffect(() => {
     getUserById(id).then((data) => {
-      console.log(data.license_plate);
       setPlate(data.license_plate);
     });
   }, [id]);

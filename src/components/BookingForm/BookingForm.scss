@@ -63,7 +63,7 @@
     font-weight: 500;
 
     @include tablet {
-      @include label-btn-text2;
+      @include body-text2;
     }
   }
 
@@ -81,7 +81,7 @@
   }
 
   &__input {
-    @include label-btn-text;
+    @include body-text;
     width: 100%;
     padding: 1rem;
     border: 1px solid $primary-color-black;
@@ -91,7 +91,7 @@
     color: $primary-color-black;
 
     @include tablet {
-      @include label-btn-text2;
+      @include body-text2;
     }
 
     &--time {
@@ -109,7 +109,7 @@
   }
 
   &__label {
-    @include label-btn-text;
+    @include body-text;
     color: $primary-color-black;
     position: absolute;
     left: 0;
@@ -117,7 +117,7 @@
     pointer-events: none;
 
     @include tablet {
-      @include label-btn-text2;
+      @include body-text2;
     }
   }
 

@@ -99,13 +99,13 @@
   }
 
   &__location-name {
-    @include label-btn-text;
+    @include body-text;
     text-transform: uppercase;
     font-weight: 700;
     color: $primary-color-silver;
 
     @include tablet {
-      @include label-btn-text2;
+      @include body-text2;
     }
   }
 
@@ -114,7 +114,7 @@
     font-weight: 500;
 
     @include tablet {
-      @include label-btn-text2;
+      @include body-text2;
     }
 
     &--location {
