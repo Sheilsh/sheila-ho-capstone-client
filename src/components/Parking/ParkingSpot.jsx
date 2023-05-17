@@ -27,13 +27,13 @@ export default function ParkingSpot({ id, number, availableSpots, onSelect }) {
         )}
         <div className="parking__visuals">
           {isAvailable ? (
-            <p
+            <div
               className="parking__spotfield"
               onClick={handleSelectParking}
               number={number}
             >
               <p className="parking__number">{number}</p>
-            </p>
+            </div>
           ) : (
             <p
               className="parking__spotfield"

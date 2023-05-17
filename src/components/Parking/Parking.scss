@@ -4,7 +4,6 @@
 
 .parking {
   height: 40rem;
-  // height: 100vh;
 
   @include tablet {
     height: 100%;
@@ -26,7 +25,6 @@
     background-color: #b4b2e738;
     color: $primary-color-black;
     border-radius: 2rem;
-    // min-height: 22rem;
     min-height: 30rem;
 
     transform: translate(0%, -10%);
@@ -62,14 +60,11 @@
   // ---- parking spot styles -----
 
   &__spot {
-    // height: 8rem;
     height: 12rem;
-
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
     cursor: pointer;
 
     &--last {
@@ -78,25 +73,17 @@
   }
 
   &__spotfield {
-    // width: 4rem;
-    // height: 4rem;
     width: 6rem;
     height: 10rem;
 
-    color: black;
+    color: $primary-color-black;
     text-align: center;
-    // background-color: whitesmoke;
     border: 2px dashed $primary-color-black;
-    // border-radius: 50rem;
     border-radius: 0.7rem;
-    // padding: 1.5rem 0;
     padding: 2.5rem 0;
   }
 
   &__carimg {
-    // width: 4rem;
-    // height: 4rem;
-
     width: 6rem;
     height: 7rem;
     position: relative;
@@ -108,7 +95,7 @@
     color: $primary-color-blue-purple;
 
     &--booked {
-      color: red;
+      color: rgb(255, 0, 0);
     }
 
     @include tablet {
@@ -154,27 +141,4 @@
   .slick-dots {
     bottom: -40%;
   }
-
-  // -- slider effects --
-
-  // .slick-slide {
-  //   filter: blur(2px);
-  //   transition: all 0.3s ease-in-out;
-  // }
-
-  // .slick-slide:hover {
-  //   filter: blur(0);
-  // }
-
-  // .slick-active {
-  //   filter: blur(0);
-  // }
-
-  // .slick-active:hover ~ .slick-slide {
-  //   filter: blur(2px);
-  // }
-
-  // .slick-active .slick-current:not(:hover) {
-  //   filter: blur(2px);
-  // }
 }

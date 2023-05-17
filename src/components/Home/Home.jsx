@@ -45,9 +45,9 @@ export default function HomePage({ userData, activeBooking }) {
             <div className="homepage__content">
               <div className="homepage__info">
                 <div className="homepage__section">
-                  <p className="homepage__subtitle">Active Session</p>
                   {activeBooking ? (
                     <div className="homepage__location">
+                      <p className="homepage__subtitle">Active Session</p>
                       <p className="homepage__text homepage__text--location">
                         Beaches Location
                       </p>
@@ -58,7 +58,7 @@ export default function HomePage({ userData, activeBooking }) {
                   {activeBooking ? (
                     <p className="homepage__text">Time Duration: {timer}</p>
                   ) : (
-                    <p className="homepage__text">No Active Sessions</p>
+                    <p className="homepage__subtitle">No Active Sessions</p>
                   )}
                 </div>
                 <hr />

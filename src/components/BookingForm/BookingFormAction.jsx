@@ -125,15 +125,20 @@ export default function BookingFormAction({ userData, spot, date, onClose }) {
     const formData = {
       user_id: userData.id,
       parking_id: spot[0],
-      plate_id: plateId,
+      plate_id: null,
       plate_number: newPlate || selectedPlate,
       start_datetime: startTime,
       end_datetime: endTime,
     };
 
     try {
-      const newPlateData = { plate_number: newPlate || selectedPlate };
-      await addPlateByUserId(userData.id, newPlateData);
+      if (newPlate) {
+        const newPlateData = { plate_number: newPlate };
+        const addedPlate = await addPlateByUserId(userData.id, newPlateData);
+        formData.plate_id = addedPlate.id;
+      } else {
+        formData.plate_id = plateId;
+      }
 
       await addBooking(formData);
       formReset();
