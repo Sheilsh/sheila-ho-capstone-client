@@ -1,0 +1,35 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.user {
+  height: 100vh;
+
+  &__wrapper {
+    @include wrapper-props;
+  }
+
+  &__imagebox {
+    width: 5rem;
+    height: 5rem;
+    margin: 0.5rem auto;
+  }
+
+  &__picture {
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color-blue-purple;
+    border-radius: 50%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  &__inputbox {
+    margin: 1rem;
+  }
+}

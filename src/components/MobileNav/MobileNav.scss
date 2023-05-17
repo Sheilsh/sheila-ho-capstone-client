@@ -1,0 +1,45 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.mobilenav {
+  &__bar {
+    background-color: $primary-color-white;
+    padding: 1rem;
+    position: fixed;
+    width: calc(100% - 2rem);
+    bottom: 0;
+    left: 0;
+    margin: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-around;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list {
+    height: 3.5rem;
+    width: 3.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__icon {
+    height: 100%;
+    width: 100%;
+
+    @include tablet {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  .active {
+    background-color: $primary-color-blue-purple;
+    text-decoration: none;
+  }
+}

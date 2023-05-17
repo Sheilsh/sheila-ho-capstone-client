@@ -1,23 +1,39 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.scss";
 
+import MobileNav from "./components/MobileNav/MobileNav";
 import NavBar from "./components/NavBar/NavBar";
-import "./App.css";
 
-// router info
+import Login from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import BookingPage from "./pages/BookingPage";
+import HistoryPage from "./pages/HistoryPage";
+import AccountPage from "./pages/AccountPage";
+
+import HistoryDetails from "./components/History/HistoryDetails";
+import Profile from "./components/Profile/Profile";
+import ProfilePlates from "./components/Profile/ProfilePlates";
+import Contact from "./components/Account/AccountContact";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      {/* <h1>Sheila's Capstone Project</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div> */}
-      <NavBar />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:id" element={<HomePage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/history/:id/details" element={<HistoryDetails />} />
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/account/profile" element={<Profile />} />
+          <Route path="/account/plates" element={<ProfilePlates />} />
+          <Route path="/account/contact" element={<Contact />} />
+        </Routes>
+        <MobileNav />
+      </BrowserRouter>
     </div>
   );
 }

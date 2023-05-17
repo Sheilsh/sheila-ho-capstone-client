@@ -1,0 +1,100 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+// --------- TABLET and DESKTOP STYLES ----------
+
+.nav {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  &__navigation {
+    @include tablet {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      background-color: $primary-color-white;
+      width: 9rem;
+      overflow: hidden;
+      transition: width 0.2s linear;
+      box-shadow: 0 2rem 2.5rem rgba(0, 0, 0, 0.1);
+      z-index: 2;
+    }
+  }
+
+  &__navigation:hover {
+    width: 20rem;
+    transition: all 0.5s ease;
+  }
+
+  &__logo {
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    margin: 1.5rem 1rem 2rem;
+    display: flex;
+    align-items: flex-end;
+    width: 25rem;
+
+    &--img {
+      width: 17rem;
+      height: 9rem;
+    }
+
+    &--name {
+      @include body-text2;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__listitem {
+    a {
+      position: relative;
+      color: $primary-color-black;
+      @include body-text2;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: table;
+      width: 21rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    a:hover,
+    .active {
+      background-color: $primary-color-blue-purple;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    width: 7rem;
+    height: 3rem;
+    top: 0.14rem;
+    text-align: center;
+  }
+
+  &__listname {
+    position: relative;
+    top: 0.12rem;
+    margin-left: 2rem;
+  }
+
+  .logout {
+    position: absolute;
+    bottom: 0;
+  }
+}
