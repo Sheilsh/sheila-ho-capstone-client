@@ -1,0 +1,85 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.modal {
+  position: relative;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  height: 35rem;
+  background-color: $primary-color-whitesmoke;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out;
+  margin: 0 auto;
+
+  @include tablet {
+    width: 55rem;
+  }
+
+  &__wrapper {
+    @include wrapper-props;
+
+    @include desktop {
+      max-width: calc(100% - 20rem);
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.4rem 0 1.6rem;
+  }
+
+  &__title {
+    @include page-header;
+    font-weight: 500;
+  }
+
+  &__iconbox {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid $primary-color-black;
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.1rem;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  &__msg {
+    @include sub-header;
+    color: $primary-color-blue-purple;
+    padding: 1.6rem 0;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__button {
+    &--red {
+      color: $primary-color-blue-purple;
+    }
+  }
+}

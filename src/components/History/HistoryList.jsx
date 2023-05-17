@@ -8,11 +8,7 @@ export default function HistoryList({ bookingData }) {
       <div className="history">
         <div className="history__wrapper">
           <div className="history__container">
-            {/* <section className="history__content">
-              <h1>Active Sessions</h1>
-            </section> */}
-            <section className="history__content">
-              <h1 className="history__header">Previous Bookings</h1>
+            <div className="history__content">
               {bookingData
                 .sort(
                   (a, b) =>
@@ -24,14 +20,10 @@ export default function HistoryList({ bookingData }) {
                       key={booking.id}
                       id={booking.id}
                       start={booking.start_datetime}
-                      end={booking.end_datetime}
-                      spot={booking.spot_number}
-                      plate={booking.plate_number}
-                      // booking={booking}
                     />
                   );
                 })}
-            </section>
+            </div>
           </div>
         </div>
       </div>

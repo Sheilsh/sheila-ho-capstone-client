@@ -3,8 +3,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-  //   background-color: $primary-color-white;
-  //   background-color: #b4b2e738;
   height: 8rem;
 
   &__wrapper {
@@ -14,7 +12,7 @@
   &__header {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
     padding: 3.2rem 0 1.6rem;
 
     @include tablet {
@@ -38,6 +36,5 @@
   &__title {
     @include page-header;
     font-weight: 500;
-    // width: 25rem;
   }
 }

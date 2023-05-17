@@ -1,7 +1,7 @@
 import axios from "../services/axios";
 import routes from "../services/routes.json";
 
-// --------- user api -----------
+// --------- USER api -----------
 export async function getUsers() {
   try {
     const response = await axios.get(routes.user);
@@ -13,11 +13,10 @@ export async function getUsers() {
   }
 }
 
-export async function getUser(id) {
+export async function getUserById(id) {
   try {
-    const response = await axios.get(
-      `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`
-    );
+    const url = `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`;
+    const response = await axios.get(url);
     if (response.status === 200) {
       return response.data;
     }
@@ -28,9 +27,10 @@ export async function getUser(id) {
 
 export async function getUserBooking(id) {
   try {
-    const response = await axios.get(
-      `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}/booking`
-    );
+    const url = `${
+      routes.user
+    }/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}/booking`;
+    const response = await axios.get(url);
     if (response.status === 200) {
       return response.data;
     }
@@ -39,10 +39,22 @@ export async function getUserBooking(id) {
   }
 }
 
-// -------- parking api --------
+export async function editUser(id, data) {
+  try {
+    const url = `${routes.user}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`;
+    const response = await axios.put(url, data);
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// -------- PARKING api --------
 export async function getParking() {
   try {
-    const response = await axios.get(`${routes.parking}`);
+    const response = await axios.get(routes.parking);
     if (response.status === 200) {
       return response.data;
     }
@@ -51,29 +63,20 @@ export async function getParking() {
   }
 }
 
-// export async function getAvailableSpotCount() {
-//   try {
-//     const response = await axios.get(`${routes.parking}`);
-//     if (response.status === 200) {
-//       return response.data;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+// // -------- PLATE api --------
+export async function addPlateByUserId(userId, data) {
+  try {
+    const url = `${routes.plate}/${"6f141a6b-7424-4a2b-ba10-4d4c738f9a9c"}`;
+    const response = await axios.post(url, data);
+    if (response.status === 201) {
+      return response;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-// export async function updateParkingEndTime() {
-//   try {
-//     const response = await axios.update(`${routes.parking}`);
-//     if (response.status === 200) {
-//       return response.data;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// -------- booking api ---------
+// -------- BOOKING api ---------
 export async function getBooking() {
   try {
     const response = await axios.get(routes.booking);
@@ -87,10 +90,8 @@ export async function getBooking() {
 
 export async function getBookingById(id) {
   try {
-    // const response = await axios.get(
-    //   `${routes.booking}/${"015bc2fb-12ed-4b95-8c05-31a94038b1a6"}`
-    // );
-    const response = await axios.get(`${routes.booking}/${id}`);
+    const url = `${routes.booking}/${id}`;
+    const response = await axios.get(url);
     if (response.status === 200) {
       return response.data;
     }
@@ -98,17 +99,6 @@ export async function getBookingById(id) {
     console.log(error);
   }
 }
-
-// export async function getAvailability(data) {
-//   try {
-//     const response = await axios.get(routes.booking, data);
-//     if (response.status === 201) {
-//       return response;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 
 export async function addBooking(data) {
   try {
@@ -123,7 +113,8 @@ export async function addBooking(data) {
 
 export async function deleteBooking(id) {
   try {
-    const response = await axios.delete(`${routes.booking}/${id}`);
+    const url = `${routes.booking}/${id}`;
+    const response = await axios.delete(url);
     if (response.status === 200) {
       return response.data;
     }

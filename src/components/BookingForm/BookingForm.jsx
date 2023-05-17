@@ -2,7 +2,7 @@ import React from "react";
 
 import close from "../../assets/icons/clear_black_24dp.svg";
 import Button from "../Button/Button";
-import "./BookingForm.scss";
+import "./BookingForm";
 
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -12,7 +12,6 @@ export default function BookingForm({
   endTime,
   duration,
   error,
-  success,
   plate,
   selectedPlate,
   newPlate,
@@ -23,6 +22,26 @@ export default function BookingForm({
   handleDurationChange,
   handleSubmit,
 }) {
+  const renderAlert = (type, message) => (
+    <Stack sx={{ width: "100%" }} spacing={2}>
+      <Alert
+        severity={type}
+        sx={{
+          fontSize: {
+            xs: "1.1rem",
+            sm: "1.3rem",
+          },
+          color: "red",
+          "& .MuiAlert-message": {
+            padding: "10px 0",
+          },
+        }}
+      >
+        {message}
+      </Alert>
+    </Stack>
+  );
+
   return (
     <div className="form">
       <div className="form__wrapper">
@@ -38,27 +57,11 @@ export default function BookingForm({
               />
             </div>
           </div>
-          {success && (
-            <Stack sx={{ width: "100%" }} spacing={2}>
-              <Alert
-                severity="success"
-                sx={{ fontSize: "1.1rem", color: "green" }}
-              >
-                {success}
-              </Alert>
-            </Stack>
-          )}
-          {error && (
-            <Stack sx={{ width: "100%" }} spacing={2}>
-              <Alert severity="error" sx={{ fontSize: "1.1rem", color: "red" }}>
-                {error}
-              </Alert>
-            </Stack>
-          )}
+          {error && renderAlert("error", error)}
           <section className="form__content">
             <div className="form__info">
               <p className="form__item">Date Selected: {startTime}</p>
-              <p className="form__item">Beaches Location</p>
+              <p className="form__item">Location: Beaches</p>
               <p className="form__item">Selected: Spot {spot[1]}</p>
             </div>
             {duration !== 0 && (
@@ -68,7 +71,7 @@ export default function BookingForm({
             )}
           </section>
           <hr />
-          <form className="form__formcontent" onSubmit={handleSubmit}>
+          <form className="form__inputcontent" onSubmit={handleSubmit}>
             <div className="form__inputbox">
               <select
                 className="form__input form__input--selector"
@@ -111,7 +114,7 @@ export default function BookingForm({
             </div>
             <div className="form__cta">
               <Button
-                className="form__button"
+                className="form__button form__button--confirm"
                 type="submit"
                 btnName="Confirm"
               />

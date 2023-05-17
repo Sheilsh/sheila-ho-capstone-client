@@ -44,14 +44,10 @@
     &--img {
       width: 17rem;
       height: 9rem;
-      // @include tablet {
-      //   widht: 5rem;
-      //   height: 8rem;
-      // }
     }
 
     &--name {
-      @include label-btn-text2;
+      @include body-text2;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -64,16 +60,10 @@
   }
 
   &__listitem {
-    // display: none;
-
-    // @include tablet {
-    //   display: block;
-    // }
-
     a {
       position: relative;
       color: $primary-color-black;
-      @include label-btn-text2;
+      @include body-text2;
       font-weight: 500;
       text-transform: uppercase;
       display: table;

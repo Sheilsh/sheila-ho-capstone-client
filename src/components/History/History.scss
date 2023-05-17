@@ -4,6 +4,11 @@
 
 .history {
   height: 100vh;
+
+  @include tablet {
+    height: 100%;
+  }
+
   &__wrapper {
     @include wrapper-props;
 
@@ -16,16 +21,18 @@
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-  }
 
-  &__header {
-    @include sub-header;
+    @include desktop {
+      margin: 0rem 9.5rem;
+    }
   }
 
   &__content {
     margin: 1.6rem 0;
   }
 }
+
+// ------ history card styles -------
 
 .historycard {
   &__container {
@@ -37,26 +44,56 @@
 
     &:hover {
       box-shadow: 5px 5px 5px lightgray;
-      // transition: transform 0.6s ease-in;
     }
   }
 
   &__content {
     width: 100%;
-    // height: 20rem;
-    height: 12rem;
+    height: 16rem;
     background-color: $primary-color-white;
     border-radius: 0.5rem;
     padding: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.6rem;
+
+    @include tablet {
+      gap: 2.4rem;
+    }
   }
 
-  &__img {
+  &__datebox {
     width: 5rem;
     height: 5rem;
-    border-radius: 50%;
+    background-color: $primary-color-white;
+    box-shadow: 1px 1px 5px lightgray;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+
+  &__date {
+    @include body-text;
+
+    &--weekday {
+      color: red;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    &--fulldate {
+      font-weight: 700;
+    }
+    @include tablet {
+      @include body-text2;
+    }
   }
 
   &__info {
@@ -64,9 +101,22 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  &__infocontent {
+    @include body-text;
+
+    @include tablet {
+      @include body-text2;
+      gap: 2rem;
+    }
+  }
 }
 
+// ------ history card styles -------
+
 .details {
+  height: 100vh;
+
   &__wrapper {
     @include wrapper-props;
 
@@ -76,11 +126,17 @@
   }
 
   &__container {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     gap: 2.4rem;
     margin: auto;
+
+    @include tablet {
+      height: 100%;
+      @include body-text2;
+      margin: 2.4rem 9.5rem;
+    }
   }
 
   &__info {
@@ -89,12 +145,22 @@
     gap: 1.6rem;
   }
 
+  &__infocontent {
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   &__cta {
     width: 100%;
     text-align: center;
   }
+}
 
-  &__button {
-    @include button;
-  }
+.leaflet-container {
+  width: 27rem;
+  height: 15rem;
+  z-index: 0;
+  margin: 0 auto;
 }

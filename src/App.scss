@@ -16,10 +16,14 @@ html {
   height: 100%;
   // text-align: center;
   // background-color: #dcd5d5;
-  background-color: whitesmoke;
+  background-color: $primary-color-whitesmoke;
 }
 
 body {
   font-family: $type-face, sans-serif;
   color: $primary-color-black;
+}
+
+.button-styles {
+  @include button;
 }

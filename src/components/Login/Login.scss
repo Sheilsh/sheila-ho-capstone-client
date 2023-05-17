@@ -4,12 +4,11 @@
 
 .login {
   text-align: center;
-  background-color: whitesmoke;
+  background-color: $primary-color-whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //   min-height: 84vh;
   height: 100vh;
   color: $primary-color-black;
 
@@ -23,12 +22,7 @@
 
   &__banner {
     width: 25rem;
-    // height: 50%;
     margin: 0;
-
-    // @include tablet {
-    //   //   display: none;
-    // }
   }
 
   h1 {
@@ -39,12 +33,10 @@
 
   &__form {
     width: 20rem;
-    //   height: 100%;
-    background-color: whitesmoke;
-    border: 2px solid #b4b2e780;
-    border-radius: 8px;
-    padding: 50px 40px;
-    // padding: 30px 40px 40px;
+    background-color: $primary-color-whitesmoke;
+    border: 2px solid $secondary-color-light-purple;
+    border-radius: 0.8rem;
+    padding: 5rem 4rem;
     margin: 5rem auto;
     box-sizing: unset;
     display: flex;
@@ -53,68 +45,58 @@
     gap: 2.2rem;
   }
 
-  .input-box {
+  &__inputbox {
     position: relative;
     width: 20rem;
-    margin-top: 35px;
+    margin-top: 3.5rem;
   }
-  //
-  .input-box input {
+
+  &__inputbox input {
     position: relative;
     width: 100%;
-    padding: 20px 10px 10px;
+    padding: 2rem 1rem 1rem;
     background: transparent;
     border: none;
     outline: none;
-    color: #335576;
-    font-size: 1em;
-    letter-spacing: 0.05em;
+    color: $primary-color-black;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
     z-index: 10;
   }
 
-  .input-box label {
+  &__inputbox label {
     position: absolute;
     left: 0;
-    padding: 20px 10px 10px;
-    font-size: 1em;
+    padding: 2rem 1rem 1rem;
+    font-size: 1rem;
     color: $primary-color-black;
     pointer-events: none;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.05rem;
     transition: 0.5s;
   }
 
-  .input-box input:valid ~ label,
-  .input-box input:focus ~ label {
+  &__inputbox input:valid ~ label,
+  &__inputbox input:focus ~ label {
     color: $primary-color-blue-purple;
     transform: translateY(-34px);
     font-size: 0.75rem;
   }
 
-  .input-box i {
+  &__inputbox i {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;
-    background: #b4b2e7;
-    border-radius: 4px;
+    height: 0.2rem;
+    background: $secondary-color-light-purple;
+    border-radius: 0.4rem;
     transition: 0.5s;
     pointer-events: none;
     z-index: 9;
   }
 
-  .input-box input:valid ~ i,
-  .input-box input:focus ~ i {
-    height: 44px;
-  }
-
-  &__button {
-    //   text-transform: uppercase;
-    //   width: 10rem;
-    //   padding: 0.5rem;
-    //   margin: 2rem 0 2rem 0;
-    //   border: 2px solid #db7a4e;
-    //   border-radius: 20px;
-    @include button;
+  &__inputbox input:valid ~ i,
+  &__inputbox input:focus ~ i {
+    height: 4.4rem;
   }
 }

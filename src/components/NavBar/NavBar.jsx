@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.scss";
 import home from "../../assets/icons/home.svg";
@@ -15,7 +14,6 @@ export default function NavBar() {
     { name: "Booking", icon: calendar, route: "/booking" },
     { name: "History", icon: history, route: "/history" },
     { name: "Account", icon: user, route: "/account" },
-    // { name: "Log Out", icon: logout, route: "/signup" },
   ];
 
   if (location.pathname !== "/login") {
