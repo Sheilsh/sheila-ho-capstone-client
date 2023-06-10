@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserById } from "../../utils/helpers";
 import Header from "../Header/Header";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 
 export default function ProfilePlates() {
@@ -22,11 +23,11 @@ export default function ProfilePlates() {
           {plate.map((plate, index) => {
             return (
               <div className="user__inputbox login__inputbox" key={index}>
-                <input className="user__input" type="text" required />
-                <label className="user__info login__info">
-                  {plate.plate_number}
-                </label>
-                <i></i>
+                <Input
+                  inputType="text"
+                  labelName={plate.plate_number}
+                  required
+                />
               </div>
             );
           })}

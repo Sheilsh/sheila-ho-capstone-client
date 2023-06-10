@@ -72,15 +72,21 @@ export default function Profile() {
             <div className="user__info">
               {userData && (
                 <form className="user__form" onSubmit={handleFormSubmit}>
-                  <div className="user__imagebox">
-                    <img className="user__picture" src={face} alt="face icon" />
+                  <div className="user__content">
+                    <div className="user__imagebox">
+                      <img
+                        className="user__picture"
+                        src={face}
+                        alt="face icon"
+                      />
+                    </div>
+                    <ProfileInputs
+                      userData={userData}
+                      setName={setName}
+                      setEmail={setEmail}
+                      setPhoneNumber={setPhoneNumber}
+                    />
                   </div>
-                  <ProfileInputs
-                    userData={userData}
-                    setName={setName}
-                    setEmail={setEmail}
-                    setPhoneNumber={setPhoneNumber}
-                  />
                   <div className="user__cta">
                     <Button
                       className="user__button"

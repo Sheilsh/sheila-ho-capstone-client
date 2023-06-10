@@ -1,4 +1,5 @@
 import React from "react";
+import Input from "../Input/Input";
 
 export default function ProfileInputs({
   userData,
@@ -37,16 +38,13 @@ export default function ProfileInputs({
     <>
       {inputs.map((item, index) => {
         return (
-          <div className="user__inputbox login__inputbox" key={index}>
-            <input
-              className="user__input"
-              type={item.type}
-              name={item.label}
+          <div className="user__inputbox" key={index}>
+            <Input
+              inputType={item.type}
+              labelName={item.content}
               onChange={item.change}
               required
             />
-            <label className="user__info login__info">{item.content}</label>
-            <i></i>
           </div>
         );
       })}
