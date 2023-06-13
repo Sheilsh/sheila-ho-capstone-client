@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import "./Header.scss";
 import backarrow from "../../assets/icons/arrow_back_black_24dp.svg";
 
-export default function Header({ linkTo, headerName }) {
+export default function Header({ linkTo, headerName, onClick }) {
   return (
     <div className="header">
       <div className="header__wrapper">
         <div className="header__container">
           <div className="header__header">
-            <Link className="header__iconcontain" to={linkTo}>
+            <Link className="header__iconcontain" to={linkTo} onClick={onClick}>
               <img
                 className="header__icon"
                 src={backarrow}

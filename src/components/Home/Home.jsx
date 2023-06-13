@@ -58,7 +58,17 @@ export default function HomePage({ userData, activeBooking }) {
                   {activeBooking ? (
                     <p className="homepage__text">Time Duration: {timer}</p>
                   ) : (
-                    <p className="homepage__subtitle">No Active Sessions</p>
+                    <>
+                      <p className="homepage__subtitle">
+                        Book your parking spot
+                      </p>
+                      <Link to="/booking">
+                        <Button
+                          className="homepage__button"
+                          btnName="Book Now"
+                        />
+                      </Link>
+                    </>
                   )}
                 </div>
                 <hr />
@@ -83,9 +93,9 @@ export default function HomePage({ userData, activeBooking }) {
                   </div>
                 </div>
               </div>
-              <Link to="/booking">
+              {/* <Link to="/booking">
                 <Button className="homepage__button" btnName="Book Now" />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -2,5 +2,7 @@
     "user": "/user",
     "parking": "/parking",
     "plate": "/plate",
-    "booking": "/booking"
+    "booking": "/booking",
+    "signup": "/signup",
+    "login": "/login"
 }
