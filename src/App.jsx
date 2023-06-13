@@ -14,6 +14,8 @@ import HistoryDetails from "./components/History/HistoryDetails";
 import Profile from "./components/Profile/Profile";
 import ProfilePlates from "./components/Profile/ProfilePlates";
 import Contact from "./components/Account/AccountContact";
+import SignUp from "./components/UserForms/SignUp";
+import MultiStepForm from "./pages/MultiStepForm";
 
 function App() {
   return (
@@ -22,9 +24,11 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<HomePage />} />
-          <Route path="/:id" element={<HomePage />} />
-          <Route path="/booking" element={<BookingPage />} />
+          {/* <Route path="/:id" element={<HomePage />} /> */}
+          {/* <Route path="/booking" element={<BookingPage />} /> */}
+          <Route path="/booking" element={<MultiStepForm />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/history/:id/details" element={<HistoryDetails />} />
           <Route path="/account" element={<AccountPage />} />

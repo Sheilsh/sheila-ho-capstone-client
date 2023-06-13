@@ -31,6 +31,10 @@
     pointer-events: none;
     letter-spacing: 0.05rem;
     transition: 0.5s;
+
+    @include tablet {
+      @include body-text2;
+    }
   }
 
   &__inputbox input:valid ~ label,
@@ -38,6 +42,11 @@
     color: $primary-color-blue-purple;
     transform: translateY(-34px);
     font-size: 0.75rem;
+
+    @include tablet {
+      transform: translateY(-39px);
+      font-size: 1rem;
+    }
   }
 
   &__inputbox i {

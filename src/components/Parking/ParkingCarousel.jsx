@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,6 +12,13 @@ export default function ParkingCarousel({
   availableSpots,
   handleSelectSpot,
 }) {
+  const [selectedSpot, setSelectedSpot] = useState(null);
+
+  const handleSpotSelection = (spot) => {
+    setSelectedSpot(spot.id);
+    handleSelectSpot(spot);
+  };
+
   const settings = {
     dots: true,
     infinite: false,
@@ -48,7 +55,9 @@ export default function ParkingCarousel({
               id={spot.id}
               number={spot.spot_number}
               availableSpots={availableSpots}
-              onSelect={handleSelectSpot}
+              selectedSpot={selectedSpot}
+              // onSelect={handleSelectSpot}
+              onSelect={handleSpotSelection}
             />
           );
         })}

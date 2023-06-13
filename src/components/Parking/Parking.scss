@@ -3,10 +3,15 @@
 @use "../../styles/partials/mixins" as *;
 
 .parking {
-  height: 40rem;
+  // height: 40rem;
+  margin: 2rem 0;
 
   @include tablet {
     height: 100%;
+  }
+
+  &__header {
+    margin: 1rem 0;
   }
 
   &__wrapper {
@@ -27,7 +32,7 @@
     border-radius: 2rem;
     min-height: 30rem;
 
-    transform: translate(0%, -10%);
+    // transform: translate(0%, -10%);
     z-index: 2;
 
     @include tablet {
@@ -81,6 +86,10 @@
     border: 2px dashed $primary-color-black;
     border-radius: 0.7rem;
     padding: 2.5rem 0;
+
+    &--selected {
+      border: 2px dashed $primary-color-blue-purple;
+    }
   }
 
   &__carimg {
