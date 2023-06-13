@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./UserForm.scss";
+import { useNavigate } from "react-router-dom";
 import banner from "../../assets/logo/logo_transparent.png";
 import Button from "../Button/Button";
 import Footer from "../Footer/Footer";
@@ -9,6 +10,8 @@ import Input from "../Input/Input";
 import { login } from "../../utils/helpers";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
@@ -19,8 +22,12 @@ export default function Login() {
 
     try {
       login(loginEmail, loginPassword).then((response) => {
-        console.log(data);
+        // console.log(response);
+        setLoginEmail(response.email);
+        setLoginPassword(response.password);
       });
+
+      navigate("/");
       // Call the login API endpoint or login logic here
       // If the login is successful, navigate to the next page
     } catch (error) {
@@ -29,6 +36,26 @@ export default function Login() {
       console.error("Error during login:", error);
     }
   };
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await login(loginEmail, loginPassword);
+  //     if (response.success) {
+  //       setTimeout(() => {
+  //         navigate("/"); // Navigate to "/home" after a delay of 1 second
+  //       }, 1000);
+  //     } else {
+  //       setIsLoginError(true);
+  //       setErrorMessage(response.message);
+  //     }
+  //   } catch (error) {
+  //     setIsLoginError(true);
+  //     setErrorMessage("Error during login");
+  //     console.error("Error during login:", error);
+  //   }
+  // };
 
   return (
     <>
