@@ -16,7 +16,7 @@ export default function NavBar() {
     { name: "Account", icon: user, route: "/account" },
   ];
 
-  if (location.pathname !== "/login") {
+  if (location.pathname !== "/login" && location.pathname !== "/signup") {
     return (
       <>
         {/* ------DESKTOP STYLES------ */}

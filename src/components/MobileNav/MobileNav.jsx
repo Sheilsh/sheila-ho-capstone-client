@@ -16,7 +16,11 @@ export default function MobileNav() {
     { name: "Account", icon: user, route: "/account" },
   ];
 
-  if (location.pathname !== "/login") {
+  if (
+    location.pathname !== "/login" &&
+    location.pathname !== "/signup" &&
+    location.pathname !== "/booking"
+  ) {
     return (
       <nav className="mobilenav">
         <div className="mobilenav__wrapper">
