@@ -1,39 +1,130 @@
+// import React, { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import { getUserById } from "../../utils/helpers";
+// import Header from "../Header/Header";
+// import Input from "../Input/Input";
+// import Button from "../Button/Button";
+
+// export default function ProfilePlates() {
+//   const { id } = useParams();
+//   const [plate, setPlate] = useState([]);
+
+//   useEffect(() => {
+//     getUserById(id).then((data) => {
+//       setPlate(data.license_plate);
+//     });
+//   }, [id]);
+
+//   return (
+//     <>
+//       <Header linkTo={"/account"} headerName="License Plates" />
+//       <div className="user__container">
+//         <form className="user__form">
+//           {plate.map((plate, index) => {
+//             return (
+//               <div className="user__inputbox login__inputbox" key={index}>
+//                 <Input
+//                   inputType="text"
+//                   labelName={plate.plate_number}
+//                   required
+//                 />
+//               </div>
+//             );
+//           })}
+//           <div className="user__cta ">
+//             <Button className="user__button" type="submit" btnName="Save" />
+//           </div>
+//         </form>
+//       </div>
+//     </>
+//   );
+// }
+
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserById } from "../../utils/helpers";
 import Header from "../Header/Header";
 import Input from "../Input/Input";
-import Button from "../Button/Button";
+// import Button from "../Button/Button";
+
+import editIcon from "../../assets/icons/edit_note.svg";
+import addIcon from "../../assets/icons/add.svg";
+import deleteIcon from "../../assets/icons/delete.svg";
+import "./Profile.scss";
 
 export default function ProfilePlates() {
   const { id } = useParams();
-  const [plate, setPlate] = useState([]);
+  const [plates, setPlates] = useState([]);
+  const [isEditing, setIsEditing] = useState([]);
 
   useEffect(() => {
     getUserById(id).then((data) => {
-      setPlate(data.license_plate);
+      setPlates(data.license_plate);
+      setIsEditing(Array(data.license_plate.length).fill(false));
     });
   }, [id]);
 
+  const toggleEdit = (index) => {
+    setIsEditing((prevEditing) => {
+      const updatedEditing = [...prevEditing];
+      updatedEditing[index] = !updatedEditing[index];
+      return updatedEditing;
+    });
+  };
+
+  const deletePlate = (index) => {
+    setPlates((prevPlates) => {
+      const updatedPlates = [...prevPlates];
+      updatedPlates.splice(index, 1);
+      return updatedPlates;
+    });
+    setIsEditing((prevEditing) => {
+      const updatedEditing = [...prevEditing];
+      updatedEditing.splice(index, 1);
+      return updatedEditing;
+    });
+  };
+
   return (
     <>
-      <Header linkTo={"/account"} headerName="License Plates" />
+      <Header linkTo="/account" headerName="License Plates" />
       <div className="user__container">
         <form className="user__form">
-          {plate.map((plate, index) => {
-            return (
-              <div className="user__inputbox login__inputbox" key={index}>
+          {plates.map((plate, index) => (
+            <div className="user__inputbox login__inputbox" key={index}>
+              {isEditing[index] ? (
                 <Input
                   inputType="text"
                   labelName={plate.plate_number}
                   required
                 />
+              ) : (
+                <span>{plate.plate_number}</span>
+              )}
+              <div className="user__button-group">
+                <button
+                  type="button"
+                  onClick={() => toggleEdit(index)}
+                  className="user__action"
+                >
+                  {isEditing[index] ? (
+                    <img className="user__icon" src={addIcon} alt="Save" />
+                  ) : (
+                    <img className="user__icon" src={editIcon} alt="Edit" />
+                  )}
+                </button>
+                {!isEditing[index] && (
+                  <button
+                    type="button"
+                    onClick={() => deletePlate(index)}
+                    className="user__action"
+                  >
+                    <img className="user__icon" src={deleteIcon} alt="Delete" />
+                  </button>
+                )}
               </div>
-            );
-          })}
-          <div className="user__cta ">
-            <Button className="user__button" type="submit" btnName="Save" />
-          </div>
+            </div>
+          ))}
         </form>
       </div>
     </>
