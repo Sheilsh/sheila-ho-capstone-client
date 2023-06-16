@@ -21,18 +21,17 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      login(loginEmail, loginPassword).then((response) => {
-        // console.log(response);
-        setLoginEmail(response.email);
-        setLoginPassword(response.password);
-      });
-
-      navigate("/");
-      // Call the login API endpoint or login logic here
-      // If the login is successful, navigate to the next page
+      const response = await login(loginEmail, loginPassword);
+      if (response) {
+        // Successful login
+        navigate("/");
+      } else {
+        setIsLoginError(true);
+        setErrorMessage("Invalid email or password");
+      }
     } catch (error) {
       setIsLoginError(true);
-      setErrorMessage("Error during login"); // Update the error message as needed
+      setErrorMessage("Error during login");
       console.error("Error during login:", error);
     }
   };
@@ -90,7 +89,9 @@ export default function Login() {
                   />
                 </Link>
               </div>
-              {isLoginError && <label className="error">{errorMessage}</label>}
+              {isLoginError && (
+                <label className="userform__error">{errorMessage}</label>
+              )}
             </form>
           </div>
         </div>

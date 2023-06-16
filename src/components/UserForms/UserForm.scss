@@ -80,4 +80,10 @@
       gap: 1.2rem;
     }
   }
+
+  &__error {
+    @include body-text2;
+    margin: 1rem;
+    color: red;
+  }
 }
