@@ -57,51 +57,57 @@ export default function SignUp() {
                 alt="Banner"
               />
             </div>
-            <div className="userform__content">
-              <Input
-                inputType="text"
-                inputName="full_name"
-                labelName="Full Name"
-                onChange={(e) => setRegisterName(e.target.value)}
-              />
-              <Input
-                inputType="number"
-                inputName="unit_number"
-                labelName="Unit Number"
-                onChange={(e) => setRegisterUnitNumber(e.target.value)}
-              />
-              <Input
-                inputType="text"
-                inputName="address"
-                labelName="Address"
-                onChange={(e) => setRegisterAddress(e.target.value)}
-              />
-              <Input
-                inputType="text"
-                inputName="city"
-                labelName="City"
-                onChange={(e) => setRegisterCity(e.target.value)}
-              />
-              <Input
-                inputType="tel"
-                inputName="phone_number"
-                labelName="Phone Number"
-                onChange={(e) => setRegisterPhoneNumber(e.target.value)}
-              />
-              <Input
-                inputType="email"
-                inputName="email"
-                labelName="Email"
-                onChange={(e) => setRegisterEmail(e.target.value)}
-              />
-              <Input
-                inputType="password"
-                inputName="password"
-                labelName="Password"
-                onChange={(e) => setRegisterPassword(e.target.value)}
-              />
+            <div className="userform__content userform__content--signup">
+              <div className="userform__details">
+                <Input
+                  inputType="text"
+                  inputName="full_name"
+                  labelName="Full Name"
+                  onChange={(e) => setRegisterName(e.target.value)}
+                />
+              </div>
+              <div className="userform__details">
+                <Input
+                  inputType="number"
+                  inputName="unit_number"
+                  labelName="Unit Number"
+                  onChange={(e) => setRegisterUnitNumber(e.target.value)}
+                />
+                <Input
+                  inputType="text"
+                  inputName="address"
+                  labelName="Address"
+                  onChange={(e) => setRegisterAddress(e.target.value)}
+                />
+                <Input
+                  inputType="text"
+                  inputName="city"
+                  labelName="City"
+                  onChange={(e) => setRegisterCity(e.target.value)}
+                />
+              </div>
+              <div className="userform__details">
+                <Input
+                  inputType="tel"
+                  inputName="phone_number"
+                  labelName="Phone Number"
+                  onChange={(e) => setRegisterPhoneNumber(e.target.value)}
+                />
+                <Input
+                  inputType="email"
+                  inputName="email"
+                  labelName="Email"
+                  onChange={(e) => setRegisterEmail(e.target.value)}
+                />
+                <Input
+                  inputType="password"
+                  inputName="password"
+                  labelName="Password"
+                  onChange={(e) => setRegisterPassword(e.target.value)}
+                />
+              </div>
             </div>
-            <div className="userform__content">
+            <div className="userform__cta">
               <Button
                 className="userform__button"
                 btnName="Create Account"

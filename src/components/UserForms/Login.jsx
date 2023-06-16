@@ -81,7 +81,7 @@ export default function Login() {
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
               </div>
-              <div className="userform__content">
+              <div className="userform__cta">
                 <Button className="userform__button" btnName="Log In" />
                 <Link to="/signup">
                   <Button

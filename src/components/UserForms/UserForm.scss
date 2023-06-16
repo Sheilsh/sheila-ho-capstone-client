@@ -14,13 +14,18 @@
 
   &__wrapper {
     @include wrapper-props;
+
+    @include tablet {
+      max-width: none;
+      margin: 0;
+    }
   }
 
   &__bannercontain {
     height: 20rem;
 
     &--signup {
-      height: 12rem;
+      height: 9rem;
     }
   }
 
@@ -29,8 +34,8 @@
     margin: 0;
 
     &--signup {
-      width: 15rem;
-      height: 15rem;
+      width: 10rem;
+      height: 10rem;
     }
   }
 
@@ -51,6 +56,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.2rem;
+
+    @include tablet {
+      width: 70rem;
+      padding: 2rem 1rem;
+    }
+  }
+
+  &__details {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+  }
+
+  &__cta {
+    margin: 2rem 0 0;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
   }
 }
