@@ -45,7 +45,6 @@ import { useParams } from "react-router-dom";
 import { getUserById } from "../../utils/helpers";
 import Header from "../Header/Header";
 import Input from "../Input/Input";
-// import Button from "../Button/Button";
 
 import editIcon from "../../assets/icons/edit_note.svg";
 import addIcon from "../../assets/icons/add.svg";

@@ -59,7 +59,7 @@ export default function MultiStepForm() {
           />
         );
       case 4:
-        return <NewBookingFinished onBack={handleBack} />;
+        return <NewBookingFinished onBack={handleBack} formData={formData} />;
       default:
         return null;
     }
