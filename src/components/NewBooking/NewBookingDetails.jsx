@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Button from "../Button/Button";
-import {
-  addBooking,
-  getUserBooking,
-  addPlateByUserId,
-} from "../../utils/helpers";
+import { addBooking, getUserBooking } from "../../utils/helpers";
 
 const calculateEndTime = (startTime, duration) => {
   if (!isNaN(duration)) {
@@ -41,7 +37,7 @@ export default function NewBookingDetails({
 
   const plateId = userData.plate_id;
   const [errorMessage, setErrorMessage] = useState("");
-  const [isPlateAdded, setIsPlateAdded] = useState(false);
+  //   const [isPlateAdded, setIsPlateAdded] = useState(false);
 
   const getCurrentDateTime = () => {
     const currentDate = new Date();
@@ -72,6 +68,36 @@ export default function NewBookingDetails({
       .padStart(2, "0")}`;
     return formattedDateString;
   };
+
+  //   const getCurrentDateTime = () => {
+  //     const currentDate = new Date();
+  //     const options = { month: "long", day: "numeric", year: "numeric" };
+  //     const formattedDate = currentDate.toLocaleDateString(undefined, options);
+  //     const formattedTime = currentDate.toLocaleTimeString([], {
+  //       hour: "numeric",
+  //       minute: "numeric",
+  //       hour12: true,
+  //     });
+  //     const formattedDateTimeString = `${formattedDate} ${formattedTime}`;
+  //     return formattedDateTimeString;
+  //   };
+
+  //   const calculateEndTime = (startTime, duration) => {
+  //     if (!isNaN(duration)) {
+  //       const endTime = new Date(startTime.getTime() + duration * 60 * 60 * 1000);
+  //       const options = { month: "long", day: "numeric", year: "numeric" };
+  //       const formattedDate = endTime.toLocaleDateString(undefined, options);
+  //       const formattedTime = endTime.toLocaleTimeString([], {
+  //         hour: "numeric",
+  //         minute: "numeric",
+  //         hour12: true,
+  //       });
+  //       const formattedDateTimeString = `${formattedDate} ${formattedTime}`;
+  //       return formattedDateTimeString;
+  //     } else {
+  //       return "Invalid duration";
+  //     }
+  //   };
 
   const makeBooking = async () => {
     try {
@@ -109,6 +135,7 @@ export default function NewBookingDetails({
         plate_number: formData.step2.plateInfo,
         start_datetime: startTime,
         end_datetime: endTime,
+        confirmation_number: "",
       };
 
       await addBooking(bookingData);
@@ -127,10 +154,7 @@ export default function NewBookingDetails({
     <>
       <Header onClick={onBack} headerName={"Parking Details"} />
       <div className="newform__wrapper newform__wrapper--details">
-        <section className="newform__content">
-          {/* <h2 className="newform__header newform__header--details">
-            Parking Details
-          </h2> */}
+        <div className="newform__content">
           <div className="newform__info">
             <div className="newform__confirmdetail">
               <h4 className="newform__item">Duration:</h4>
@@ -162,7 +186,7 @@ export default function NewBookingDetails({
               <p className="newform__item">{formData.step2.plateInfo}</p>
             </div>
           </div>
-        </section>
+        </div>
         {errorMessage && <p className="newform__error">{errorMessage}</p>}
         <div className="newform__cta">
           <Button btnName="Confirm Booking" onClick={makeBooking} />

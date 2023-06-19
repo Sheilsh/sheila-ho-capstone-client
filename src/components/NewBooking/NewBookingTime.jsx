@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./NewBooking.scss";
 
 export default function BookingTime({ selectedTime, setSelectedTime }) {
@@ -10,7 +10,7 @@ export default function BookingTime({ selectedTime, setSelectedTime }) {
     <div className="time">
       <div className="time__wrapper">
         <div className="time__container">
-          <h2>How long?</h2>
+          <h2 className="time__header">How long?</h2>
         </div>
         <div className="time__info">
           <input

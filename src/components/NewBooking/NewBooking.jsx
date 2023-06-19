@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getBooking, getUserById } from "../../utils/helpers";
+import { getBooking } from "../../utils/helpers";
 import { useParams } from "react-router-dom";
 import "./NewBooking.scss";
 
@@ -12,16 +12,11 @@ export default function NewBooking({ onNext }) {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
-  // const [userData, setUserData] = useState([]);
   const [bookingData, setBookingData] = useState([]);
   const [selectedParkingSpot, setSelectedParkingSpot] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
 
   useEffect(() => {
-    // getUserById(id).then((data) => {
-    //   setUserData(data);
-    // });
-
     getBooking().then((data) => {
       setBookingData(data);
       setLoading(false);
@@ -29,7 +24,7 @@ export default function NewBooking({ onNext }) {
   }, [id]);
 
   const handleParkingSpotSelection = (spot) => {
-    setSelectedParkingSpot(spot); // Update with spot object directly
+    setSelectedParkingSpot(spot);
   };
 
   const handleTimeSelection = (time) => {
@@ -51,7 +46,6 @@ export default function NewBooking({ onNext }) {
       <>
         <Header linkTo={"/"} headerName={"Booking"} />
         <ParkingList
-          // userData={userData}
           bookingData={bookingData}
           handleParkingSpotSelection={handleParkingSpotSelection}
         />

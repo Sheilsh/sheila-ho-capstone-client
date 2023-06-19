@@ -17,31 +17,26 @@ export default function NewBookingPlate({ onBack, onNext, formData }) {
     setSelectedPlate(event.target.value);
   };
 
-  const handleNext = () => {
-    const plateInfo = selectedPlate || newLicensePlate;
-    onNext(formData.step1.spot, formData.step1.time, plateInfo);
-  };
+  const handleNext = async (e) => {
+    e.preventDefault();
 
-  // const handleNext = async () => {
-  //   console.log("handleNext function called");
-  //   try {
-  //     if (selectedPlate) {
-  //       const plateInfo = selectedPlate;
-  //       console.log("Selected Plate:", plateInfo);
-  //       onNext(formData.step1.spot, formData.step1.time, plateInfo);
-  //     } else if (newLicensePlate) {
-  //       const user = await getUserById(id);
-  //       const userId = user.id;
-  //       const newPlateData = { plate_number: newLicensePlate };
-  //       await addPlateByUserId(userId, newPlateData);
-  //       const plateInfo = newLicensePlate;
-  //       console.log("New Plate:", plateInfo);
-  //       onNext(formData.step1.spot, formData.step1.time, plateInfo);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error in handleNext:", error);
-  //   }
-  // };
+    console.log("handleNext function called");
+    try {
+      if (selectedPlate) {
+        const plateInfo = selectedPlate;
+        onNext(formData.step1.spot, formData.step1.time, plateInfo);
+      } else if (newLicensePlate) {
+        const user = await getUserById(id);
+        const userId = user.id;
+        const newPlateData = { plate_number: newLicensePlate };
+        await addPlateByUserId(userId, newPlateData);
+        const plateInfo = newLicensePlate;
+        onNext(formData.step1.spot, formData.step1.time, plateInfo);
+      }
+    } catch (error) {
+      console.error("Error in handleNext:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchPlates = async () => {
@@ -64,9 +59,14 @@ export default function NewBookingPlate({ onBack, onNext, formData }) {
           <div className="newform__container">
             <form className="newform__inputcontent">
               <div className="newform__header">
-                <h2 className="newform__title">Select Vehicle</h2>
+                <h2 className="newform__title">
+                  Please select or add a license plate.
+                </h2>
               </div>
               <div className="newform__inputbox">
+                <div className="newform__header">
+                  <h2 className="newform__title">Select License Plate</h2>
+                </div>
                 <select
                   className="newform__input form__input--selector"
                   name="plate"
@@ -81,17 +81,20 @@ export default function NewBookingPlate({ onBack, onNext, formData }) {
                   ))}
                 </select>
               </div>
-              <p>OR</p>
-              <div className="newform__header">
-                <h2 className="newform__title">Add Vehicle</h2>
+              <h4>OR</h4>
+              <div className="newform__inputbox newform__inputbox--add">
+                <div className="newform__header newform__header--add">
+                  <h2 className="newform__title">Add License Plate</h2>
+                </div>
+                <Input
+                  inputType="text"
+                  inputName="license"
+                  labelName="Enter New License Plate"
+                  value={newLicensePlate}
+                  onChange={(event) => setNewLicensePlate(event.target.value)}
+                  maxLength={7}
+                />
               </div>
-              <Input
-                inputType="text"
-                inputName="license"
-                labelName="Enter New License Plate"
-                value={newLicensePlate}
-                onChange={(event) => setNewLicensePlate(event.target.value)}
-              />
               <div className="newform__cta">
                 <Button
                   className="newform__button newform__button--confirm"
