@@ -19,6 +19,7 @@ export default function HistoryList({ bookingData }) {
                     <HistoryCard
                       key={booking.id}
                       id={booking.id}
+                      confirmation={booking.confirmation_number}
                       start={booking.start_datetime}
                     />
                   );

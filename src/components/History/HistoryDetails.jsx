@@ -91,7 +91,9 @@ export default function HistoryDetails() {
             <div className="details__info">
               <section className="details__infocontent">
                 <h4 className="details__title">Booking ID:</h4>
-                <p className="historycard__data">{id}</p>
+                <p className="historycard__data">
+                  {bookingData.confirmation_number}
+                </p>
               </section>
               <section className="details__infocontent">
                 <h4 className="details__title">Location:</h4>

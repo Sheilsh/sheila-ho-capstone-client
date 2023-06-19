@@ -2,7 +2,7 @@ import React from "react";
 import "./History.scss";
 import { Link } from "react-router-dom";
 
-export default function HistoryCard({ id, start }) {
+export default function HistoryCard({ id, confirmation, start }) {
   function formatDate(start) {
     const options = {
       weekday: "short",
@@ -45,7 +45,7 @@ export default function HistoryCard({ id, start }) {
         <div className="historycard__info">
           <div className="historycard__infocontent">
             <h4 className="historycard__title">Booking ID:</h4>
-            <p className="historycard__data">{id}</p>
+            <p className="historycard__data">{confirmation}</p>
           </div>
           <div className="historycard__infocontent">
             <h4 className="historycard__title">Location:</h4>
