@@ -99,7 +99,6 @@ import ParkingCarousel from "./ParkingCarousel";
 
 export default function ParkingList({
   bookingData,
-  // selectedDate,
   handleParkingSpotSelection,
 }) {
   const [parkingData, setParkingData] = useState([]);
@@ -143,7 +142,6 @@ export default function ParkingList({
 
   const availableSpots = parkingData.filter((spot) => {
     const isAvailable = !bookingData.find((booking) => {
-      // const bookingStart = dayjs(booking.start_datetime);
       const bookingEnd = dayjs(booking.end_datetime);
       const bookingSessionOver = dayjs().isAfter(bookingEnd);
 

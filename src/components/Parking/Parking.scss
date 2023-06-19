@@ -20,6 +20,10 @@
     @include tablet {
       margin-left: 13rem;
     }
+
+    @include desktop {
+      margin-left: 18rem;
+    }
   }
 
   &__container {
