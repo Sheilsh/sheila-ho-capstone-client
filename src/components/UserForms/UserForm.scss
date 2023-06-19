@@ -58,8 +58,10 @@
     align-items: center;
 
     @include tablet {
-      width: 70rem;
-      padding: 2rem 1rem;
+      // width: 70rem;
+      // padding: 2rem 1rem;
+      width: 30rem;
+      padding: 6rem 1rem;
     }
   }
 

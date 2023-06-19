@@ -36,26 +36,6 @@ export default function Login() {
     }
   };
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await login(loginEmail, loginPassword);
-  //     if (response.success) {
-  //       setTimeout(() => {
-  //         navigate("/"); // Navigate to "/home" after a delay of 1 second
-  //       }, 1000);
-  //     } else {
-  //       setIsLoginError(true);
-  //       setErrorMessage(response.message);
-  //     }
-  //   } catch (error) {
-  //     setIsLoginError(true);
-  //     setErrorMessage("Error during login");
-  //     console.error("Error during login:", error);
-  //   }
-  // };
-
   return (
     <>
       <main className="login">

@@ -34,7 +34,9 @@ import routes from "../services/routes.json";
 
 export async function getUsers() {
   try {
-    const response = await axios.get(routes.user);
+    const response = await axios.get(routes.user, {
+      headers: { "Cache-Control": "no-cache" },
+    });
     return response.data;
   } catch (error) {
     console.log(error);
@@ -50,8 +52,13 @@ export async function getUserById() {
     }
 
     const url = `${routes.user}/${userId}`;
-    const response = await axios.get(url);
-    return response.data;
+    const response = await axios.get(url, {
+      headers: { "Cache-Control": "no-cache" },
+    });
+
+    if (response.status === 200) {
+      return response.data;
+    }
   } catch (error) {
     console.log(error);
     throw error;
@@ -64,12 +71,13 @@ export async function getUserBooking() {
   try {
     const userId = localStorage.getItem("userId");
     if (!userId) {
-      // Handle the case when the user ID is not available
       throw new Error("User ID not found");
     }
 
     const url = `${routes.user}/${userId}/booking`;
-    const response = await axios.get(url);
+    const response = await axios.get(url, {
+      headers: { "Cache-Control": "no-cache" },
+    });
     if (response.status === 200) {
       return response.data;
     }
@@ -81,7 +89,9 @@ export async function getUserBooking() {
 export async function editUser(id, data) {
   try {
     const url = `${routes.user}/${id}`;
-    const response = await axios.put(url, data);
+    const response = await axios.put(url, data, {
+      headers: { "Cache-Control": "no-cache" },
+    });
     if (response.status === 200) {
       return response;
     }
@@ -206,39 +216,6 @@ export async function deleteBooking(id) {
 
 // ---- authentication ----
 
-// export async function signup(formData) {
-//   try {
-//     const response = await axios.post(routes.signup, formData);
-//     if (response.status === 200 && response.data) {
-//       return response.data; // Return only the response data
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     throw error;
-//   }
-// }
-
-// export async function login(email, password) {
-//   try {
-//     console.log("Login email:", email);
-//     console.log("Login password:", password);
-
-//     const response = await axios.post(routes.login, { email, password });
-//     console.log("Login response:", response);
-
-//     if (response.status === 200 && response.data) {
-//       const { userId, token } = response.data;
-//       console.log("User ID:", userId);
-//       localStorage.setItem("userId", userId);
-//       localStorage.setItem("token", token);
-//       return response.data;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     throw error;
-//   }
-// }
-
 export async function signup(formData) {
   try {
     const response = await axios.post(routes.signup, formData);
@@ -261,7 +238,6 @@ export async function login(email, password) {
 
     if (response.data) {
       const { userId, token } = response.data;
-      console.log("User ID:", userId);
       localStorage.setItem("userId", userId);
       localStorage.setItem("token", token);
       return response.data;
