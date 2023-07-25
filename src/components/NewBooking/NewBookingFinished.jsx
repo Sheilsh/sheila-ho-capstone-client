@@ -19,7 +19,7 @@ export default function NewBookingFinished({ onBack }) {
       })
       .catch((error) => {
         console.error(error);
-        setBookingData([]); // Set an empty array as the default value
+        setBookingData([]);
       });
   }, [id]);
 
@@ -36,7 +36,6 @@ export default function NewBookingFinished({ onBack }) {
     return formattedDateTime;
   };
 
-  // Find the booking with the latest end time
   let currentBooking = null;
   if (Array.isArray(bookingData)) {
     if (bookingData.length > 0) {
@@ -48,7 +47,6 @@ export default function NewBookingFinished({ onBack }) {
       });
     }
   } else {
-    // Single booking case
     currentBooking = bookingData;
   }
 
