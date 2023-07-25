@@ -22,7 +22,7 @@ export default function MobileNav() {
     location.pathname !== "/booking"
   ) {
     return (
-      <nav className="mobilenav">
+      <div className="mobilenav">
         <div className="mobilenav__wrapper">
           <nav className="mobilenav__bar">
             {links.map((link, index) => (
@@ -32,7 +32,7 @@ export default function MobileNav() {
             ))}
           </nav>
         </div>
-      </nav>
+      </div>
     );
   }
   return null;

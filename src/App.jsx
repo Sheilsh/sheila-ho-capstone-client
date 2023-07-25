@@ -6,7 +6,6 @@ import NavBar from "./components/NavBar/NavBar";
 
 import Login from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import BookingPage from "./pages/BookingPage";
 import HistoryPage from "./pages/HistoryPage";
 import AccountPage from "./pages/AccountPage";
 
@@ -26,8 +25,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/:id" element={<HomePage />} /> */}
-          {/* <Route path="/booking" element={<BookingPage />} /> */}
           <Route path="/booking" element={<MultiStepForm />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/history/:id/details" element={<HistoryDetails />} />
