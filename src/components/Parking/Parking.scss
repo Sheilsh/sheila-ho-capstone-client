@@ -3,7 +3,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .parking {
-  // height: 40rem;
   margin: 2rem 0;
 
   @include tablet {
@@ -35,8 +34,6 @@
     color: $primary-color-black;
     border-radius: 2rem;
     min-height: 30rem;
-
-    // transform: translate(0%, -10%);
     z-index: 2;
 
     @include tablet {

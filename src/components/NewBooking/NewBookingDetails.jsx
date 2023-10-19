@@ -37,7 +37,6 @@ export default function NewBookingDetails({
 
   const plateId = userData.plate_id;
   const [errorMessage, setErrorMessage] = useState("");
-  //   const [isPlateAdded, setIsPlateAdded] = useState(false);
 
   const getCurrentDateTime = () => {
     const currentDate = new Date();
@@ -68,36 +67,6 @@ export default function NewBookingDetails({
       .padStart(2, "0")}`;
     return formattedDateString;
   };
-
-  //   const getCurrentDateTime = () => {
-  //     const currentDate = new Date();
-  //     const options = { month: "long", day: "numeric", year: "numeric" };
-  //     const formattedDate = currentDate.toLocaleDateString(undefined, options);
-  //     const formattedTime = currentDate.toLocaleTimeString([], {
-  //       hour: "numeric",
-  //       minute: "numeric",
-  //       hour12: true,
-  //     });
-  //     const formattedDateTimeString = `${formattedDate} ${formattedTime}`;
-  //     return formattedDateTimeString;
-  //   };
-
-  //   const calculateEndTime = (startTime, duration) => {
-  //     if (!isNaN(duration)) {
-  //       const endTime = new Date(startTime.getTime() + duration * 60 * 60 * 1000);
-  //       const options = { month: "long", day: "numeric", year: "numeric" };
-  //       const formattedDate = endTime.toLocaleDateString(undefined, options);
-  //       const formattedTime = endTime.toLocaleTimeString([], {
-  //         hour: "numeric",
-  //         minute: "numeric",
-  //         hour12: true,
-  //       });
-  //       const formattedDateTimeString = `${formattedDate} ${formattedTime}`;
-  //       return formattedDateTimeString;
-  //     } else {
-  //       return "Invalid duration";
-  //     }
-  //   };
 
   const makeBooking = async () => {
     try {

@@ -20,7 +20,6 @@ export default function NewBookingPlate({ onBack, onNext, formData }) {
   const handleNext = async (e) => {
     e.preventDefault();
 
-    console.log("handleNext function called");
     try {
       if (selectedPlate) {
         const plateInfo = selectedPlate;

@@ -23,7 +23,6 @@ export default function Login() {
     try {
       const response = await login(loginEmail, loginPassword);
       if (response) {
-        // Successful login
         navigate("/");
       } else {
         setIsLoginError(true);

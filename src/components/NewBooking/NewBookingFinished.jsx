@@ -10,7 +10,6 @@ export default function NewBookingFinished({ onBack }) {
   const { id } = useParams();
 
   const [bookingData, setBookingData] = useState({});
-  console.log("booking by id", bookingData);
 
   useEffect(() => {
     getUserBooking(id)
@@ -49,8 +48,6 @@ export default function NewBookingFinished({ onBack }) {
   } else {
     currentBooking = bookingData;
   }
-
-  console.log("currentBooking", currentBooking);
 
   return (
     <>

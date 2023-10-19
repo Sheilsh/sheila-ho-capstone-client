@@ -93,9 +93,6 @@ export default function HomePage({ userData, activeBooking }) {
                   </div>
                 </div>
               </div>
-              {/* <Link to="/booking">
-                <Button className="homepage__button" btnName="Book Now" />
-              </Link> */}
             </div>
           </div>
         </div>

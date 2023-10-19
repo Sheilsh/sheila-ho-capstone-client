@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./DeleteModal.scss";
 import close from "../../assets/icons/clear_black_24dp.svg";
 import Button from "../Button/Button";

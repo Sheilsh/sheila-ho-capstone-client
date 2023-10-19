@@ -56,7 +56,6 @@ export default function ParkingCarousel({
               number={spot.spot_number}
               availableSpots={availableSpots}
               selectedSpot={selectedSpot}
-              // onSelect={handleSelectSpot}
               onSelect={handleSpotSelection}
             />
           );
