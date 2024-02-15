@@ -13,7 +13,7 @@
     "@emotion/styled": "^11.10.8",
     "@mui/material": "^5.12.3",
     "@mui/x-date-pickers": "^6.3.0",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
